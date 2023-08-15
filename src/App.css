@@ -1,42 +1,48 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.App {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.navbar {
+  grid-column: 1 / span 2;
+  background-color: #ddd;
+  padding: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.aside {
+  display: none;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.main {
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.footer {
+  grid-column: 1 / span 2;
+  background-color: #ddd;
+  padding: 20px;
+}
+
+/* Responsive layout */
+@media (min-width: 920px) {
+  .App {
+    grid-template-columns: 1fr 4fr;
   }
-  to {
-    transform: rotate(360deg);
+  .aside {
+    display: block;
   }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (min-width: 1200px) {
+  .App {
+    grid-template-columns: 1fr 5fr;
   }
 }
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+@media (min-width: 1400px) {
+  .App {
+    grid-template-columns: 1fr 6fr;
+  }
 }
