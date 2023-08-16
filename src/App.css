@@ -6,10 +6,17 @@
 
 .navbar {
   grid-column: 1 / span 2;
-  background-color: #ddd;
-  padding: 20px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
 }
-
+.navbar img {
+  width: auto;
+  height: 60px;
+}
+.navbar-text {
+  margin: 20px;
+}
 .aside {
   display: none;
   background-color: #f9f9f9;
