@@ -1,7 +1,11 @@
-import React from 'react';
+import ArtGrid from './ArtGrid';
 
 function Main() {
-  return <div className="main">Main</div>;
+  return (
+    <div className="main">
+      <ArtGrid />
+    </div>
+  );
 }
 
 export default Main;
