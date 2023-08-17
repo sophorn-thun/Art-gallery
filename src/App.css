@@ -27,6 +27,22 @@
   background-color: #f0f0f0;
   padding: 20px;
 }
+.art-grid {
+  column-count: 3;
+  column-gap: 5px;
+}
+
+.art-card {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.art-card img {
+  width: 100%;
+  height: auto;
+}
 
 .footer {
   grid-column: 1 / span 2;
