@@ -3,7 +3,12 @@
   grid-template-rows: auto auto auto;
   grid-template-columns: 1fr;
 }
-
+.highlight {
+  height: 500px;
+  max-width: 100%;
+  background-color: rgb(226, 223, 223);
+  grid-column: 1 / span 2;
+}
 .navbar {
   grid-column: 1 / span 2;
   padding: 10px;
