@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import ArtCard from './ArtCard';
 
-interface Artwork {
+export interface Artwork {
   id: number;
   title: string;
+  image_id: string;
+}
+
+export interface ApiResponse {
+  data: Artwork[];
 }
 
 function ArtGrid() {
   const [arts, setArts] = useState<Artwork[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const iiifBaseUrl = 'https://www.artic.edu/iiif/2/';
 
   useEffect(() => {
     fetch(
@@ -33,15 +40,10 @@ function ArtGrid() {
   }
 
   return (
-    <div>
-      <h1>Art Gallery</h1>
-      <ul>
-        {arts.map((art) => (
-          <li key={art.id}>
-            <h2>{art.title}</h2>
-          </li>
-        ))}
-      </ul>
+    <div className="art-grid">
+      {arts.map((art) => (
+        <ArtCard key={art.id} art={art} iiifBaseUrl={iiifBaseUrl} />
+      ))}
     </div>
   );
 }
