@@ -2,12 +2,46 @@
   display: grid;
   grid-template-rows: auto auto auto;
   grid-template-columns: 1fr;
+  font-family: fantasy;
 }
-.highlight {
-  height: 500px;
-  max-width: 100%;
-  background-color: rgb(226, 223, 223);
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.carousel {
+  width: 100vw; 
+  height: 100vh; 
   grid-column: 1 / span 2;
+  background-image: url('https://www.artic.edu/iiif/2/896b2529-fd62-2a2c-80d9-3702d916f90a/full/843,/0/default.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
+  position: relative;
+}
+
+.welcome-text {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  /* background-color: #f7f4f4; */
+  color: #ffffff;
+  padding: 30px;
+}
+.welcome-button {
+  border: 3px solid #ddd;
+  padding: 10px;
+  background: none;
+  color: #ffffff;
+  border-radius: 15px;
+  font-family: fantasy;
+  margin-top: 2.5rem;
+}
+.welcome-button:hover {
+  cursor: pointer;
 }
 .navbar {
   grid-column: 1 / span 2;
@@ -46,7 +80,7 @@
 }
 .aside {
   display: none;
-  background-color: #bb9999;
+  background-color: #efe4e4;
   padding: 20px;
 }
 
@@ -74,6 +108,8 @@
   grid-column: 1 / span 2;
   background-color: #ddd;
   text-align: center;
+  padding: 10px;
+  margin-top: 20px;
 }
 
 /* Responsive layout */
