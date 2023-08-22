@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import ArtCard from './ArtCard';
+import ArtCard from '../ArtCard/ArtCard';
+import styles from './ArtGrid.module.css';
 
-export interface Artwork {
+export interface ArtGridProps {
   id: number;
   title: string;
   image_id: string;
 }
 
 export interface ApiResponse {
-  data: Artwork[];
+  data: ArtGridProps[];
 }
 
 function ArtGrid() {
-  const [arts, setArts] = useState<Artwork[]>([]);
+  const [arts, setArts] = useState<ArtGridProps[]>([]);
   const [error, setError] = useState<string | null>(null);
   const iiifBaseUrl = 'https://www.artic.edu/iiif/2/';
 
@@ -40,9 +41,9 @@ function ArtGrid() {
   }
 
   return (
-    <div className="art-grid">
+    <div className={styles['art-grid']}>
       {arts.map((art) => (
-        <ArtCard key={art.id} art={art} iiifBaseUrl={iiifBaseUrl} />
+        <ArtCard id={art.id} title={art.title} image_id={art.image_id} iiifBaseUrl={iiifBaseUrl} />
       ))}
     </div>
   );

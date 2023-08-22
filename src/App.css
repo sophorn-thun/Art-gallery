@@ -10,11 +10,12 @@ html, body {
   height: 100%;
 }
 
-.carousel {
+.welcome-page {
   width: 100vw; 
   height: 100vh; 
   grid-column: 1 / span 2;
-  background-image: url('https://www.artic.edu/iiif/2/896b2529-fd62-2a2c-80d9-3702d916f90a/full/843,/0/default.jpg');
+  background-image: linear-gradient(#ffffff, rgba(0, 0, 0, 0) 40%),
+  url('https://artic-web.imgix.net/1573d893-0b10-4c32-b0a1-eb4cb86243cb/60_5791958-Press300ppi%2C3000px%2CsRGB%2CJPEG.jpg?rect=0%2C348%2C3000%2C1687&auto=format%2Ccompress&q=80&fit=crop&crop=faces%2Ccenter&w=3000&h=1687');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; 
@@ -27,15 +28,13 @@ html, body {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  /* background-color: #f7f4f4; */
-  color: #ffffff;
-  padding: 30px;
+  background-color: #f7f4f4;
+  padding: 30px 100px;
 }
 .welcome-button {
   border: 3px solid #ddd;
   padding: 10px;
   background: none;
-  color: #ffffff;
   border-radius: 15px;
   font-family: fantasy;
   margin-top: 2.5rem;
@@ -43,74 +42,14 @@ html, body {
 .welcome-button:hover {
   cursor: pointer;
 }
-.navbar {
-  grid-column: 1 / span 2;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-}
-.search-box {
-  position: relative;
-  width: 80%;
-}
-.search {
-  padding: 1rem;
-  padding-left: 2.5rem;
-  border-radius: 30px;
-  border: 2px solid #ddd;
-  width: 100%;
-}
-.spotlight-icon {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 16px;
-  color: grey;
-}
-.navbar img {
-  width: auto;
-  height: 60px;
-  padding-left: 5px;
-}
-.navbar-text {
-  margin: 20px;
-}
-.aside {
-  display: none;
-  background-color: #efe4e4;
-  padding: 20px;
-}
+
+
 
 .main {
   padding: 20px;
 }
-.art-grid {
-  column-count: 1;
-  column-gap: 10px;
-}
 
-.art-card {
-  display: inline-block;
-  width: 100%;
-  box-sizing: border-box;
-  overflow: hidden;
-}
 
-.art-card img {
-  width: 100%;
-  height: auto;
-}
-
-.footer {
-  grid-column: 1 / span 2;
-  background-color: #ddd;
-  text-align: center;
-  padding: 10px;
-  margin-top: 20px;
-}
 
 /* Responsive layout */
 @media (min-width: 760px) {

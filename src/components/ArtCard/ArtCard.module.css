@@ -1,0 +1,11 @@
+.art-card {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.art-card img {
+  width: 100%;
+  height: auto;
+}
