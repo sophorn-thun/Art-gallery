@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 .App {
   display: grid;
   grid-template-rows: auto auto auto;
   grid-template-columns: 1fr;
-  font-family: fantasy;
+  font-family: 'Open Sans',sans-serif;
 }
 html, body {
   margin: 0;
@@ -14,8 +15,8 @@ html, body {
   width: 100vw; 
   height: 100vh; 
   grid-column: 1 / span 2;
-  background-image: linear-gradient(#ffffff, rgba(0, 0, 0, 0) 40%),
-  url('https://artic-web.imgix.net/1573d893-0b10-4c32-b0a1-eb4cb86243cb/60_5791958-Press300ppi%2C3000px%2CsRGB%2CJPEG.jpg?rect=0%2C348%2C3000%2C1687&auto=format%2Ccompress&q=80&fit=crop&crop=faces%2Ccenter&w=3000&h=1687');
+  background-image: linear-gradient(rgb(0,0,0), rgba(0, 0, 0, 0) 40%),
+  url('https://scontent-arn2-1.xx.fbcdn.net/v/t39.30808-6/315054786_10160072293203150_463328056438836630_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=4htnuLfAfyYAX--vkU1&_nc_ht=scontent-arn2-1.xx&oh=00_AfAaClUqeKPtbMhj20ywBd3PK0yZtQPyXVuNIRgKdssHZQ&oe=64E9F9E4');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; 
@@ -28,28 +29,22 @@ html, body {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background-color: #f7f4f4;
+  background-color: rgba(132, 129, 129, 0.8);
+  backdrop-filter: blur(0.1px);
   padding: 30px 100px;
+  color: #ffffff;
 }
 .welcome-button {
   border: 3px solid #ddd;
   padding: 10px;
   background: none;
   border-radius: 15px;
-  font-family: fantasy;
   margin-top: 2.5rem;
+  color: #ffffff;
 }
 .welcome-button:hover {
   cursor: pointer;
 }
-
-
-
-.main {
-  padding: 20px;
-}
-
-
 
 /* Responsive layout */
 @media (min-width: 760px) {
@@ -61,19 +56,10 @@ html, body {
   .App {
     grid-template-columns: 1fr 4fr;
   }
-  .aside {
-    display: block;
-  }
-  .art-grid {
-    column-count: 2;
-  }
 }
 @media (min-width: 1200px) {
   .App {
     grid-template-columns: 1fr 5fr;
-  }
-  .art-grid {
-    column-count: 3;
   }
 }
 @media (min-width: 1400px) {

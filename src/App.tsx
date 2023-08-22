@@ -3,6 +3,7 @@ import Accordion from './components/Accordion/Accordion';
 import Footer from './components/Footer/Footer';
 import ArtGrid from './components/ArtGrid/ArtGrid';
 import NavBar from './components/NavBar/NavBar';
+import Pagination from './components/Pagination/Pagination';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         thirdPanelOption3="19th Century"
       />
       <ArtGrid />
+      <Pagination totalPage={100} postPerPage={10} />
       <Footer
         firstPara="This is front-end project using React and Typescripts."
         secondPara="Images are obtained from Chicago Art Institute's public API."
