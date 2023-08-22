@@ -1,0 +1,8 @@
+
+.footer {
+  grid-column: 1 / span 2;
+  background-color: #ddd;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}

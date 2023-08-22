@@ -1,0 +1,22 @@
+.art-grid {
+  column-count: 1;
+  column-gap: 10px;
+  padding-left: 20px;
+}
+
+/* Responsive layout */
+@media (min-width: 760px) {
+  .art-grid {
+    column-count: 2;
+  }
+}
+@media (min-width: 920px) {
+  .art-grid {
+    column-count: 2;
+  }
+}
+@media (min-width: 1200px) {
+  .art-grid {
+    column-count: 3;
+  }
+}
