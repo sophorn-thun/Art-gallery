@@ -16,7 +16,7 @@ function ArtCard({ id, title, image_id, iiifBaseUrl }: ArtCardProps) {
           key={id}
         />
       )}
-      <h6>{title}</h6>
+      <p>{title}</p>
     </div>
   );
 }
