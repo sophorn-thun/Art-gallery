@@ -1,5 +1,6 @@
 import './App.css';
 import Accordion from './components/Accordion/Accordion';
+import Button from './components/Button/Button';
 import Footer from './components/Footer/Footer';
 import ArtGrid from './components/ArtGrid/ArtGrid';
 import NavBar from './components/NavBar/NavBar';
@@ -12,7 +13,7 @@ function App() {
         <div className="welcome-text">
           <h2>React Art Gallery</h2>
           <h3>Contemplating art from anywhere</h3>
-          <button className="welcome-button">Gallery Entry</button>
+          <Button children="Gallery Entry" type="button" color="primary" />
         </div>
       </div>
       <NavBar />

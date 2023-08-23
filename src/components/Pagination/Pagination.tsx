@@ -11,9 +11,11 @@ function Pagination({ postPerPage, totalPage }: PaginationProps) {
     <>
       <nav className={styles['pagination-head']}>
         <ul className={styles['pagination-navbar']}>
+          <li className={styles['pagination-item']}>Prev</li>
           {pageNumbersArray.map((pageNumber) => (
             <li className={styles['pagination-item']}>{pageNumber}</li>
           ))}
+          <li className={styles['pagination-item']}>Next</li>
         </ul>
       </nav>
     </>

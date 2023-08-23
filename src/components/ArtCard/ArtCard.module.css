@@ -3,9 +3,18 @@
   width: 100%;
   box-sizing: border-box;
   overflow: hidden;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd; 
+  margin-bottom: 10px;
+  padding-left: 10px;
 }
 
 .art-card img {
   width: 100%;
   height: auto;
+}
+
+.art-card img:hover {
+  scale:calc(0.9);
+  cursor: pointer;
 }
