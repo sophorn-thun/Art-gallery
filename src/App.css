@@ -34,17 +34,7 @@ html, body {
   padding: 30px 100px;
   color: #ffffff;
 }
-.welcome-button {
-  border: 3px solid #ddd;
-  padding: 10px;
-  background: none;
-  border-radius: 15px;
-  margin-top: 2.5rem;
-  color: #ffffff;
-}
-.welcome-button:hover {
-  cursor: pointer;
-}
+
 
 /* Responsive layout */
 @media (min-width: 760px) {

@@ -1,0 +1,17 @@
+
+.primary {
+  border: 3px solid #ddd;
+}
+.secondary {
+  border: 3px solid #171616;
+}
+.welcome-button {
+  padding: 15px;
+  background: none;
+  border-radius: 15px;
+  margin-top: 2.5rem;
+  color: #ffffff;
+}
+.welcome-button:hover {
+  cursor: pointer;
+}
