@@ -1,12 +1,24 @@
-import logo from '../../assets/logo.png';
-import SearchInput from '../Search/SearchInput';
+import React from 'react';
 import styles from './NavBar.module.css';
 
-function NavBar() {
+interface NavBarProps {
+  navBarItems: string[];
+}
+function NavBar({ navBarItems }: NavBarProps) {
   return (
     <div className={styles['navbar']}>
-      <img src={logo}></img>
-      <SearchInput />
+      <div className={styles['hamburger']}>
+        <div className={styles['bar']}></div>
+        <div className={styles['bar']}></div>
+        <div className={styles['bar']}></div>
+      </div>
+      <ul className={styles['navbar-ul']}>
+        {navBarItems.map((navBarItem, index) => (
+          <li key={index} className={styles['navbar-li']}>
+            {navBarItem}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

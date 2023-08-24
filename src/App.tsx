@@ -3,12 +3,15 @@ import Accordion from './components/Accordion/Accordion';
 import Button from './components/Button/Button';
 import Footer from './components/Footer/Footer';
 import ArtGrid from './components/ArtGrid/ArtGrid';
-import NavBar from './components/NavBar/NavBar';
 import Pagination from './components/Pagination/Pagination';
+import NavBar from './components/NavBar/NavBar';
+// import SearchInput from './components/Search/SearchInput';
+const navBarList = ['Home', 'Artwork', 'About Us', 'Sign Up', 'Log In'];
 
 function App() {
   return (
     <div className="App">
+      <NavBar navBarItems={navBarList} />
       <div className="welcome-page">
         <div className="welcome-text">
           <h2>React Art Gallery</h2>
@@ -16,7 +19,7 @@ function App() {
           <Button children="Gallery Entry" type="button" color="primary" />
         </div>
       </div>
-      <NavBar />
+      {/* <SearchInput /> */}
       <Accordion
         defaultPanel="Sort"
         defaultPanelOption1="By Date"
