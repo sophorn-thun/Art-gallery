@@ -1,16 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ArtCard from '../ArtCard/ArtCard';
 import styles from './ArtGrid.module.css';
-
-export interface ArtGridProps {
-  id: number;
-  title: string;
-  image_id: string;
-}
-
-export interface ApiResponse {
-  data: ArtGridProps[];
-}
+import { ArtGridProps, fetchArtworks } from '../../services/fetchArtworkApi';
 
 function ArtGrid() {
   const [arts, setArts] = useState<ArtGridProps[]>([]);
@@ -18,15 +9,7 @@ function ArtGrid() {
   const iiifBaseUrl = 'https://www.artic.edu/iiif/2/';
 
   useEffect(() => {
-    fetch(
-      'https://api.artic.edu/api/v1/artworks/search?query[term][is_public_domain]=true&limit=20&fields=id,title,image_id',
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
+    fetchArtworks()
       .then((data) => {
         setArts(data.data);
       })
@@ -43,7 +26,13 @@ function ArtGrid() {
   return (
     <div className={styles['art-grid']}>
       {arts.map((art) => (
-        <ArtCard id={art.id} title={art.title} image_id={art.image_id} iiifBaseUrl={iiifBaseUrl} />
+        <ArtCard
+          key={art.id}
+          id={art.id}
+          title={art.title}
+          image_id={art.image_id}
+          iiifBaseUrl={iiifBaseUrl}
+        />
       ))}
     </div>
   );

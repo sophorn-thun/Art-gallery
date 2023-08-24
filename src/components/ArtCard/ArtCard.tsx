@@ -1,4 +1,4 @@
-import { ArtGridProps } from '../ArtGrid/ArtGrid';
+import { ArtGridProps } from '../../services/fetchArtworkApi';
 import styles from './ArtCard.module.css';
 
 interface ArtCardProps extends ArtGridProps {
