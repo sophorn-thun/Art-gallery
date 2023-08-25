@@ -1,0 +1,29 @@
+.carousel {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.carousel img {
+  width: 100%;
+  display: block;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 1000;
+}
+button:focus {
+  outline: none;
+}
+.button-left {
+  left: 0
+}
+.button-right {
+  right: 0
+}
