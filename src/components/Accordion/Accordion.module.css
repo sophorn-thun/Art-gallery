@@ -1,13 +1,15 @@
 .accordion {
-  display: none;
   padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 1rem;
 }
 
 /* Responsive layout */
 @media (min-width: 920px) {
 
   .accordion{
-    display: block;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
 }
