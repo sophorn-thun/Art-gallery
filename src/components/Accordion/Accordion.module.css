@@ -7,9 +7,7 @@
 
 /* Responsive layout */
 @media (min-width: 920px) {
-
   .accordion{
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-
 }

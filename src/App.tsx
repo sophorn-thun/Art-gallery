@@ -7,13 +7,14 @@ import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import About from './pages/About';
 
-const navBarList = ['Home', 'Artwork', 'About Us', 'Sign Up', 'Log In'];
+const navBarList = ['Home', 'Artwork', 'About', 'SignUp', 'LogIn'];
 
 function App() {
   return (
     <div className="App">
       <NavBar navBarItems={navBarList} />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/Artwork" element={<Artwork />} />
         <Route path="/About" element={<About />} />

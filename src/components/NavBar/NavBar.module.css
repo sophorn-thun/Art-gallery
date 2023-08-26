@@ -15,7 +15,7 @@
   margin: 20px;
 }
 .navbar-li:hover {
-  background-color: #ddd;
+  font-weight: 600;
 }
 .hamburger {
   display: block;

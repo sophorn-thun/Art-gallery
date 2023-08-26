@@ -1,7 +1,13 @@
 import React from 'react';
+import Form from '../components/Form/Form';
 
 function LogIn() {
-  return <div>LogIn</div>;
+  const logInInfo = ['Email', 'Password'];
+  return (
+    <div>
+      <Form isMemberLinkVisible={false} inputItems={logInInfo} children="Log In" />
+    </div>
+  );
 }
 
 export default LogIn;
