@@ -1,10 +1,16 @@
+header {
+  background-color: rgba(167, 164, 159, 0.7);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 .navbar {
   display: grid;
   grid-column: 1 / span 2;
-  position: relative;
-  z-index: 2;
 }
 .navbar-ul {
+  display: grid;
+  grid-column: 1 / span 2;
   list-style: none;
   display: none;
 }
@@ -20,8 +26,8 @@
 .hamburger {
   display: block;
   cursor: pointer;
-  margin: 10px;
-  position: absolute;
+  margin: 10px 30px;
+  /* position: absolute; */
   right: 0;
   padding: 5px;
 }
@@ -48,8 +54,7 @@
   }
   .navbar-ul {
     display: flex;
+    justify-content: flex-end;
     padding-right: 2.5rem;
-    position: absolute;
-    right: 0;
   }
 }

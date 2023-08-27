@@ -4,7 +4,7 @@ const signUpInfo = ['First Name', 'Last Name', 'Email', 'Password'];
 function SignUp() {
   return (
     <div>
-      <Form children="Sign Up" inputItems={signUpInfo} />
+      <Form children="Sign Up" inputItems={signUpInfo} isMemberLinkVisible={true} />
     </div>
   );
 }

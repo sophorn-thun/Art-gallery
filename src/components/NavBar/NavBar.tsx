@@ -7,22 +7,24 @@ interface NavBarProps {
 }
 function NavBar({ navBarItems }: NavBarProps) {
   return (
-    <nav className={styles['navbar']}>
-      <div className={styles['hamburger']}>
-        <div className={styles['bar']}></div>
-        <div className={styles['bar']}></div>
-        <div className={styles['bar']}></div>
-      </div>
-      <ul className={styles['navbar-ul']}>
-        {navBarItems.map((navBarItem, index) => (
-          <li key={index} className={styles['navbar-li']}>
-            <Link to={`/${navBarItem}`} className={styles['navbar-a']}>
-              {navBarItem}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <header className={styles['header']}>
+      <nav className={styles['navbar']}>
+        <div className={styles['hamburger']}>
+          <div className={styles['bar']}></div>
+          <div className={styles['bar']}></div>
+          <div className={styles['bar']}></div>
+        </div>
+        <ul className={styles['navbar-ul']}>
+          {navBarItems.map((navBarItem, index) => (
+            <li key={index} className={styles['navbar-li']}>
+              <Link to={`/${navBarItem}`} className={styles['navbar-a']}>
+                {navBarItem}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
   );
 }
 
