@@ -1,8 +1,9 @@
 header {
-  background-color: rgba(167, 164, 159, 0.7);
+  background-color: rgb(93, 142, 107);
   position: sticky;
   top: 0;
   z-index: 1000;
+  color: #ffffff;
 }
 .navbar {
   display: grid;
