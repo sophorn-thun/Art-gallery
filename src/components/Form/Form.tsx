@@ -4,15 +4,16 @@ import styles from './Form.module.css';
 
 interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   inputItems: string[];
-  children: string;
+  title: string;
+  submitButtonLabel: string;
   isMemberLinkVisible?: boolean;
 }
 
-function Form({ isMemberLinkVisible, children, inputItems }: FormProps) {
+function Form({ isMemberLinkVisible, title, submitButtonLabel, inputItems }: FormProps) {
   return (
     <div className={styles['sign-up']}>
       <div className={styles['form-main']}>
-        <h1>{children}</h1>
+        <h1>{title}</h1>
         <form className={styles['form']}>
           {inputItems.map((inputItem) => (
             <input className={styles['form-input']} key={inputItem} placeholder={inputItem} />
@@ -27,7 +28,7 @@ function Form({ isMemberLinkVisible, children, inputItems }: FormProps) {
           </p>
         )}
 
-        <button className={styles['button']}>Sign Up</button>
+        <button className={styles['button']}>{submitButtonLabel}</button>
       </div>
     </div>
   );
