@@ -15,6 +15,13 @@ header {
   list-style: none;
   display: none;
 }
+.navbar-ul.open {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-right: 2.5rem;
+  z-index: 1001;
+}
 .navbar-li {
   padding: 0 15px;
 }
@@ -35,7 +42,7 @@ header {
 .bar {
   width: 25px;
   height: 4px;
-  background-color: black;
+  background-color: rgb(255, 255, 255);
   margin: 3px 0;
 }
 
@@ -53,7 +60,7 @@ header {
   .hamburger {
     display: none;
   }
-  .navbar-ul {
+  .navbar-ul, .navbar-ul.open {
     display: flex;
     justify-content: flex-end;
     padding-right: 2.5rem;

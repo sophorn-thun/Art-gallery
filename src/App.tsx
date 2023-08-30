@@ -5,9 +5,9 @@ import Artwork from './pages/Artwork';
 import { Route, Routes } from 'react-router-dom';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
-import About from './pages/About';
+import Shop from './pages/Shop';
 
-const navBarList = ['Home', 'Artwork', 'Shop Souvenir', 'SignUp', 'LogIn'];
+const navBarList = ['Home', 'Artwork', 'Shop', 'SignUp', 'LogIn'];
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/Artwork" element={<Artwork />} />
-        <Route path="/About" element={<About />} />
+        <Route path="/Shop" element={<Shop />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Login" element={<LogIn />} />
       </Routes>
