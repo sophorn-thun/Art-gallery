@@ -8,14 +8,21 @@ interface NavBarProps {
 
 function NavBar({ navBarItems }: NavBarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isCrossed, setIsCrossed] = useState(false);
 
   return (
     <header className={styles['header']}>
       <nav className={styles['navbar']}>
-        <div className={styles['hamburger']} onClick={() => setMenuOpen(!menuOpen)}>
-          <div className={styles['bar']}></div>
-          <div className={styles['bar']}></div>
-          <div className={styles['bar']}></div>
+        <div
+          className={styles['hamburger']}
+          onClick={() => {
+            setMenuOpen(!menuOpen);
+            setIsCrossed(!isCrossed);
+          }}
+        >
+          <div className={isCrossed ? styles.barFirst : styles.bar}></div>
+          <div className={isCrossed ? styles.barSecond : styles.bar}></div>
+          <div className={isCrossed ? styles.barThird : styles.bar}></div>
         </div>
         <ul className={menuOpen ? styles['open'] : ''}>
           {navBarItems.map((navBarItem, index) => (

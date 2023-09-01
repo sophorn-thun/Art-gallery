@@ -1,5 +1,5 @@
 import styles from './Carousel.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Carousel() {
   const items = [
@@ -12,11 +12,12 @@ function Carousel() {
       alt: 'Image 2 Carousel',
     },
     {
-      src: 'https://cdn.pixabay.com/photo/2013/10/25/20/46/mosaic-200864_1280.jpg',
+      src: 'https://www.artic.edu/iiif/2/96e26f4f-c578-b14c-2714-2a565f19e0d0/full/843,/0/default.jpg',
       alt: 'Image 3 Carousel',
     },
   ];
   const [currentSlide, setCurrentSlide] = useState(0);
+  // const [autoSlide, setAutoSlide] = useState(true);
   const nextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % items.length);
   };
@@ -24,6 +25,16 @@ function Carousel() {
   const prevSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide - 1 + items.length) % items.length);
   };
+  // useEffect(() => {
+  //   let slideInterval: number;
+  //   if (autoSlide) {
+  //     slideInterval = setInterval(() => {
+  //       setCurrentSlide((prevSlide) => (prevSlide + 1) % items.length);
+  //     }, 4000);
+  //   }
+
+  //   return () => clearInterval(slideInterval);
+  // }, [autoSlide]);
 
   return (
     <div className={styles['carousel']}>
