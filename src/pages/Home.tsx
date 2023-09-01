@@ -1,4 +1,4 @@
-// import Button from '../components/Button/Button';
+import Carousel from '../components/Carousel/Carousel';
 
 function Home() {
   return (
@@ -7,9 +7,9 @@ function Home() {
         <div className="welcome-text">
           <h1>Virtual Art Gallery</h1>
           <h2>Contemplating art from anywhere</h2>
-          {/* <Button children="Gallery Entry" type="button" color="primary" /> */}
         </div>
       </div>
+      <Carousel />
     </div>
   );
 }
