@@ -12,6 +12,9 @@ function NavBar({ navBarItems }: NavBarProps) {
 
   return (
     <header className={styles['header']}>
+      <div className={styles['logo-container']}>
+        <div className={styles['logo']}></div>
+      </div>
       <nav className={styles['navbar']}>
         <div
           className={styles['hamburger']}
@@ -27,7 +30,12 @@ function NavBar({ navBarItems }: NavBarProps) {
         <ul className={menuOpen ? styles['open'] : ''}>
           {navBarItems.map((navBarItem, index) => (
             <li key={index} className={styles['navbar-li']}>
-              <NavLink to={`/${navBarItem}`} className={styles['navbar-a']}>
+              <NavLink
+                to={`/${navBarItem}`}
+                className={({ isActive }) =>
+                  isActive ? `${styles['navbar-a']} ${styles.active}` : styles['navbar-a']
+                }
+              >
                 {navBarItem}
               </NavLink>
             </li>

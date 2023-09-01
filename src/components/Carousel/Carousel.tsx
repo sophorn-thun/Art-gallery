@@ -12,7 +12,7 @@ function Carousel() {
       alt: 'Image 2 Carousel',
     },
     {
-      src: 'https://www.artic.edu/iiif/2/96e26f4f-c578-b14c-2714-2a565f19e0d0/full/843,/0/default.jpg',
+      src: 'https://www.artic.edu/iiif/2/c047003a-949c-a581-7c5a-2c415e8cac75/full/1686,/0/default.jpg',
       alt: 'Image 3 Carousel',
     },
   ];

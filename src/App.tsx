@@ -7,7 +7,7 @@ import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import Shop from './pages/Shop';
 
-const navBarList = ['Home', 'Artwork', 'Shop', 'SignUp', 'LogIn'];
+const navBarList = ['Home', 'Artwork', 'Shop', 'LogIn', 'SignUp'];
 
 function App() {
   return (
@@ -18,8 +18,8 @@ function App() {
         <Route path="/Home" element={<Home />} />
         <Route path="/Artwork" element={<Artwork />} />
         <Route path="/Shop" element={<Shop />} />
-        <Route path="/SignUp" element={<SignUp />} />
         <Route path="/Login" element={<LogIn />} />
+        <Route path="/SignUp" element={<SignUp />} />
       </Routes>
     </div>
   );
