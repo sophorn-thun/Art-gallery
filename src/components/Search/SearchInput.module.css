@@ -1,15 +1,16 @@
 .search-box {
+  margin: 70px 0 1rem 2rem;
   position: relative;
   width: 80%;
 }
 .search {
+  grid-column: 1 / span 2;
   padding: 1rem;
   padding-left: 2.5rem;
   border-radius: 30px;
   border: 2px solid #ddd;
   width: 100%;
 }
-
 
 .spotlight-icon {
   position: absolute;
@@ -18,4 +19,8 @@
   transform: translateY(-50%);
   font-size: 16px;
   color: grey;
+}
+
+@media (min-width: 769px) {
+
 }

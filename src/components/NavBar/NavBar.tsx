@@ -1,13 +1,48 @@
-import logo from '../../assets/logo.png';
-import SearchInput from '../Search/SearchInput';
+import { useState } from 'react';
 import styles from './NavBar.module.css';
+import { NavLink } from 'react-router-dom';
 
-function NavBar() {
+interface NavBarProps {
+  navBarItems: string[];
+}
+
+function NavBar({ navBarItems }: NavBarProps) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isCrossed, setIsCrossed] = useState(false);
+
   return (
-    <div className={styles['navbar']}>
-      <img src={logo}></img>
-      <SearchInput />
-    </div>
+    <header className={styles['header']}>
+      <div className={styles['logo-container']}>
+        <div className={styles['logo']}></div>
+      </div>
+      <nav className={styles['navbar']}>
+        <div
+          className={styles['hamburger']}
+          onClick={() => {
+            setMenuOpen(!menuOpen);
+            setIsCrossed(!isCrossed);
+          }}
+        >
+          <div className={isCrossed ? styles.barFirst : styles.bar}></div>
+          <div className={isCrossed ? styles.barSecond : styles.bar}></div>
+          <div className={isCrossed ? styles.barThird : styles.bar}></div>
+        </div>
+        <ul className={menuOpen ? styles['open'] : ''}>
+          {navBarItems.map((navBarItem, index) => (
+            <li key={index} className={styles['navbar-li']}>
+              <NavLink
+                to={`/${navBarItem}`}
+                className={({ isActive }) =>
+                  isActive ? `${styles['navbar-a']} ${styles.active}` : styles['navbar-a']
+                }
+              >
+                {navBarItem}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
   );
 }
 
