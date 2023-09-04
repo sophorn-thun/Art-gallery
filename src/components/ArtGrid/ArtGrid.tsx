@@ -22,7 +22,26 @@ function ArtGrid() {
       });
   }, []);
 
-  if (loading) return <h1>Loading...</h1>;
+  if (loading)
+    return (
+      <div className={styles['spinner']}>
+        <h3>Content is loading...</h3>
+        <div className={styles['lds-spinner']}>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    );
   if (error) {
     return <div>Error: {error}</div>;
   }
