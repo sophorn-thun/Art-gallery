@@ -22,9 +22,9 @@ header {
 }
 nav {
   display: flex;
-  justify-content:right;
+  justify-content:center;
   align-items: center;
-  padding: 1rem;
+  /* padding: 1rem; */
 }
 nav ul {
   display: grid;
@@ -86,7 +86,7 @@ nav ul {
   color: inherit;
   text-decoration: none;
   height: 100%;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 .navbar-a.active {
   background-color: #f4ece1;

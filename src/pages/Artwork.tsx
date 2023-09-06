@@ -9,6 +9,7 @@ import { fetchArtworks } from '../services/fetchArtworkApi';
 
 function Artwork() {
   const [arts, setArts] = useState<ArtProps[]>([]);
+  const [unsortedArts, setUnsortedArts] = useState<ArtProps[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -17,6 +18,7 @@ function Artwork() {
       try {
         const data = await fetchArtworks();
         setArts(data.data);
+        setUnsortedArts(data.data);
         setLoading(false);
       } catch (err) {
         setError('Failed to fetch default artworks.');
@@ -37,26 +39,36 @@ function Artwork() {
       setLoading(false);
     }
   };
+
+  const handleSortByDate = (isChecked: boolean) => {
+    if (isChecked) {
+      setArts((arts) => {
+        const nullDatesArts = arts.filter(
+          (art) => art.date_start === null || art.date_start === undefined,
+        );
+        console.log('Artworks with null or missing date_start:', nullDatesArts);
+        const sortedArts = [...arts].sort((a, b) => {
+          return (b.date_start || -Infinity) - (a.date_start || -Infinity);
+        });
+        return sortedArts;
+      });
+    } else {
+      setArts(unsortedArts);
+    }
+  };
   return (
     <div>
       <SearchInput onSearch={handleSearch} />
       <Accordion
         defaultPanel="Sort"
         defaultPanelOption1="By Date"
+        onSortByDate={handleSortByDate}
         defaultPanelOption2="By Artist"
         defaultPanelOption3="By Title"
-        firstPanel="Artist"
-        firstPanelOption1="Ancient Roman"
-        firstPanelOption2="Ancient Greek"
-        firstPanelOption3="Unknown Artist"
         secondPanel="Artwork Types"
         secondPanelOption1="Cityscape"
         secondPanelOption2="Animals"
         secondPanelOption3="Essentials"
-        thirdPanel="Styles"
-        thirdPanelOption1="Japanese Culture"
-        thirdPanelOption2="21st Century"
-        thirdPanelOption3="19th Century"
       />
       <ArtGrid arts={arts} loading={loading} error={error} />
       <Pagination totalPage={100} postPerPage={10} />
