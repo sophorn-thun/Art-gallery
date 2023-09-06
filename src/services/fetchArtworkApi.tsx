@@ -2,7 +2,7 @@ export interface ArtProps {
   id: number;
   title: string;
   image_id: string;
-  date_start: number;
+  date_start?: number;
 }
 
 export interface ApiResponse {
