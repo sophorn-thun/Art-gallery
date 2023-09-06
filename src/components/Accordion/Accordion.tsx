@@ -5,18 +5,12 @@ interface AccordionProps {
   defaultPanelOption1: string;
   defaultPanelOption2: string;
   defaultPanelOption3: string;
-  firstPanel: string;
-  firstPanelOption1: string;
-  firstPanelOption2: string;
-  firstPanelOption3: string;
   secondPanel: string;
   secondPanelOption1: string;
   secondPanelOption2: string;
   secondPanelOption3: string;
-  thirdPanel: string;
-  thirdPanelOption1: string;
-  thirdPanelOption2: string;
-  thirdPanelOption3: string;
+  onSortByDate?: (isChecked: boolean) => void;
+  onSortByTitle?: (isChecked: boolean) => void;
 }
 
 function Accordion({
@@ -24,32 +18,32 @@ function Accordion({
   defaultPanelOption1,
   defaultPanelOption2,
   defaultPanelOption3,
-  firstPanel,
-  firstPanelOption1,
-  firstPanelOption2,
-  firstPanelOption3,
   secondPanel,
   secondPanelOption1,
   secondPanelOption2,
   secondPanelOption3,
-  thirdPanel,
-  thirdPanelOption1,
-  thirdPanelOption2,
-  thirdPanelOption3,
+  onSortByDate,
+  onSortByTitle,
 }: AccordionProps) {
   return (
     <div className={styles['accordion']}>
-      <div className={styles['accordion-item']}>
+      <div className={styles['accordion-item-sort']}>
         <h2 className={styles['accordion-title']}>{defaultPanel}</h2>
         <div className={styles['accordion-content']}>
           <label>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              onChange={(e) => onSortByDate && onSortByDate(e.target.checked)}
+            />
             {defaultPanelOption1}
           </label>
         </div>
         <div className={styles['accordion-content']}>
           <label>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              onChange={(e) => onSortByTitle && onSortByTitle(e.target.checked)}
+            />
             {defaultPanelOption2}
           </label>
         </div>
@@ -61,29 +55,7 @@ function Accordion({
         </div>
       </div>
 
-      <div className={styles['accordion-item']}>
-        <h2 className={styles['accordion-title']}>{firstPanel}</h2>
-        <div className={styles['accordion-content']}>
-          <label>
-            <input type="checkbox" />
-            {firstPanelOption1}
-          </label>
-        </div>
-        <div className={styles['accordion-content']}>
-          <label>
-            <input type="checkbox" />
-            {firstPanelOption2}
-          </label>
-        </div>
-        <div className={styles['accordion-content']}>
-          <label>
-            <input type="checkbox" />
-            {firstPanelOption3}
-          </label>
-        </div>
-      </div>
-
-      <div className={styles['accordion-item']}>
+      <div className={styles['accordion-item-artwork']}>
         <h2 className={styles['accordion-title']}>{secondPanel}</h2>
         <div className={styles['accordion-content']}>
           <label>
@@ -101,28 +73,6 @@ function Accordion({
           <label>
             <input type="checkbox" />
             {secondPanelOption3}
-          </label>
-        </div>
-      </div>
-
-      <div className={styles['accordion-item']}>
-        <h2 className={styles['accordion-title']}>{thirdPanel}</h2>
-        <div className={styles['accordion-content']}>
-          <label>
-            <input type="checkbox" />
-            {thirdPanelOption1}
-          </label>
-        </div>
-        <div className={styles['accordion-content']}>
-          <label>
-            <input type="checkbox" />
-            {thirdPanelOption2}
-          </label>
-        </div>
-        <div className={styles['accordion-content']}>
-          <label>
-            <input type="checkbox" />
-            {thirdPanelOption3}
           </label>
         </div>
       </div>

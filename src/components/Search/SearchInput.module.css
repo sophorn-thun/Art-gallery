@@ -1,7 +1,8 @@
 .search-box {
-  margin: 70px 0 1rem 2rem;
+  margin: 2rem 3rem 1rem 3rem;
   position: relative;
-  width: 80%;
+  display: flex;
+
 }
 .search {
   grid-column: 1 / span 2;
@@ -19,6 +20,15 @@
   transform: translateY(-50%);
   font-size: 16px;
   color: grey;
+}
+.clear-search {
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 20px;
+  padding: 0 15px;
+  border: 1px solid #ddd;
+  color: red;
+
 }
 
 @media (min-width: 769px) {
