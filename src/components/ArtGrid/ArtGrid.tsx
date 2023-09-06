@@ -1,26 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import ArtCard from '../ArtCard/ArtCard';
 import styles from './ArtGrid.module.css';
-import { ArtGridProps, fetchArtworks } from '../../services/fetchArtworkApi';
+import { ArtProps } from '../../services/fetchArtworkApi';
 
-function ArtGrid() {
-  const [arts, setArts] = useState<ArtGridProps[]>([]);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+interface ArtGridProps {
+  arts: ArtProps[];
+  loading: boolean;
+  error: string | null;
+}
+
+function ArtGrid({ arts, loading, error }: ArtGridProps) {
   const iiifBaseUrl = 'https://www.artic.edu/iiif/2/';
-
-  useEffect(() => {
-    setLoading(true);
-    fetchArtworks()
-      .then((data) => {
-        setArts(data.data);
-      })
-      .then(() => setLoading(false))
-      .catch((error) => {
-        console.error('Error fetching data: ', error);
-        setError(error.message || 'An error occurred');
-      });
-  }, []);
 
   if (loading)
     return (
@@ -44,6 +34,10 @@ function ArtGrid() {
     );
   if (error) {
     return <div>Error: {error}</div>;
+  }
+
+  if (!arts.length) {
+    return <div>No artworks found!</div>;
   }
 
   return (

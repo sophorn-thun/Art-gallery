@@ -1,7 +1,7 @@
-import { ArtGridProps } from '../../services/fetchArtworkApi';
+import { ArtProps } from '../../services/fetchArtworkApi';
 import styles from './ArtCard.module.css';
 
-interface ArtCardProps extends ArtGridProps {
+interface ArtCardProps extends ArtProps {
   iiifBaseUrl: string;
 }
 
