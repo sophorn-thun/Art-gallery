@@ -43,15 +43,19 @@ function Artwork() {
   const handleSortByDate = (isChecked: boolean) => {
     if (isChecked) {
       setArts((arts) => {
-        const nullDatesArts = arts.filter(
-          (art) => art.date_start === null || art.date_start === undefined,
-        );
-        console.log('Artworks with null or missing date_start:', nullDatesArts);
         const sortedArts = [...arts].sort((a, b) => {
           return (b.date_start || -Infinity) - (a.date_start || -Infinity);
         });
         return sortedArts;
       });
+    } else {
+      setArts(unsortedArts);
+    }
+  };
+
+  const handleSortByTitle = (isChecked: boolean) => {
+    if (isChecked) {
+      setArts((arts) => [...arts].sort((a, b) => a.title.localeCompare(b.title)));
     } else {
       setArts(unsortedArts);
     }
@@ -63,8 +67,9 @@ function Artwork() {
         defaultPanel="Sort"
         defaultPanelOption1="By Date"
         onSortByDate={handleSortByDate}
-        defaultPanelOption2="By Artist"
-        defaultPanelOption3="By Title"
+        defaultPanelOption2="By Title"
+        onSortByTitle={handleSortByTitle}
+        defaultPanelOption3="By Artist"
         secondPanel="Artwork Types"
         secondPanelOption1="Cityscape"
         secondPanelOption2="Animals"

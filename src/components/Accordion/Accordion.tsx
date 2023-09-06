@@ -10,6 +10,7 @@ interface AccordionProps {
   secondPanelOption2: string;
   secondPanelOption3: string;
   onSortByDate?: (isChecked: boolean) => void;
+  onSortByTitle?: (isChecked: boolean) => void;
 }
 
 function Accordion({
@@ -22,6 +23,7 @@ function Accordion({
   secondPanelOption2,
   secondPanelOption3,
   onSortByDate,
+  onSortByTitle,
 }: AccordionProps) {
   return (
     <div className={styles['accordion']}>
@@ -38,7 +40,10 @@ function Accordion({
         </div>
         <div className={styles['accordion-content']}>
           <label>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              onChange={(e) => onSortByTitle && onSortByTitle(e.target.checked)}
+            />
             {defaultPanelOption2}
           </label>
         </div>
