@@ -3,9 +3,10 @@ import styles from './ArtCard.module.css';
 
 interface ArtCardProps extends ArtProps {
   iiifBaseUrl: string;
+  artist_title: string | undefined;
 }
 
-function ArtCard({ id, title, image_id, iiifBaseUrl }: ArtCardProps) {
+function ArtCard({ id, title, image_id, artist_title, iiifBaseUrl }: ArtCardProps) {
   return (
     <div className={styles['art-card']}>
       {image_id && (
@@ -17,6 +18,7 @@ function ArtCard({ id, title, image_id, iiifBaseUrl }: ArtCardProps) {
         />
       )}
       <p>{title}</p>
+      <p>Artist Name: {artist_title}</p>
     </div>
   );
 }

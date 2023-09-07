@@ -23,6 +23,11 @@ function Artwork() {
     setSortType(isChecked ? 'title' : null);
   };
 
+  const handleSortByArtist = (isChecked: boolean) => {
+    setSortType(isChecked ? 'artist' : null);
+  };
+  console.log(data);
+
   return (
     <div>
       <SearchInput onSearch={handleSearch} />
@@ -33,7 +38,7 @@ function Artwork() {
         defaultPanelOption2="By Title"
         onSortByTitle={handleSortByTitle}
         defaultPanelOption3="By Artist"
-        // onSortByArtist={handleSortByArtist}
+        onSortByArtist={handleSortByArtist}
         secondPanel="Artwork Types"
         secondPanelOption1="Cityscape"
         secondPanelOption2="Animals"

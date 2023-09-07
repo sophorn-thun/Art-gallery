@@ -1,13 +1,14 @@
-import useData from './useData';
+import { useFetch } from './useFetch';
 
 interface Artist {
   artist_id: number;
   artist_title: string;
 }
-function useArtist(additionalParams = 'limit=20') {
-  const endPoint = 'artists/search?';
-  const { data, error, isLoading } = useData<Artist>(endPoint, additionalParams);
-  return { artists: data, error, isLoading };
+function useArtist() {
+  const { data, isLoading, isError, error } = useFetch<Artist>(
+    ' https://api.artic.edu/api/v1/artists?limit=20',
+  );
+  return { artists: data, isLoading, isError, error };
 }
 
 export default useArtist;

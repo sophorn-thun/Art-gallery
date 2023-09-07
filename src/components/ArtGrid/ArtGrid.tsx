@@ -46,6 +46,7 @@ function ArtGrid({ arts, loading }: ArtGridProps) {
           key={art.id}
           id={art.id}
           title={art.title}
+          artist_title={art.artist_title}
           image_id={art.image_id}
           iiifBaseUrl={iiifBaseUrl}
         />

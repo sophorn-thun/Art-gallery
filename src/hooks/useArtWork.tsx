@@ -19,7 +19,7 @@ export type SortType = 'date' | 'title' | 'artist' | null;
 function useArtWork(searchTerm: string = '', size: number = 20, sortType: SortType = null) {
   const endpoint = `https://api.artic.edu/api/v1/artworks/search?q=${encodeURIComponent(
     searchTerm,
-  )}&size=${size}&fields=id,title,image_id,date_start`;
+  )}&size=${size}&fields=id,title,image_id,date_start,artist_id,artist_title`;
 
   const { data, isLoading, isError, error } = useFetch<ApiResponse>(endpoint);
 
