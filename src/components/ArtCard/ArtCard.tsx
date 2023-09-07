@@ -1,4 +1,4 @@
-import { ArtProps } from '../../services/fetchArtworkApi';
+import { ArtProps } from '../../hooks/useArtWork';
 import styles from './ArtCard.module.css';
 
 interface ArtCardProps extends ArtProps {
