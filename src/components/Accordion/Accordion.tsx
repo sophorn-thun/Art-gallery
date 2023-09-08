@@ -12,6 +12,9 @@ interface AccordionProps {
   onSortByDate?: (isChecked: boolean) => void;
   onSortByTitle?: (isChecked: boolean) => void;
   onSortByArtist?: (isChecked: boolean) => void;
+  onFilterByPainting?: (isChecked: boolean) => void;
+  onFilterBySculpture?: (isChecked: boolean) => void;
+  onFilterByBook?: (isChecked: boolean) => void;
 }
 
 function Accordion({
@@ -26,6 +29,9 @@ function Accordion({
   onSortByDate,
   onSortByTitle,
   onSortByArtist,
+  onFilterByPainting,
+  onFilterBySculpture,
+  onFilterByBook,
 }: AccordionProps) {
   return (
     <div className={styles['accordion']}>
@@ -64,19 +70,28 @@ function Accordion({
         <h2 className={styles['accordion-title']}>{secondPanel}</h2>
         <div className={styles['accordion-content']}>
           <label>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              onChange={(e) => onFilterByPainting && onFilterByPainting(e.target.checked)}
+            />
             {secondPanelOption1}
           </label>
         </div>
         <div className={styles['accordion-content']}>
           <label>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              onChange={(e) => onFilterBySculpture && onFilterBySculpture(e.target.checked)}
+            />
             {secondPanelOption2}
           </label>
         </div>
         <div className={styles['accordion-content']}>
           <label>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              onChange={(e) => onFilterByBook && onFilterByBook(e.target.checked)}
+            />
             {secondPanelOption3}
           </label>
         </div>

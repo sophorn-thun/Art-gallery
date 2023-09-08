@@ -8,6 +8,7 @@ export interface ArtProps {
   date_start?: number;
   artist_id?: number;
   artist_title?: string;
+  artwork_type_title?: string;
 }
 
 export interface ApiResponse {
@@ -15,11 +16,17 @@ export interface ApiResponse {
 }
 
 export type SortType = 'date' | 'title' | 'artist' | null;
+export type ArtworkType = 'Painting' | 'Sculpture' | 'Book' | null;
 
-function useArtWork(searchTerm: string = '', size: number = 20, sortType: SortType = null) {
+function useArtWork(
+  searchTerm: string = '',
+  size: number = 20,
+  sortType: SortType = null,
+  artworkType: ArtworkType = null,
+) {
   const endpoint = `https://api.artic.edu/api/v1/artworks/search?q=${encodeURIComponent(
     searchTerm,
-  )}&size=${size}&fields=id,title,image_id,date_start,artist_id,artist_title`;
+  )}&size=${size}&fields=id,title,image_id,date_start,artist_id,artist_title,artwork_type_title`;
 
   const { data, isLoading, isError, error } = useFetch<ApiResponse>(endpoint);
 
@@ -27,23 +34,41 @@ function useArtWork(searchTerm: string = '', size: number = 20, sortType: SortTy
 
   useEffect(() => {
     if (data) {
-      let sorted = [...data.data];
-      switch (sortType) {
-        case 'date':
-          sorted.sort((a, b) => (b.date_start || -Infinity) - (a.date_start || -Infinity));
+      let processedData = [...data.data];
+
+      // Filtering based on artwork type
+      switch (artworkType) {
+        case 'Painting':
+          processedData = processedData.filter((item) => item.artwork_type_title === 'Painting');
           break;
-        case 'title':
-          sorted.sort((a, b) => a.title.localeCompare(b.title));
+        case 'Sculpture':
+          processedData = processedData.filter((item) => item.artwork_type_title === 'Sculpture');
           break;
-        case 'artist':
-          sorted.sort((a, b) => a.artist_title?.localeCompare(b.artist_title || '') || 0);
+        case 'Book':
+          processedData = processedData.filter((item) => item.artwork_type_title === 'Book');
           break;
         default:
           break;
       }
-      setSortedData(sorted);
+
+      // Sorting on the processed (potentially filtered) data
+      switch (sortType) {
+        case 'date':
+          processedData.sort((a, b) => (b.date_start || -Infinity) - (a.date_start || -Infinity));
+          break;
+        case 'title':
+          processedData.sort((a, b) => a.title.localeCompare(b.title));
+          break;
+        case 'artist':
+          processedData.sort((a, b) => a.artist_title?.localeCompare(b.artist_title || '') || 0);
+          break;
+        default:
+          break;
+      }
+
+      setSortedData(processedData);
     }
-  }, [data, sortType]);
+  }, [data, sortType, artworkType]);
 
   return { data: sortedData, isLoading, isError, error };
 }

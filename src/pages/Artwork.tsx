@@ -4,12 +4,13 @@ import Pagination from '../components/Pagination/Pagination';
 import Footer from '../components/Footer/Footer';
 import ArtGrid from '../components/ArtGrid/ArtGrid';
 import { useState } from 'react';
-import useArtWork, { SortType } from '../hooks/useArtWork';
+import useArtWork, { SortType, ArtworkType } from '../hooks/useArtWork';
 
 function Artwork() {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [sortType, setSortType] = useState<SortType>(null);
-  const { data, isLoading, isError, error } = useArtWork(searchTerm, 20, sortType);
+  const [artworkType, setArtworkType] = useState<ArtworkType>(null);
+  const { data, isLoading, isError, error } = useArtWork(searchTerm, 20, sortType, artworkType);
 
   const handleSearch = async (query: string) => {
     setSearchTerm(query);
@@ -26,6 +27,18 @@ function Artwork() {
   const handleSortByArtist = (isChecked: boolean) => {
     setSortType(isChecked ? 'artist' : null);
   };
+
+  const handleFilterByPainting = (isChecked: boolean) => {
+    setArtworkType(isChecked ? 'Painting' : null);
+  };
+
+  const handleFilterBySculpture = (isChecked: boolean) => {
+    setArtworkType(isChecked ? 'Sculpture' : null);
+  };
+
+  const handleFilterByBook = (isChecked: boolean) => {
+    setArtworkType(isChecked ? 'Book' : null);
+  };
   console.log(data);
 
   return (
@@ -40,9 +53,12 @@ function Artwork() {
         defaultPanelOption3="By Artist"
         onSortByArtist={handleSortByArtist}
         secondPanel="Artwork Types"
-        secondPanelOption1="Cityscape"
-        secondPanelOption2="Animals"
-        secondPanelOption3="Essentials"
+        secondPanelOption1="Painting"
+        onFilterByPainting={handleFilterByPainting}
+        secondPanelOption2="Sculpture"
+        onFilterBySculpture={handleFilterBySculpture}
+        secondPanelOption3="Book"
+        onFilterByBook={handleFilterByBook}
       />
       <ArtGrid arts={data} loading={isLoading} />
       <Pagination totalPage={100} postPerPage={10} />
