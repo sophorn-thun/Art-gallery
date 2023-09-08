@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
 import ArtCard from '../ArtCard/ArtCard';
 import styles from './ArtGrid.module.css';
-import { ArtProps } from '../../services/fetchArtworkApi';
+import { ArtProps } from '../../hooks/useArtWork';
 
 interface ArtGridProps {
   arts: ArtProps[];
   loading: boolean;
-  error: string | null;
+  // error: string | null;
 }
 
-function ArtGrid({ arts, loading, error }: ArtGridProps) {
+function ArtGrid({ arts, loading }: ArtGridProps) {
   const iiifBaseUrl = 'https://www.artic.edu/iiif/2/';
 
   if (loading)
@@ -32,9 +31,9 @@ function ArtGrid({ arts, loading, error }: ArtGridProps) {
         </div>
       </div>
     );
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  // if (error) {
+  //   return <div>Error: {error}</div>;
+  // }
 
   if (!arts.length) {
     return <div>No artworks found!</div>;
@@ -47,6 +46,7 @@ function ArtGrid({ arts, loading, error }: ArtGridProps) {
           key={art.id}
           id={art.id}
           title={art.title}
+          artist_title={art.artist_title}
           image_id={art.image_id}
           iiifBaseUrl={iiifBaseUrl}
         />

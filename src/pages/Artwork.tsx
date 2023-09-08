@@ -3,63 +3,44 @@ import Accordion from '../components/Accordion/Accordion';
 import Pagination from '../components/Pagination/Pagination';
 import Footer from '../components/Footer/Footer';
 import ArtGrid from '../components/ArtGrid/ArtGrid';
-import { useState, useEffect } from 'react';
-import { ArtProps } from '../services/fetchArtworkApi';
-import { fetchArtworks } from '../services/fetchArtworkApi';
+import { useState } from 'react';
+import useArtWork, { SortType, ArtworkType } from '../hooks/useArtWork';
 
 function Artwork() {
-  const [arts, setArts] = useState<ArtProps[]>([]);
-  const [unsortedArts, setUnsortedArts] = useState<ArtProps[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchDefaultArtworks = async () => {
-      try {
-        const data = await fetchArtworks();
-        setArts(data.data);
-        setUnsortedArts(data.data);
-        setLoading(false);
-      } catch (err) {
-        setError('Failed to fetch default artworks.');
-        setLoading(false);
-      }
-    };
-    fetchDefaultArtworks();
-  }, []);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [sortType, setSortType] = useState<SortType>(null);
+  const [artworkType, setArtworkType] = useState<ArtworkType>(null);
+  const { data, isLoading, isError, error } = useArtWork(searchTerm, 20, sortType, artworkType);
 
   const handleSearch = async (query: string) => {
-    try {
-      setLoading(true);
-      const data = await fetchArtworks(query);
-      setArts(data.data);
-      setLoading(false);
-    } catch (error) {
-      setError('Error fetching artworks');
-      setLoading(false);
-    }
+    setSearchTerm(query);
   };
 
   const handleSortByDate = (isChecked: boolean) => {
-    if (isChecked) {
-      setArts((arts) => {
-        const sortedArts = [...arts].sort((a, b) => {
-          return (b.date_start || -Infinity) - (a.date_start || -Infinity);
-        });
-        return sortedArts;
-      });
-    } else {
-      setArts(unsortedArts);
-    }
+    setSortType(isChecked ? 'date' : null);
   };
 
   const handleSortByTitle = (isChecked: boolean) => {
-    if (isChecked) {
-      setArts((arts) => [...arts].sort((a, b) => a.title.localeCompare(b.title)));
-    } else {
-      setArts(unsortedArts);
-    }
+    setSortType(isChecked ? 'title' : null);
   };
+
+  const handleSortByArtist = (isChecked: boolean) => {
+    setSortType(isChecked ? 'artist' : null);
+  };
+
+  const handleFilterByPainting = (isChecked: boolean) => {
+    setArtworkType(isChecked ? 'Painting' : null);
+  };
+
+  const handleFilterBySculpture = (isChecked: boolean) => {
+    setArtworkType(isChecked ? 'Sculpture' : null);
+  };
+
+  const handleFilterByBook = (isChecked: boolean) => {
+    setArtworkType(isChecked ? 'Book' : null);
+  };
+  console.log(data);
+
   return (
     <div>
       <SearchInput onSearch={handleSearch} />
@@ -70,12 +51,16 @@ function Artwork() {
         defaultPanelOption2="By Title"
         onSortByTitle={handleSortByTitle}
         defaultPanelOption3="By Artist"
+        onSortByArtist={handleSortByArtist}
         secondPanel="Artwork Types"
-        secondPanelOption1="Cityscape"
-        secondPanelOption2="Animals"
-        secondPanelOption3="Essentials"
+        secondPanelOption1="Painting"
+        onFilterByPainting={handleFilterByPainting}
+        secondPanelOption2="Sculpture"
+        onFilterBySculpture={handleFilterBySculpture}
+        secondPanelOption3="Book"
+        onFilterByBook={handleFilterByBook}
       />
-      <ArtGrid arts={arts} loading={loading} error={error} />
+      <ArtGrid arts={data} loading={isLoading} />
       <Pagination totalPage={100} postPerPage={10} />
       <Footer
         firstPara="This is front-end project using React and Typescripts."
