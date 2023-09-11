@@ -26,7 +26,7 @@ function useArtWork(
 ) {
   const endpoint = `https://api.artic.edu/api/v1/artworks/search?q=${encodeURIComponent(
     searchTerm,
-  )}&size=${size}&fields=id,title,image_id,date_start,artist_id,artist_title,artwork_type_title`;
+  )}&size=${size}&fields=id,title,image_id,date_start,artist_id,artist_title,artwork_type_title,inscriptions`;
 
   const { data, isLoading, isError, error } = useFetch<ApiResponse>(endpoint);
 

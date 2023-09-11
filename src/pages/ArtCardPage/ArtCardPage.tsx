@@ -2,6 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import ArtCard from '../../components/ArtCard/ArtCard';
 import { useFetch } from '../../hooks/useFetch';
 import { ArtProps } from '../../hooks/useArtWork';
+import Loading from '../../components/Loading/Loading';
 
 import styles from './ArtCardPage.module.css';
 
@@ -22,25 +23,7 @@ function ArtCardPage() {
     <div className={styles['art-card-page']}>
       <h1>Selected Artwork</h1>
       {isError && <div>{error?.message}</div>}
-      {isLoading && (
-        <div className={styles['spinner']}>
-          <h3>Content is loading...</h3>
-          <div className={styles['lds-spinner']}>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      )}
+      {isLoading && <Loading />}
       <div className={styles['art-card-component']}>
         <ArtCard
           title={artwork?.data.title}

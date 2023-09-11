@@ -18,3 +18,7 @@
   scale:calc(0.9);
   cursor: pointer;
 }
+
+p {
+  color:black;
+}

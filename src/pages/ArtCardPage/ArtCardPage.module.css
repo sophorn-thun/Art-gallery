@@ -14,4 +14,11 @@ h1 {
 .art-card-component {
   max-width: 500px;
   height: auto;
+  
+
+}
+
+.art-card-component img:hover {
+  scale: none;
+  cursor:default;
 }
