@@ -14,7 +14,7 @@ interface AccordionProps {
   onSortByArtist?: (isChecked: boolean) => void;
   onFilterByPainting?: (isChecked: boolean) => void;
   onFilterBySculpture?: (isChecked: boolean) => void;
-  onFilterByBook?: (isChecked: boolean) => void;
+  onFilterByPrint?: (isChecked: boolean) => void;
 }
 
 function Accordion({
@@ -31,7 +31,7 @@ function Accordion({
   onSortByArtist,
   onFilterByPainting,
   onFilterBySculpture,
-  onFilterByBook,
+  onFilterByPrint,
 }: AccordionProps) {
   return (
     <div className={styles['accordion']}>
@@ -90,7 +90,7 @@ function Accordion({
           <label>
             <input
               type="checkbox"
-              onChange={(e) => onFilterByBook && onFilterByBook(e.target.checked)}
+              onChange={(e) => onFilterByPrint && onFilterByPrint(e.target.checked)}
             />
             {secondPanelOption3}
           </label>

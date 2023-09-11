@@ -7,7 +7,7 @@ import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import Shop from './pages/Shop';
 
-const navBarList = ['Home', 'Artwork', 'Shop', 'LogIn', 'SignUp'];
+const navBarList = ['Home', 'Artwork', 'Shop', 'LogIn'];
 
 function App() {
   return (

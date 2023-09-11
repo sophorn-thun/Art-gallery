@@ -4,7 +4,7 @@ header {
   top: 0;
   color: #f4ece1;;
   display: grid;
-  grid-template-columns: 90px 90%;
+  grid-template-columns: 90px 80%;
   z-index: 1000;
 }
 .logo-container {
@@ -14,27 +14,27 @@ header {
 }
 .logo {
   width: 40px;
-  height: 35px;
+  height: 45px;
   clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
   margin: 1rem;
   background-color: #99f8b7;
   border-radius: 3px;
 }
 nav {
-  display: flex;
+  display: grid;
+  grid-template-columns: 70% 30%;
   justify-content:center;
   align-items: center;
-  /* padding: 1rem; */
 }
 nav ul {
-  display: grid;
-  grid-column: 1 / span 2;
   list-style: none;
   display: flex;
   justify-content: flex-end;
 }
-.navbarLiActive {
-  background-color: aqua;
+nav:first-child {
+  display: flex;
+  justify-content:center;
+  align-items: center;
 }
 .navbar-text {
   margin: 20px;
@@ -55,7 +55,7 @@ nav ul {
 .bar {
   width: 100%;
   height: 0.4rem;
-  background-color: #f4ece1;;
+  background-color: #f4ece1;
   margin: 3px 0;
   border-radius: 0.2rem;
   transition: 0.3s;
@@ -64,7 +64,7 @@ nav ul {
   transform: rotate(45deg) translateY(0.85rem);
   width: 100%;
   height: 0.4rem;
-  background-color: rgb(255, 255, 255);
+  background-color: #f4ece1;
   margin: 3px 0;
   border-radius: 0.2rem;
   transition: 0.3s;
@@ -76,7 +76,7 @@ nav ul {
   transform: rotate(-45deg) translateY(-0.85rem);
   width: 100%;
   height: 0.4rem;
-  background-color: rgb(255, 255, 255);
+  background-color: #f4ece1;
   margin: 3px 0;
   border-radius: 0.2rem;
   transition: 0.3s;
@@ -86,9 +86,17 @@ nav ul {
   color: inherit;
   text-decoration: none;
   height: 100%;
-  padding: 0.5rem;
+  padding: 1rem;
 }
-.navbar-a.active {
+.navbar-a-signup {
+  background-color: rgb(185, 182, 27);
+  text-decoration: none;
+  height: 100%;
+  padding: 1rem;
+  color: inherit;
+  border-radius: 5px;
+}
+.navbar-a.active, .navbar-a-signup.active {
   background-color: #f4ece1;
   padding: 10px;
   border-radius: 5px;
@@ -102,6 +110,15 @@ nav ul {
 @media (max-width: 500px) {
   .hamburger {
     display: flex;
+  }
+  .logo-container {
+    align-items: flex-start;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
   nav ul {
     display: none;

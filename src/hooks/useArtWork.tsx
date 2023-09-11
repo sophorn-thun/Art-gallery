@@ -16,7 +16,7 @@ export interface ApiResponse {
 }
 
 export type SortType = 'date' | 'title' | 'artist' | null;
-export type ArtworkType = 'Painting' | 'Sculpture' | 'Book' | null;
+export type ArtworkType = 'Painting' | 'Sculpture' | 'Print' | null;
 
 function useArtWork(
   searchTerm: string = '',
@@ -44,14 +44,14 @@ function useArtWork(
         case 'Sculpture':
           processedData = processedData.filter((item) => item.artwork_type_title === 'Sculpture');
           break;
-        case 'Book':
-          processedData = processedData.filter((item) => item.artwork_type_title === 'Book');
+        case 'Print':
+          processedData = processedData.filter((item) => item.artwork_type_title === 'Print');
           break;
         default:
           break;
       }
 
-      // Sorting on the processed (potentially filtered) data
+      // Sorting on the data
       switch (sortType) {
         case 'date':
           processedData.sort((a, b) => (b.date_start || -Infinity) - (a.date_start || -Infinity));

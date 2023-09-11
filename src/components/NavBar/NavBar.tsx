@@ -41,6 +41,20 @@ function NavBar({ navBarItems }: NavBarProps) {
             </li>
           ))}
         </ul>
+        <ul className={menuOpen ? styles['open'] : ''}>
+          <li className={styles['navbar-li']}>
+            <NavLink
+              to={`/SignUp`}
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles['navbar-a-signup']} ${styles.active}`
+                  : styles['navbar-a-signup']
+              }
+            >
+              SignUp
+            </NavLink>
+          </li>
+        </ul>
       </nav>
     </header>
   );
