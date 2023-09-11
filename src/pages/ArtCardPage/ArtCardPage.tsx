@@ -31,6 +31,18 @@ function ArtCardPage() {
           image_id={artwork?.data.image_id}
           iiifBaseUrl={iiifBaseUrl}
         />
+        <p className={styles['description']}>
+          Style:
+          <span>{artwork?.data.style_title}</span>
+        </p>
+        <p className={styles['description']}>
+          Classification:
+          <span>{artwork?.data.classification_title}</span>
+        </p>
+        <p className={styles['description']}>
+          Place of origin:
+          <span>{artwork?.data.place_of_origin}</span>
+        </p>
       </div>
     </div>
   );

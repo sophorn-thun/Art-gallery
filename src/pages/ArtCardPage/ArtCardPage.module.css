@@ -14,11 +14,20 @@ h1 {
 .art-card-component {
   max-width: 500px;
   height: auto;
-  
 
 }
 
 .art-card-component img:hover {
   scale: none;
   cursor:default;
+}
+
+.description {
+  text-align: left;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+}
+span {
+  font-weight: 400;
+  padding-left: 0.5rem;
 }

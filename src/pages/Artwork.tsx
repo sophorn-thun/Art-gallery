@@ -1,16 +1,27 @@
 import SearchInput from '../components/Search/SearchInput';
 import Accordion from '../components/Accordion/Accordion';
 import Pagination from '../components/Pagination/Pagination';
+import type { Info } from '../components/Pagination/Pagination';
 import Footer from '../components/Footer/Footer';
 import ArtGrid from '../components/ArtGrid/ArtGrid';
 import { useState } from 'react';
 import useArtWork, { SortType, ArtworkType } from '../hooks/useArtWork';
+import { useSearchParams } from 'react-router-dom';
 
 function Artwork() {
+  const [searchParams, setSearchParams] = useSearchParams({ page: '1' });
+  const page = Number(searchParams.get('page') || 1);
+
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [sortType, setSortType] = useState<SortType>(null);
   const [artworkType, setArtworkType] = useState<ArtworkType>(null);
-  const { data, isLoading, isError, error } = useArtWork(searchTerm, 20, sortType, artworkType);
+  const { data, info, isLoading, isError, error } = useArtWork(
+    searchTerm,
+    12,
+    sortType,
+    artworkType,
+    page,
+  );
 
   const handleSearch = async (query: string) => {
     setSearchTerm(query);
@@ -61,7 +72,13 @@ function Artwork() {
         onFilterByPrint={handleFilterByPrint}
       />
       <ArtGrid arts={data} loading={isLoading} />
-      <Pagination totalPage={100} postPerPage={10} />
+      <Pagination
+        totalPage={100}
+        postPerPage={10}
+        page={page}
+        info={info}
+        onSetSearchParam={setSearchParams}
+      />
       <Footer
         firstPara="This is front-end project using React and Typescripts."
         secondPara="Images are obtained from Chicago Art Institute's public API."
