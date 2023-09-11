@@ -36,8 +36,8 @@ function Artwork() {
     setArtworkType(isChecked ? 'Sculpture' : null);
   };
 
-  const handleFilterByBook = (isChecked: boolean) => {
-    setArtworkType(isChecked ? 'Book' : null);
+  const handleFilterByPrint = (isChecked: boolean) => {
+    setArtworkType(isChecked ? 'Print' : null);
   };
   console.log(data);
 
@@ -57,8 +57,8 @@ function Artwork() {
         onFilterByPainting={handleFilterByPainting}
         secondPanelOption2="Sculpture"
         onFilterBySculpture={handleFilterBySculpture}
-        secondPanelOption3="Book"
-        onFilterByBook={handleFilterByBook}
+        secondPanelOption3="Print"
+        onFilterByPrint={handleFilterByPrint}
       />
       <ArtGrid arts={data} loading={isLoading} />
       <Pagination totalPage={100} postPerPage={10} />

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import styles from '../components/ArtGrid/ArtGrid.module.css';
+
 export const useFetch = <T,>(url: string) => {
   const [data, setData] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState(true);
