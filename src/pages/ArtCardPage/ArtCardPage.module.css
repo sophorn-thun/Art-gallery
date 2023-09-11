@@ -1,0 +1,17 @@
+h1 {
+  padding: 1rem;
+}
+.art-card-page {
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.art-card-component {
+  max-width: 500px;
+  height: auto;
+}

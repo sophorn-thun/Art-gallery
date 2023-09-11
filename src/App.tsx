@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 import Shop from './pages/Shop';
+import ArtCardPage from './pages/ArtCardPage/ArtCardPage';
 
 const navBarList = ['Home', 'Artwork', 'Shop', 'LogIn'];
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/Artwork" element={<Artwork />} />
+        <Route path="/Artwork/:id" element={<ArtCardPage />} />
         <Route path="/Shop" element={<Shop />} />
         <Route path="/Login" element={<LogIn />} />
         <Route path="/SignUp" element={<SignUp />} />

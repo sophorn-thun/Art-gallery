@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useFetch } from './useFetch';
 
 export interface ArtProps {
-  id: number;
-  title: string;
-  image_id: string;
+  id?: number;
+  title?: string;
+  image_id?: string;
   date_start?: number;
   artist_id?: number;
   artist_title?: string;
@@ -57,7 +57,7 @@ function useArtWork(
           processedData.sort((a, b) => (b.date_start || -Infinity) - (a.date_start || -Infinity));
           break;
         case 'title':
-          processedData.sort((a, b) => a.title.localeCompare(b.title));
+          processedData.sort((a, b) => a.title?.localeCompare(b.title || '') || 0);
           break;
         case 'artist':
           processedData.sort((a, b) => a.artist_title?.localeCompare(b.artist_title || '') || 0);
