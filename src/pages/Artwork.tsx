@@ -50,6 +50,7 @@ function Artwork() {
   const handleFilterByPrint = (isChecked: boolean) => {
     setArtworkType(isChecked ? 'Print' : null);
   };
+
   console.log(data);
 
   return (
@@ -88,3 +89,4 @@ function Artwork() {
 }
 
 export default Artwork;
+// It seems info is not needed

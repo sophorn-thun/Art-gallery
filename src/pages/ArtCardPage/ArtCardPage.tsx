@@ -18,7 +18,9 @@ function ArtCardPage() {
     isError,
     error,
   } = useFetch<ArtCardProps>(`https://api.artic.edu/api/v1/artworks/${id}`);
+
   const iiifBaseUrl = 'https://www.artic.edu/iiif/2/';
+  const navigate = useNavigate();
   return (
     <div className={styles['art-card-page']}>
       <h1>Selected Artwork</h1>
@@ -43,6 +45,11 @@ function ArtCardPage() {
           Place of origin:
           <span>{artwork?.data.place_of_origin}</span>
         </p>
+      </div>
+      <div className={styles['container']}>
+        <button className={styles['back-button']} onClick={() => navigate(-1)}>
+          Back
+        </button>
       </div>
     </div>
   );
