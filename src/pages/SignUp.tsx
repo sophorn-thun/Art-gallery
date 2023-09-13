@@ -1,16 +1,22 @@
 import Form from '../components/Form/Form';
+import { UserFormData } from '../components/Form/Form';
 
-const signUpInfo = ['First Name', 'Last Name', 'Email', 'Password'];
+const signUpInfo = ['FirstName', 'LastName', 'Email', 'Password'];
 function SignUp() {
+  const handleFormSubmit = (formData: UserFormData) => {
+    console.log(formData);
+  };
+
   return (
-    <div>
+    <>
       <Form
         title="Sign Up"
         inputItems={signUpInfo}
         submitButtonLabel="Sign Up"
         isMemberLinkVisible={true}
+        onSubmit={handleFormSubmit}
       />
-    </div>
+    </>
   );
 }
 
