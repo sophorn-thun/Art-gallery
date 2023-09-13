@@ -50,6 +50,7 @@ function Form({ isMemberLinkVisible, title, submitButtonLabel, inputItems, onSub
               key={inputItem}
               placeholder={inputItem}
               type={inputItem === 'password' ? 'password' : 'text'}
+              required
             />
           ))}
           <button type="submit" className={styles['button']}>

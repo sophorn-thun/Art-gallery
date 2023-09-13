@@ -1,8 +1,10 @@
-import { useState } from 'react';
-import Form from '../components/Form/Form';
+import Form, { UserFormData } from '../components/Form/Form';
 
 function LogIn() {
   const logInInfo = ['Email', 'Password'];
+  const handleSubmit = (formData: UserFormData) => {
+    console.log(formData);
+  };
   return (
     <div>
       <Form
@@ -10,7 +12,7 @@ function LogIn() {
         title="Log In"
         submitButtonLabel="Log In"
         inputItems={logInInfo}
-        children="Log In"
+        onSubmit={handleSubmit}
       />
     </div>
   );
