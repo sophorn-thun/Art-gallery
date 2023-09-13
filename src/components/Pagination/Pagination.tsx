@@ -24,7 +24,7 @@ function Pagination({
   page,
   query,
 }: PaginationProps) {
-  const [activePage, setActivePage] = useState<number | null>(page || 1);
+  const [activePage, setActivePage] = useState<number | null>(page || null);
 
   const pageNumbers = Math.ceil(totalPage / postPerPage);
   const pageNumbersArray = Array.from({ length: pageNumbers }, (_, index) => index + 1);
@@ -37,11 +37,13 @@ function Pagination({
             className={styles['pagination-item']}
             disabled={page === 1}
             onClick={() => {
+              const newPage = Number(page) - 1;
               onSetSearchParam({
                 page: String(Number(page) - 1),
                 query: query || '',
               });
               window.scrollTo(0, 0);
+              setActivePage(newPage);
             }}
           >
             Prev
@@ -70,11 +72,13 @@ function Pagination({
             className={styles['pagination-item']}
             disabled={page === pageNumbers}
             onClick={() => {
+              const newPage = Number(page) + 1;
               onSetSearchParam({
                 page: String(Number(page) + 1),
                 query: query || '',
               });
               window.scrollTo(0, 0);
+              setActivePage(newPage);
             }}
           >
             Next

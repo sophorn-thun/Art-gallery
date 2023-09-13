@@ -49,7 +49,7 @@ span {
   transition: background-color 0.3s ease;
   position: absolute;
 }
-button:hover {
+.back-button:hover {
   background-color: #89a684;
   color: #ffffff;
 }

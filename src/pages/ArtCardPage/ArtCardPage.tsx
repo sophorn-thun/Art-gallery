@@ -28,6 +28,7 @@ function ArtCardPage() {
       {isLoading && <Loading />}
       <div className={styles['art-card-component']}>
         <ArtCard
+          id={artwork?.data.id}
           title={artwork?.data.title}
           artist_title={artwork?.data.artist_title}
           image_id={artwork?.data.image_id}
