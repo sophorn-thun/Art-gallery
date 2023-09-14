@@ -1,5 +1,5 @@
-import Form from '../components/Form/Form';
-import { UserFormData } from '../components/Form/Form';
+import Form from '../../components/Form/Form';
+import { UserFormData } from '../../components/Form/Form';
 import { useNavigate } from 'react-router-dom';
 
 const signUpInfo = ['FirstName', 'LastName', 'Email', 'Password'];

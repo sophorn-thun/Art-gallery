@@ -1,7 +1,6 @@
 import SearchInput from '../../components/Search/SearchInput';
 import Accordion from '../../components/Accordion/Accordion';
 import Pagination from '../../components/Pagination/Pagination';
-import type { Info } from '../../components/Pagination/Pagination';
 import Footer from '../../components/Footer/Footer';
 import ArtGrid from '../../components/ArtGrid/ArtGrid';
 import { useState } from 'react';

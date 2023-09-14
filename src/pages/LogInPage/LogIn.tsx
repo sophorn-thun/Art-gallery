@@ -1,6 +1,8 @@
-import Form, { UserFormData } from '../components/Form/Form';
+import Form, { UserFormData } from '../../components/Form/Form';
+import { useNavigate } from 'react-router-dom';
 
 function LogIn() {
+  const navigate = useNavigate();
   const logInInfo = ['Email', 'Password'];
 
   const handleSubmit = (formData: UserFormData) => {
@@ -20,6 +22,7 @@ function LogIn() {
       .then((data) => {
         if (data.success) {
           alert(data.message);
+          navigate('/MemberPage');
         }
       })
       .catch((error) => {
@@ -29,7 +32,7 @@ function LogIn() {
   };
 
   return (
-    <div>
+    <>
       <Form
         isMemberLinkVisible={false}
         title="Log In"
@@ -37,7 +40,7 @@ function LogIn() {
         inputItems={logInInfo}
         onSubmit={handleSubmit}
       />
-    </div>
+    </>
   );
 }
 
