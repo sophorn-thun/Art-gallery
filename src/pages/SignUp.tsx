@@ -5,6 +5,14 @@ const signUpInfo = ['FirstName', 'LastName', 'Email', 'Password'];
 function SignUp() {
   const handleFormSubmit = (formData: UserFormData) => {
     console.log(formData);
+
+    fetch('http://localhost:8000/SignUp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    }).then(() => {
+      console.log('Signed Up!');
+    });
   };
 
   return (
