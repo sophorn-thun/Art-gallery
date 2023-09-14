@@ -2,9 +2,32 @@ import Form, { UserFormData } from '../components/Form/Form';
 
 function LogIn() {
   const logInInfo = ['Email', 'Password'];
+
   const handleSubmit = (formData: UserFormData) => {
-    console.log(formData);
+    fetch('http://localhost:8000/LogIn', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        return response.json().then((data) => {
+          if (!response.ok) {
+            throw data;
+          }
+          return data;
+        });
+      })
+      .then((data) => {
+        if (data.success) {
+          alert(data.message);
+        }
+      })
+      .catch((error) => {
+        console.error('There was an error with fetch', error.message);
+        alert(error.message);
+      });
   };
+
   return (
     <div>
       <Form
