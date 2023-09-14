@@ -36,3 +36,59 @@
 .button-right {
   right: 20px;
 }
+
+/* Responsive Carousel */
+@media (min-width: 760px) {
+  .inner {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  .button-left {
+    left: 50px;
+  }
+  
+  .button-right {
+    right: 50px;
+  }
+}
+@media (min-width: 920px) {
+  .inner {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+  .button-left {
+    left: 70px;
+  }
+  
+  .button-right {
+    right: 70px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .inner {
+    margin-left: 6rem;
+    margin-right: 6rem;
+  }
+  .button-left {
+    left: 110px;
+  }
+  
+  .button-right {
+    right: 110px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .inner {
+    margin-left: 8rem;
+    margin-right: 8rem;
+  }
+  .button-left {
+    left: 140px;
+  }
+  
+  .button-right {
+    right: 140px;
+  }
+}

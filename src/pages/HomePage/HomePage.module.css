@@ -1,0 +1,14 @@
+
+.welcome-text {
+  color: rgb(57, 83, 57);
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Responsive Homepage*/
+/* @media (min-width: 760px ) {
+  .welcome-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+} */
