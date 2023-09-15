@@ -1,12 +1,14 @@
 import SearchInput from '../../components/Search/SearchInput';
-import Accordion from '../../components/Accordion/Accordion';
 import Pagination from '../../components/Pagination/Pagination';
 import Footer from '../../components/Footer/Footer';
 import ArtGrid from '../../components/ArtGrid/ArtGrid';
 import { useState } from 'react';
 import useArtWork, { SortType, ArtworkType } from '../../hooks/useArtWork';
 import Sort from '../../components/Sort/Sort';
+import Filter from '../../components/Filter/Filter';
 import { useSearchParams } from 'react-router-dom';
+
+import styles from './ArtworkPage.module.css';
 
 function Artwork() {
   const [searchParams, setSearchParams] = useSearchParams({ page: '1' });
@@ -56,31 +58,26 @@ function Artwork() {
   return (
     <div>
       <SearchInput onSearch={handleSearch} />
-      <Sort
-        defaultPanel="Sort Artwork"
-        defaultPanelOption1="By Date"
-        onSortByDate={handleSortByDate}
-        defaultPanelOption2="By Title"
-        onSortByTitle={handleSortByTitle}
-        defaultPanelOption3="By Artist"
-        onSortByArtist={handleSortByArtist}
-      />
-      <Accordion
-        defaultPanel="Sort"
-        defaultPanelOption1="By Date"
-        onSortByDate={handleSortByDate}
-        defaultPanelOption2="By Title"
-        onSortByTitle={handleSortByTitle}
-        defaultPanelOption3="By Artist"
-        onSortByArtist={handleSortByArtist}
-        secondPanel="Artwork Types"
-        secondPanelOption1="Painting"
-        onFilterByPainting={handleFilterByPainting}
-        secondPanelOption2="Sculpture"
-        onFilterBySculpture={handleFilterBySculpture}
-        secondPanelOption3="Print"
-        onFilterByPrint={handleFilterByPrint}
-      />
+      <div className={styles['sort-filter-container']}>
+        <Sort
+          defaultPanel="Sort Artwork"
+          defaultPanelOption1="By Date"
+          onSortByDate={handleSortByDate}
+          defaultPanelOption2="By Title"
+          onSortByTitle={handleSortByTitle}
+          defaultPanelOption3="By Artist"
+          onSortByArtist={handleSortByArtist}
+        />
+        <Filter
+          secondPanel="Filter artwork"
+          secondPanelOption1="Painting"
+          onFilterByPainting={handleFilterByPainting}
+          secondPanelOption2="Sculpture"
+          onFilterBySculpture={handleFilterBySculpture}
+          secondPanelOption3="Print"
+          onFilterByPrint={handleFilterByPrint}
+        />
+      </div>
       <ArtGrid arts={data} loading={isLoading} />
       <Pagination
         totalPage={100}
