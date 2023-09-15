@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useFetch } from './useFetch';
+import type { Info } from '../components/Pagination/Pagination';
 
 export interface ArtProps {
   id?: number;
@@ -9,10 +10,14 @@ export interface ArtProps {
   artist_id?: number;
   artist_title?: string;
   artwork_type_title?: string;
+  style_title?: string;
+  classification_title?: string;
+  place_of_origin?: string;
 }
 
 export interface ApiResponse {
   data: ArtProps[];
+  info?: Info;
 }
 
 export type SortType = 'date' | 'title' | 'artist' | null;
@@ -20,13 +25,14 @@ export type ArtworkType = 'Painting' | 'Sculpture' | 'Print' | null;
 
 function useArtWork(
   searchTerm: string = '',
-  size: number = 20,
+  size: number = 12,
   sortType: SortType = null,
   artworkType: ArtworkType = null,
+  page: number = 1,
 ) {
   const endpoint = `https://api.artic.edu/api/v1/artworks/search?q=${encodeURIComponent(
     searchTerm,
-  )}&size=${size}&fields=id,title,image_id,date_start,artist_id,artist_title,artwork_type_title`;
+  )}&size=${size}&page=${page}&fields=id,title,image_id,date_start,artist_id,artist_title,artwork_type_title,style_title,classification_title`;
 
   const { data, isLoading, isError, error } = useFetch<ApiResponse>(endpoint);
 
@@ -70,7 +76,7 @@ function useArtWork(
     }
   }, [data, sortType, artworkType]);
 
-  return { data: sortedData, isLoading, isError, error };
+  return { data: sortedData, info: data?.info, isLoading, isError, error };
 }
 
 export default useArtWork;

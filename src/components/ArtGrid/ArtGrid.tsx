@@ -1,39 +1,17 @@
 import ArtCard from '../ArtCard/ArtCard';
 import styles from './ArtGrid.module.css';
 import { ArtProps } from '../../hooks/useArtWork';
+import Loading from '../Loading/Loading';
 
 interface ArtGridProps {
   arts: ArtProps[];
   loading: boolean;
-  // error: string | null;
 }
 
 function ArtGrid({ arts, loading }: ArtGridProps) {
   const iiifBaseUrl = 'https://www.artic.edu/iiif/2/';
 
-  if (loading)
-    return (
-      <div className={styles['spinner']}>
-        <h3>Content is loading...</h3>
-        <div className={styles['lds-spinner']}>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-    );
-  // if (error) {
-  //   return <div>Error: {error}</div>;
-  // }
+  if (loading) return <Loading />;
 
   if (!arts.length) {
     return <div>No artworks found!</div>;

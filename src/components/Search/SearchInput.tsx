@@ -21,7 +21,7 @@ function SearchInput({ onSearch }: SearchInputProps) {
   return (
     <div className={styles['search-box']}>
       <>
-        <i className={styles['fas fa-search spotlight-icon']}></i>
+        <i className={`${styles.fas} ${styles['fa-search']} ${styles['spotlight-icon']}`}></i>
         <input
           className={styles['search']}
           type="search"

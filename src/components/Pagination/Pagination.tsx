@@ -1,22 +1,89 @@
+import type { SetURLSearchParams } from 'react-router-dom';
 import styles from './Pagination.module.css';
+import { useState } from 'react';
 
+export interface Info {
+  count: number;
+  nextPage: string | null;
+  previousPage: string | null;
+}
 interface PaginationProps {
   postPerPage: number;
   totalPage: number;
+  info?: Info;
+  page?: number | null;
+  query?: string | null;
+  onSetSearchParam: SetURLSearchParams;
 }
-function Pagination({ postPerPage, totalPage }: PaginationProps) {
+
+function Pagination({
+  postPerPage,
+  totalPage,
+  info,
+  onSetSearchParam,
+  page,
+  query,
+}: PaginationProps) {
+  const [activePage, setActivePage] = useState<number | null>(page || null);
+
   const pageNumbers = Math.ceil(totalPage / postPerPage);
   const pageNumbersArray = Array.from({ length: pageNumbers }, (_, index) => index + 1);
+
   return (
     <>
       <nav className={styles['pagination-head']}>
-        <ul className={styles['pagination-navbar']}>
-          <li className={styles['pagination-item']}>Prev</li>
+        <div className={styles['pagination-navbar']}>
+          <button
+            className={styles['pagination-item']}
+            disabled={page === 1}
+            onClick={() => {
+              const newPage = Number(page) - 1;
+              onSetSearchParam({
+                page: String(Number(page) - 1),
+                query: query || '',
+              });
+              window.scrollTo(0, 0);
+              setActivePage(newPage);
+            }}
+          >
+            Prev
+          </button>
           {pageNumbersArray.map((pageNumber) => (
-            <li className={styles['pagination-item']}>{pageNumber}</li>
+            <button
+              key={pageNumber}
+              className={
+                pageNumber === activePage
+                  ? styles['pagination-item-active']
+                  : styles['pagination-item']
+              }
+              onClick={() => {
+                onSetSearchParam({
+                  page: String(Number(pageNumber)),
+                  query: query || '',
+                });
+                window.scrollTo(0, 0);
+                setActivePage(pageNumber);
+              }}
+            >
+              {pageNumber}
+            </button>
           ))}
-          <li className={styles['pagination-item']}>Next</li>
-        </ul>
+          <button
+            className={styles['pagination-item']}
+            disabled={page === pageNumbers}
+            onClick={() => {
+              const newPage = Number(page) + 1;
+              onSetSearchParam({
+                page: String(Number(page) + 1),
+                query: query || '',
+              });
+              window.scrollTo(0, 0);
+              setActivePage(newPage);
+            }}
+          >
+            Next
+          </button>
+        </div>
       </nav>
     </>
   );

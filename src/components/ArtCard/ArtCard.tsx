@@ -19,7 +19,7 @@ function ArtCard({ id, title, image_id, artist_title, iiifBaseUrl }: ArtCardProp
             key={id}
           />
         )}
-        <p>{title}</p>
+        <p>Title: {title}</p>
         <p>Artist Name: {artist_title}</p>
       </div>
     </Link>

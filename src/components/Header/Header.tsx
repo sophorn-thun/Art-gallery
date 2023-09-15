@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './NavBar.module.css';
+import styles from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 
 interface NavBarProps {
