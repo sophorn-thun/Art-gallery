@@ -5,6 +5,7 @@ import Footer from '../../components/Footer/Footer';
 import ArtGrid from '../../components/ArtGrid/ArtGrid';
 import { useState } from 'react';
 import useArtWork, { SortType, ArtworkType } from '../../hooks/useArtWork';
+import Sort from '../../components/Sort/Sort';
 import { useSearchParams } from 'react-router-dom';
 
 function Artwork() {
@@ -55,6 +56,15 @@ function Artwork() {
   return (
     <div>
       <SearchInput onSearch={handleSearch} />
+      <Sort
+        defaultPanel="Sort Artwork"
+        defaultPanelOption1="By Date"
+        onSortByDate={handleSortByDate}
+        defaultPanelOption2="By Title"
+        onSortByTitle={handleSortByTitle}
+        defaultPanelOption3="By Artist"
+        onSortByArtist={handleSortByArtist}
+      />
       <Accordion
         defaultPanel="Sort"
         defaultPanelOption1="By Date"
