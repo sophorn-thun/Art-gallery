@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useFetch } from './useFetch';
+import useRouteGlobalData from './useRouteGlobalData';
 import type { Info } from '../components/Pagination/Pagination';
 
 export interface ArtProps {
@@ -22,8 +22,7 @@ export interface ApiResponse {
 
 export type SortType = 'date' | 'title' | 'artist' | null;
 export type ArtworkType = 'Painting' | 'Sculpture' | 'Print' | null;
-
-function useArtWork(
+export default function useArtWork(
   searchTerm: string = '',
   size: number = 12,
   sortType: SortType = null,
@@ -34,7 +33,7 @@ function useArtWork(
     searchTerm,
   )}&size=${size}&page=${page}&fields=id,title,image_id,date_start,artist_id,artist_title,artwork_type_title,style_title,classification_title`;
 
-  const { data, isLoading, isError, error } = useFetch<ApiResponse>(endpoint);
+  const { data, isLoading, error } = useRouteGlobalData<ApiResponse>(endpoint);
 
   const [sortedData, setSortedData] = useState<ArtProps[]>([]);
 
@@ -76,7 +75,5 @@ function useArtWork(
     }
   }, [data, sortType, artworkType]);
 
-  return { data: sortedData, info: data?.info, isLoading, isError, error };
+  return { data: sortedData, info: data?.info, isLoading, error };
 }
-
-export default useArtWork;

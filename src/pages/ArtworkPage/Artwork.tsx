@@ -17,13 +17,7 @@ function Artwork() {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [sortType, setSortType] = useState<SortType>(null);
   const [artworkType, setArtworkType] = useState<ArtworkType>(null);
-  const { data, info, isLoading, isError, error } = useArtWork(
-    searchTerm,
-    12,
-    sortType,
-    artworkType,
-    page,
-  );
+  const { data, info, isLoading, error } = useArtWork(searchTerm, 12, sortType, artworkType, page);
 
   const handleSearch = async (query: string) => {
     setSearchTerm(query);
@@ -69,7 +63,7 @@ function Artwork() {
           onSortByArtist={handleSortByArtist}
         />
         <Filter
-          secondPanel="Filter artwork"
+          secondPanel="Filter Artwork"
           secondPanelOption1="Painting"
           onFilterByPainting={handleFilterByPainting}
           secondPanelOption2="Sculpture"
@@ -95,4 +89,3 @@ function Artwork() {
 }
 
 export default Artwork;
-// It seems info is not needed

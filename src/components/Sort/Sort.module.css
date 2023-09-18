@@ -4,15 +4,24 @@
   padding: 1.5rem;
   background-color: #ffffff;
   align-items: center;
+  justify-content: flex-start;
 }
 
-button {
+.sort-button {
   padding: 15px;
   margin: 0.5rem;
   border: none;
 }
 
-.active {
+.sort-button:hover {
+  cursor: pointer;
   background-color: rgb(207, 196, 126);
   color: #ffffff;
+}
+
+.sort-button-active {
+  background-color: rgb(207, 196, 126);
+  color: #ffffff;
+  padding: 1rem;
+  border: none;
 }
