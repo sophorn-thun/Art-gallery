@@ -47,7 +47,7 @@ function Artwork() {
     setArtworkType(isChecked ? 'Print' : null);
   };
 
-  console.log(data);
+  console.log(page);
 
   return (
     <div>
