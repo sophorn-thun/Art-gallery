@@ -45,19 +45,25 @@ function Sort({
       <h2 className={styles['accordion-title']}>{defaultPanel}</h2>
       <div className={styles['button-container']}>
         <button
-          className={activeSort === 'date' ? styles['active'] : ''}
+          className={
+            activeSort === 'date' ? `${styles['sort-button-active']}` : `${styles['sort-button']}`
+          }
           onClick={() => handleButtonClick('date')}
         >
           {defaultPanelOption1}
         </button>
         <button
-          className={activeSort === 'title' ? styles['active'] : ''}
+          className={
+            activeSort === 'title' ? `${styles['sort-button-active']}` : `${styles['sort-button']}`
+          }
           onClick={() => handleButtonClick('title')}
         >
           {defaultPanelOption2}
         </button>
         <button
-          className={activeSort === 'artist' ? styles['active'] : ''}
+          className={
+            activeSort === 'artist' ? `${styles['sort-button-active']}` : `${styles['sort-button']}`
+          }
           onClick={() => handleButtonClick('artist')}
         >
           {defaultPanelOption3}

@@ -45,22 +45,20 @@ function Filter({
   };
 
   return (
-    <div>
-      <div className={styles.title}>
-        <h2>{secondPanel}</h2>
-        <div className={styles['accordion-select']} onClick={() => setIsOpen(!isOpen)}>
-          <span>{selectedOption}</span>
-          <span className={styles['arrow']}>▼</span>
-        </div>
-        {isOpen && (
-          <div className={styles['dropdown-content']}>
-            <p onClick={() => handleOptionClick('All artworks')}>All artworks</p>
-            <p onClick={() => handleOptionClick(secondPanelOption1)}>{secondPanelOption1}</p>
-            <p onClick={() => handleOptionClick(secondPanelOption2)}>{secondPanelOption2}</p>
-            <p onClick={() => handleOptionClick(secondPanelOption3)}>{secondPanelOption3}</p>
-          </div>
-        )}
+    <div className={styles['filter-container']}>
+      <h2>{secondPanel}</h2>
+      <div className={styles['accordion-select']} onClick={() => setIsOpen(!isOpen)}>
+        <span>{selectedOption}</span>
+        <span className={styles['arrow']}>▼</span>
       </div>
+      {isOpen && (
+        <div className={styles['dropdown-content']}>
+          <p onClick={() => handleOptionClick('All artworks')}>All artworks</p>
+          <p onClick={() => handleOptionClick(secondPanelOption1)}>{secondPanelOption1}</p>
+          <p onClick={() => handleOptionClick(secondPanelOption2)}>{secondPanelOption2}</p>
+          <p onClick={() => handleOptionClick(secondPanelOption3)}>{secondPanelOption3}</p>
+        </div>
+      )}
     </div>
   );
 }
