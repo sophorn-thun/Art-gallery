@@ -40,11 +40,10 @@ function Form({ isMemberLinkVisible, title, submitButtonLabel, inputItems, onSub
     <div className={styles['sign-up']}>
       <div className={styles['form-main']}>
         <h1>{title}</h1>
-        <form method="post" onSubmit={handleSubmit} className={styles['form']}>
+        <form onSubmit={handleSubmit} className={styles['form']}>
           {inputItems.map((inputItem) => (
             <input
               name={inputItem}
-              value={formData[inputItem as keyof UserFormData]}
               onChange={handleInputChange}
               className={styles['form-input']}
               key={inputItem}

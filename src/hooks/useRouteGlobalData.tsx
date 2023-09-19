@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import useGlobalState from '../context/useGlobalState';
+import useGlobalState from '../context/UseGlobalState';
 import { useFetch } from './useFetch';
 import { useRef, useEffect } from 'react';
 

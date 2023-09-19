@@ -7,25 +7,8 @@ function SignUp() {
   const navigate = useNavigate();
   const handleFormSubmit = (formData: UserFormData) => {
     console.log(formData);
-
-    fetch('http://localhost:8000/SignUp', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          alert(data.message);
-          navigate('/LogIn');
-        } else {
-          alert(data.message);
-        }
-      })
-      .catch((error) => {
-        console.error('There was an error during the sign-up process', error);
-        alert('There was an unexpected error during signing up. Please try again later.');
-      });
+    alert('You are now a member!');
+    navigate('/Login');
   };
 
   return (
