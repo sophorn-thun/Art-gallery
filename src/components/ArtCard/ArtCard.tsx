@@ -53,7 +53,7 @@ function ArtCard({ id, title, image_id, artist_title, iiifBaseUrl }: ArtCardProp
           />
         )}
         <div className={styles['title-container']}>
-          <p>Title: {title}</p>
+          <h4>Title: {title}</h4>
           {state.loggedIn && (
             <span onClick={handleSaveImage} className={styles['icon']}>
               <FontAwesomeIcon
@@ -63,7 +63,7 @@ function ArtCard({ id, title, image_id, artist_title, iiifBaseUrl }: ArtCardProp
             </span>
           )}
         </div>
-        <p>Artist Name: {artist_title}</p>
+        <h4>Artist Name: {artist_title}</h4>
       </div>
     </Link>
   );

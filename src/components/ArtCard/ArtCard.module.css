@@ -1,6 +1,7 @@
 .art-card {
   display: inline-block;
   width: 100%;
+  height:fit-content;
   box-sizing: border-box;
   overflow: hidden;
   border-bottom: 2px solid #ffffff;
@@ -10,16 +11,20 @@
 }
 
 .art-card img {
+  transition: all 0.3s;
+  object-fit: cover;
   width: 100%;
-  height: auto;
+  height: 100%;
+  left: 10px;
+  margin-bottom: 10px;
 }
 
 .art-card img:hover {
-  scale:calc(0.9);
+  transform: scale(1.05);
   cursor: pointer;
 }
 
-p {
+h4 {
   color:black;
   text-align: left;
 }
