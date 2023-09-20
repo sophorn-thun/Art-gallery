@@ -16,7 +16,6 @@ function ArtCardPage() {
   const {
     data: artwork,
     isLoading,
-    isError,
     error,
   } = useFetch<ArtCardProps>(`https://api.artic.edu/api/v1/artworks/${id}`);
 
@@ -26,7 +25,6 @@ function ArtCardPage() {
     <>
       <div className={styles['art-card-page']}>
         <h1>Selected Artwork</h1>
-        {isError && <div>{error?.message}</div>}
         {isLoading && <Loading />}
         <div className={styles['art-card-component']}>
           <ArtCard
