@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styles from './Header.module.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { GlobalStateContext } from '../../context/GlobalState';
 
 interface NavBarProps {
   navBarItems: string[];
@@ -9,6 +10,19 @@ interface NavBarProps {
 function NavBar({ navBarItems }: NavBarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isCrossed, setIsCrossed] = useState(false);
+
+  const navigate = useNavigate();
+  const globalState = useContext(GlobalStateContext);
+
+  if (!globalState) {
+    throw new Error('NavBar must be used within a GlobalStateContext');
+  }
+  const { state, setState } = globalState;
+
+  const handleLogOut = () => {
+    setState({ ...state, loggedIn: false });
+    navigate('/Home');
+  };
 
   return (
     <header className={styles['header']}>
@@ -42,18 +56,26 @@ function NavBar({ navBarItems }: NavBarProps) {
           ))}
         </ul>
         <ul className={menuOpen ? styles['open'] : ''}>
-          <li className={styles['navbar-li']}>
-            <NavLink
-              to={`/SignUp`}
-              className={({ isActive }) =>
-                isActive
-                  ? `${styles['navbar-a-signup']} ${styles.active}`
-                  : styles['navbar-a-signup']
-              }
-            >
-              SignUp
-            </NavLink>
-          </li>
+          {!state.loggedIn ? (
+            <li className={styles['navbar-li']}>
+              <NavLink
+                to={`/SignUp`}
+                className={({ isActive }) =>
+                  isActive
+                    ? `${styles['navbar-a-signup']} ${styles.active}`
+                    : styles['navbar-a-signup']
+                }
+              >
+                Sign Up
+              </NavLink>
+            </li>
+          ) : (
+            <li className={styles['navbar-li']}>
+              <button onClick={handleLogOut} className={styles['navbar-a-logout']}>
+                Log Out
+              </button>
+            </li>
+          )}
         </ul>
       </nav>
     </header>

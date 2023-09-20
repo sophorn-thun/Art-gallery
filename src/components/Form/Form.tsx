@@ -3,8 +3,14 @@ import { Link } from 'react-router-dom';
 
 import styles from './Form.module.css';
 
+interface InputItem {
+  label: string;
+  value: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+}
+
 interface FormProps {
-  inputItems: string[];
+  inputItems: InputItem[];
   title: string;
   submitButtonLabel: string;
   isMemberLinkVisible?: boolean;
@@ -43,15 +49,17 @@ function Form({ isMemberLinkVisible, title, submitButtonLabel, inputItems, onSub
         <form onSubmit={handleSubmit} className={styles['form']}>
           {inputItems.map((inputItem) => (
             <input
-              name={inputItem}
-              onChange={handleInputChange}
+              name={inputItem.label}
+              value={inputItem.value}
+              onChange={inputItem.onChange}
               className={styles['form-input']}
-              key={inputItem}
-              placeholder={inputItem}
-              type={inputItem === 'password' ? 'password' : 'text'}
+              key={inputItem.label}
+              placeholder={inputItem.label}
+              type={inputItem.label.toLowerCase() === 'password' ? 'password' : 'text'}
               required
             />
           ))}
+
           <button type="submit" className={styles['button']}>
             {submitButtonLabel}
           </button>

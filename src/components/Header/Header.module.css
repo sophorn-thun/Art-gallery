@@ -106,6 +106,15 @@ nav:first-child {
 .navbar li.active {
   font-size: 1.3rem;
 }
+.navbar-a-logout {
+  color:rgb(219, 32, 32);
+  padding: 10px;
+  border: 1px solid #f4ece1;
+  border-radius: 5px;
+}
+.navbar-a-logout:hover {
+  cursor: pointer;
+}
 /* Response nav bar */
 @media (max-width: 500px) {
   .hamburger {
