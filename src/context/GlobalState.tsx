@@ -1,6 +1,6 @@
 import { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react';
 
-type State = { loggedIn?: boolean; [key: string]: unknown };
+type State = { loggedIn?: boolean; savedImages?: number[]; [key: string]: unknown };
 
 interface GlobalStateProviderProps {
   children: ReactNode;

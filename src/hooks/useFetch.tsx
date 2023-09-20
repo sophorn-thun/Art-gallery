@@ -13,13 +13,14 @@ type Action<T> =
   | { type: 'fetched'; payload: T }
   | { type: 'error'; payload: Error };
 
-export const useFetch = <T = unknown,>(
+export const useFetch = <T = any,>(
   url?: string,
   bypass: boolean = false,
   options?: RequestInit,
 ): State<T> => {
   const cache = useRef<Cache<T>>({});
   const cancelRequest = useRef<boolean>(false);
+
   const initialState: State<T> = { isLoading: false };
 
   const fetchReducer = (state: State<T>, action: Action<T>): State<T> => {
@@ -69,7 +70,7 @@ export const useFetch = <T = unknown,>(
       }
     };
 
-    void fetchData();
+    fetchData();
 
     return () => {
       cancelRequest.current = true;
