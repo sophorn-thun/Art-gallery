@@ -27,6 +27,7 @@ function ArtGrid({ arts, loading }: ArtGridProps) {
           artist_title={art.artist_title}
           image_id={art.image_id}
           iiifBaseUrl={iiifBaseUrl}
+          className={styles['artgrid-artcard']}
         />
       ))}
     </div>
