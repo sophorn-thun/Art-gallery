@@ -9,7 +9,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 interface ArtCardProps extends ArtProps {
   iiifBaseUrl?: string;
   artist_title?: string | undefined;
-  className: string;
+  className?: string;
 }
 
 function ArtCard({ id, title, image_id, artist_title, iiifBaseUrl, className }: ArtCardProps) {
