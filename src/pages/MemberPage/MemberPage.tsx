@@ -5,7 +5,10 @@ import { GlobalStateContext } from '../../context/GlobalState';
 import ArtCard from '../../components/ArtCard/ArtCard';
 import { useArtworkById } from '../../hooks/useArtworkById';
 
-function SavedArtworkItem({ imageId }) {
+interface Props {
+  imageId: number;
+}
+function SavedArtworkItem({ imageId }: Props) {
   const { artwork, isLoading, error } = useArtworkById(imageId.toString());
 
   if (isLoading)
@@ -17,14 +20,17 @@ function SavedArtworkItem({ imageId }) {
   if (error) return <p>Error loading artwork</p>;
 
   return (
-    <ArtCard
-      key={artwork?.id}
-      id={artwork?.id}
-      title={artwork?.title}
-      artist_title={artwork?.artist_title}
-      image_id={artwork?.image_id}
-      iiifBaseUrl={artwork?.iiif_url}
-    />
+    <>
+      <ArtCard
+        key={artwork?.id}
+        id={artwork?.id}
+        title={artwork?.title}
+        artist_title={artwork?.artist_title}
+        image_id={artwork?.image_id}
+        iiifBaseUrl={artwork?.iiif_url}
+        className={styles['member-artcard']}
+      />
+    </>
   );
 }
 

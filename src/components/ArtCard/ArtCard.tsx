@@ -9,9 +9,10 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 interface ArtCardProps extends ArtProps {
   iiifBaseUrl?: string;
   artist_title?: string | undefined;
+  className: string;
 }
 
-function ArtCard({ id, title, image_id, artist_title, iiifBaseUrl }: ArtCardProps) {
+function ArtCard({ id, title, image_id, artist_title, iiifBaseUrl, className }: ArtCardProps) {
   if (typeof id === 'undefined') {
     return null;
   }
@@ -43,7 +44,7 @@ function ArtCard({ id, title, image_id, artist_title, iiifBaseUrl }: ArtCardProp
 
   return (
     <Link to={`/Artwork/${id}`}>
-      <div className={styles['art-card']}>
+      <div className={`${styles['art-card']} ${className || ''}`}>
         {image_id && (
           <img
             src={`${iiifBaseUrl}${image_id}/full/843,/0/default.jpg`}

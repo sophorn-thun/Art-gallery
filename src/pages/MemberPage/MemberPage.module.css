@@ -1,10 +1,19 @@
 h2, h3 {
   text-align: center;
   margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
-.saved-collection {
-  height: 200px;
-  border: 1px solid #54ae78;
-  margin: 0.5rem;
+.save-collection {
+  display: flex;
+}
+
+.member-artcard {
+  width: 300px;
+  object-fit: cover;
+  margin-left: 1rem;
+}
+
+.member-artcard img {
+  height: 300px;
 }

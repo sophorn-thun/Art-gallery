@@ -19,8 +19,8 @@ function App() {
   }
   const { state } = globalState;
 
-  const loggedInNavBarItems = ['Home', 'Artwork', 'Shop', 'MemberPage'];
-  const defaultNavBarItems = ['Home', 'Artwork', 'Shop', 'LogIn'];
+  const loggedInNavBarItems = ['Home', 'Artwork', 'MemberPage'];
+  const defaultNavBarItems = ['Home', 'Artwork', 'LogIn'];
 
   return (
     <div className="App">
@@ -30,7 +30,6 @@ function App() {
         <Route path="/Home" element={<Home />} />
         <Route path="/Artwork" element={<Artwork />} />
         <Route path="/Artwork/:id" element={<ArtCardPage />} />
-        <Route path="/Shop" element={<Shop />} />
         <Route path="/Login" element={<LogIn />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/MemberPage" element={<MemberPage />} />

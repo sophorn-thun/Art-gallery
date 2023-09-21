@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import UseAuth from '../../context/UseAuth';
 
+import styles from './LogIn.module.css';
+
 function LogIn() {
   const navigate = useNavigate();
   const { logIn } = UseAuth();
@@ -52,6 +54,7 @@ function LogIn() {
         inputItems={inputItems}
         onSubmit={handleSubmit}
       />
+      <p className={styles['demo']}>Demo email: test@email.com & password: test123</p>
     </>
   );
 }
