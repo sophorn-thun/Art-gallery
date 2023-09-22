@@ -23,7 +23,6 @@ export default function useRouteGlobalData<DataType>(apiUrl: string) {
     }));
   }
 
-  // Reset the ref if the apiUrl changes
   useEffect(() => {
     dataFetchedRef.current = false;
   }, [apiUrl]);

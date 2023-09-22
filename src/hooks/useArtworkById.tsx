@@ -1,4 +1,4 @@
-import { useFetch } from './useFetch';
+import useRouteGlobalData from './useRouteGlobalData';
 
 interface ArtworkResponse {
   data: {
@@ -7,12 +7,18 @@ interface ArtworkResponse {
     image_id: string;
     artist_title: string;
     iiif_url: string;
+    style_title?: string;
+    classification_title?: string;
+    place_of_origin?: string;
   };
 }
 
 const BASE_API_URL = 'https://api.artic.edu/api/v1/artworks/';
 const BASE_IIIF_URL = 'https://www.artic.edu/iiif/2/';
 
+interface Props {
+  id: string;
+}
 export const useArtworkById = (id: string) => {
   if (!id) {
     return {
@@ -23,7 +29,7 @@ export const useArtworkById = (id: string) => {
   }
 
   const apiUrl = `${BASE_API_URL}${id}`;
-  const { data, error, isLoading } = useFetch<ArtworkResponse>(apiUrl);
+  const { data, error, isLoading } = useRouteGlobalData<ArtworkResponse>(apiUrl);
 
   const artwork = data?.data;
 

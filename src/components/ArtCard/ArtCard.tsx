@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
 import { ArtProps } from '../../hooks/useArtWork';
-import { GlobalStateContext } from '../../context/GlobalState';
+import useGlobalState from '../../context/UseGlobalState';
 import styles from './ArtCard.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
@@ -17,10 +16,7 @@ function ArtCard({ id, title, image_id, artist_title, iiifBaseUrl, className }: 
     return null;
   }
 
-  const globalState = useContext(GlobalStateContext);
-  if (!globalState) {
-    throw new Error('ArtCard must be used within a GlobalStateProvider');
-  }
+  const globalState = useGlobalState();
 
   const { state, setState } = globalState;
   const isImageSaved = state.savedImages && state.savedImages.includes(id);

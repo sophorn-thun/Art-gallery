@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import ArtCard from '../../components/ArtCard/ArtCard';
-import { useFetch } from '../../hooks/useFetch';
+import { useArtworkById } from '../../hooks/useArtworkById';
 import { ArtProps } from '../../hooks/useArtWork';
 import Loading from '../../components/Loading/Loading';
 
@@ -13,13 +13,12 @@ interface ArtCardProps {
 function ArtCardPage() {
   const { id } = useParams();
 
-  const {
-    data: artwork,
-    isLoading,
-    error,
-  } = useFetch<ArtCardProps>(`https://api.artic.edu/api/v1/artworks/${id}`);
+  const { artwork, isLoading, error } = id
+    ? useArtworkById(id)
+    : { artwork: undefined, isLoading: false, error: undefined };
 
   const iiifBaseUrl = 'https://www.artic.edu/iiif/2/';
+
   const navigate = useNavigate();
   return (
     <>
@@ -28,23 +27,23 @@ function ArtCardPage() {
         {isLoading && <Loading />}
         <div className={styles['art-card-component']}>
           <ArtCard
-            id={artwork?.data.id}
-            title={artwork?.data.title}
-            artist_title={artwork?.data.artist_title}
-            image_id={artwork?.data.image_id}
+            id={artwork?.id}
+            title={artwork?.title}
+            artist_title={artwork?.artist_title}
+            image_id={artwork?.image_id}
             iiifBaseUrl={iiifBaseUrl}
           />
           <p className={styles['description']}>
             Style:
-            <span>{artwork?.data.style_title}</span>
+            <span>{artwork?.style_title}</span>
           </p>
           <p className={styles['description']}>
             Classification:
-            <span>{artwork?.data.classification_title}</span>
+            <span>{artwork?.classification_title}</span>
           </p>
           <p className={styles['description']}>
             Place of origin:
-            <span>{artwork?.data.place_of_origin}</span>
+            <span>{artwork?.place_of_origin}</span>
           </p>
         </div>
         <div className={styles['container']}>
