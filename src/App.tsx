@@ -8,15 +8,11 @@ import Shop from './pages/ShopPage/Shop';
 import ArtCardPage from './pages/ArtCardPage/ArtCardPage';
 import MemberPage from './pages/MemberPage/MemberPage';
 import NavBar from './components/Header/Header';
-import GlobalStateProvider, { GlobalStateContext } from './context/GlobalState';
+import useGlobalState from './context/UseGlobalState';
 import './App.css';
 
 function App() {
-  const globalState = useContext(GlobalStateContext);
-
-  if (!globalState) {
-    throw new Error('App must be used within a GlobalStateProvider');
-  }
+  const globalState = useGlobalState();
   const { state } = globalState;
 
   const loggedInNavBarItems = ['Home', 'Artwork', 'MemberPage'];

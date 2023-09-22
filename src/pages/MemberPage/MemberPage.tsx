@@ -1,7 +1,6 @@
-import { useContext } from 'react';
 import Loading from '../../components/Loading/Loading';
 import styles from './MemberPage.module.css';
-import { GlobalStateContext } from '../../context/GlobalState';
+import useGlobalState from '../../context/UseGlobalState';
 import ArtCard from '../../components/ArtCard/ArtCard';
 import { useArtworkById } from '../../hooks/useArtworkById';
 
@@ -35,11 +34,7 @@ function SavedArtworkItem({ imageId }: Props) {
 }
 
 function MemberPage() {
-  const globalState = useContext(GlobalStateContext);
-  if (!globalState) {
-    throw new Error('MemberPage must be used within a GlobalStateProvider');
-  }
-
+  const globalState = useGlobalState();
   const { state } = globalState;
   const savedImages = state.savedImages;
 

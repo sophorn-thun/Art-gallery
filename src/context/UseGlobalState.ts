@@ -1,5 +1,4 @@
 import { useContext } from 'react'
-
 import { GlobalStateContext } from './GlobalState'
 
 export default function useGlobalState() {

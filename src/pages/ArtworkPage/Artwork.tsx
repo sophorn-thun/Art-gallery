@@ -17,7 +17,7 @@ function Artwork() {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [sortType, setSortType] = useState<SortType>(null);
   const [artworkType, setArtworkType] = useState<ArtworkType>(null);
-  const { data, info, isLoading, error } = useArtWork(searchTerm, 12, sortType, artworkType, page);
+  const { data, info, isLoading } = useArtWork(searchTerm, 12, sortType, artworkType, page);
 
   const handleSearch = async (query: string) => {
     setSearchTerm(query);

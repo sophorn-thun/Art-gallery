@@ -1,12 +1,7 @@
-import { useContext } from 'react';
-import { GlobalStateContext } from './GlobalState';
+import useGlobalState from './UseGlobalState';
 
 function UseAuth() {
-  const context = useContext(GlobalStateContext);
-
-  if (!context) {
-    throw new Error('UseAuth must be used within a GlobalStateProvider');
-  }
+  const context = useGlobalState();
 
   const { state, setState } = context;
 
