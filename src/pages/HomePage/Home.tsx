@@ -25,6 +25,7 @@ function Home() {
         </h1>
         <div ref={divRef} className={styles['typingWelcome']}>
           <svg
+            className={styles.svg}
             ref={svgRef}
             width="385"
             height="117"
