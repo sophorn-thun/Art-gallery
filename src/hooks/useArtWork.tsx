@@ -50,24 +50,9 @@ export default function useArtWork(
     'classification_title',
   ].join(',');
 
-  let sortParam = '';
-  switch (sortType) {
-    case 'date':
-      sortParam = '&sort=date_start';
-      break;
-    case 'title':
-      sortParam = '&sort=title';
-      break;
-    case 'artist':
-      sortParam = '&sort=artist_title';
-      break;
-    default:
-      break;
-  }
-
   const endpoint = `${baseEndpoint}?q=${encodeURIComponent(
     combinedSearchTerm,
-  )}&size=${size}&page=${page}&fields=${fields}${sortParam}`;
+  )}&size=${size}&page=${page}&fields=${fields}`;
 
   const { data, isLoading, error } = useRouteGlobalData<ApiResponse>(endpoint);
 
