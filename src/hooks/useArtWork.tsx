@@ -36,9 +36,38 @@ export default function useArtWork(
     combinedSearchTerm = `${searchTerm} ${artworkType}`.trim();
   }
 
-  const endpoint = `https://api.artic.edu/api/v1/artworks/search?q=${encodeURIComponent(
+  const baseEndpoint = `https://api.artic.edu/api/v1/artworks/search`;
+
+  const fields = [
+    'id',
+    'title',
+    'image_id',
+    'date_start',
+    'artist_id',
+    'artist_title',
+    'artwork_type_title',
+    'style_title',
+    'classification_title',
+  ].join(',');
+
+  let sortParam = '';
+  switch (sortType) {
+    case 'date':
+      sortParam = '&sort=date_start';
+      break;
+    case 'title':
+      sortParam = '&sort=title';
+      break;
+    case 'artist':
+      sortParam = '&sort=artist_title';
+      break;
+    default:
+      break;
+  }
+
+  const endpoint = `${baseEndpoint}?q=${encodeURIComponent(
     combinedSearchTerm,
-  )}&size=${size}&page=${page}&fields=id,title,image_id,date_start,artist_id,artist_title,artwork_type,title_title,style_title,classification_title`;
+  )}&size=${size}&page=${page}&fields=${fields}${sortParam}`;
 
   const { data, isLoading, error } = useRouteGlobalData<ApiResponse>(endpoint);
 
