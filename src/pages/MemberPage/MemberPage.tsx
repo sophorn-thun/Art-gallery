@@ -37,6 +37,7 @@ function MemberPage() {
   const globalState = useGlobalState();
   const { state } = globalState;
   const savedImages = state.savedImages;
+  console.log('saved images: ', savedImages);
 
   return (
     <>
@@ -45,7 +46,7 @@ function MemberPage() {
           <h2 className={styles['welcome']}>Hello there! Here's your saved artwork collection:</h2>
           <div className={styles['saved-collection']}>
             {savedImages.map((imageId) => (
-              <SavedArtworkItem key={imageId} imageId={imageId} />
+              <SavedArtworkItem key={`artwork-${imageId}`} imageId={imageId} />
             ))}
           </div>
         </>

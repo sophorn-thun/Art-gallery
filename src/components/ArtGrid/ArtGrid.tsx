@@ -13,7 +13,7 @@ function ArtGrid({ arts, loading }: ArtGridProps) {
 
   if (loading) return <Loading />;
 
-  if (!arts.length) {
+  if (!arts || !arts.length) {
     return <div>No artworks found!</div>;
   }
 

@@ -22,6 +22,7 @@ export interface ApiResponse {
 
 export type SortType = 'date' | 'title' | 'artist' | null;
 export type ArtworkType = 'Painting' | 'Sculpture' | 'Print' | null;
+
 export default function useArtWork(
   searchTerm: string = '',
   size: number = 12,
@@ -29,9 +30,15 @@ export default function useArtWork(
   artworkType: ArtworkType = null,
   page: number = 1,
 ) {
+  let combinedSearchTerm = searchTerm;
+
+  if (artworkType) {
+    combinedSearchTerm = `${searchTerm} ${artworkType}`.trim();
+  }
+
   const endpoint = `https://api.artic.edu/api/v1/artworks/search?q=${encodeURIComponent(
-    searchTerm,
-  )}&size=${size}&page=${page}&fields=id,title,image_id,date_start,artist_id,artist_title,artwork_type_title,style_title,classification_title`;
+    combinedSearchTerm,
+  )}&size=${size}&page=${page}&fields=id,title,image_id,date_start,artist_id,artist_title,artwork_type,title_title,style_title,classification_title`;
 
   const { data, isLoading, error } = useRouteGlobalData<ApiResponse>(endpoint);
 
@@ -41,22 +48,6 @@ export default function useArtWork(
     if (data) {
       let processedData = [...data.data];
 
-      // Filtering based on artwork type
-      switch (artworkType) {
-        case 'Painting':
-          processedData = processedData.filter((item) => item.artwork_type_title === 'Painting');
-          break;
-        case 'Sculpture':
-          processedData = processedData.filter((item) => item.artwork_type_title === 'Sculpture');
-          break;
-        case 'Print':
-          processedData = processedData.filter((item) => item.artwork_type_title === 'Print');
-          break;
-        default:
-          break;
-      }
-
-      // Sorting on the data
       switch (sortType) {
         case 'date':
           processedData.sort((a, b) => (b.date_start || -Infinity) - (a.date_start || -Infinity));
@@ -73,7 +64,7 @@ export default function useArtWork(
 
       setSortedData(processedData);
     }
-  }, [data, sortType, artworkType]);
+  }, [data, sortType]);
 
   return { data: sortedData, info: data?.info, isLoading, error };
 }

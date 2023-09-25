@@ -7,7 +7,8 @@ export default function useRouteGlobalData<DataType>(apiUrl: string) {
   const location = useLocation();
   const { state, setState } = useGlobalState();
 
-  const cachedRouteData = state[location.pathname];
+  const cacheKey = apiUrl;
+  const cachedRouteData = state[cacheKey];
 
   const hasCachedRouteData = Boolean(cachedRouteData);
 
@@ -20,10 +21,10 @@ export default function useRouteGlobalData<DataType>(apiUrl: string) {
     if (data && !hasCachedRouteData) {
       setState((prevState) => ({
         ...prevState,
-        [location.pathname]: data,
+        [cacheKey]: data,
       }));
     }
-  }, [data, hasCachedRouteData, location.pathname, setState]);
+  }, [data, hasCachedRouteData, location.pathname, setState, apiUrl]);
 
   const _data = (hasCachedRouteData ? cachedRouteData : data) as DataType;
 

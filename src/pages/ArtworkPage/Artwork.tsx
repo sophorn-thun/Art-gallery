@@ -2,25 +2,41 @@ import SearchInput from '../../components/Search/SearchInput';
 import Pagination from '../../components/Pagination/Pagination';
 import Footer from '../../components/Footer/Footer';
 import ArtGrid from '../../components/ArtGrid/ArtGrid';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import useArtWork, { SortType, ArtworkType } from '../../hooks/useArtWork';
+import { useSearchParams } from 'react-router-dom';
 import Sort from '../../components/Sort/Sort';
 import Filter from '../../components/Filter/Filter';
-import { useSearchParams } from 'react-router-dom';
 
 import styles from './ArtworkPage.module.css';
 
 function Artwork() {
-  const [searchParams, setSearchParams] = useSearchParams({ page: '1' });
-  const page = Number(searchParams.get('page') || 1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = Number(searchParams.get('page') || '1');
+  const searchTermFromUrl = searchParams.get('searchTerm') || '';
+  const artworkTypeFromUrl = searchParams.get('artworkType') as ArtworkType;
 
-  const [searchTerm, setSearchTerm] = useState<string>('');
   const [sortType, setSortType] = useState<SortType>(null);
-  const [artworkType, setArtworkType] = useState<ArtworkType>(null);
+  const [searchTerm, setSearchTerm] = useState<string>(searchTermFromUrl);
+  const [artworkType, setArtworkType] = useState<ArtworkType | null>(artworkTypeFromUrl || null);
+
   const { data, info, isLoading } = useArtWork(searchTerm, 12, sortType, artworkType, page);
+
+  const updateSearchParams = () => {
+    const params = new URLSearchParams();
+    params.set('page', page.toString());
+    if (searchTerm) params.set('searchTerm', searchTerm);
+    if (artworkType) params.set('artworkType', artworkType);
+    setSearchParams(params);
+  };
+
+  useEffect(() => {
+    updateSearchParams();
+  }, [searchTerm, page, artworkType]);
 
   const handleSearch = async (query: string) => {
     setSearchTerm(query);
+    updateSearchParams();
   };
 
   const handleSortByDate = (isChecked: boolean) => {
@@ -35,6 +51,7 @@ function Artwork() {
     setSortType(isChecked ? 'artist' : null);
   };
 
+  // Filtering handlers
   const handleFilterByPainting = (isChecked: boolean) => {
     setArtworkType(isChecked ? 'Painting' : null);
   };
@@ -47,31 +64,27 @@ function Artwork() {
     setArtworkType(isChecked ? 'Print' : null);
   };
 
-  console.log(page);
-
   return (
     <div>
       <SearchInput onSearch={handleSearch} />
-      <div className={styles['sort-filter-container']}>
-        <Sort
-          defaultPanel="Sort Artwork"
-          defaultPanelOption1="By Date"
-          onSortByDate={handleSortByDate}
-          defaultPanelOption2="By Title"
-          onSortByTitle={handleSortByTitle}
-          defaultPanelOption3="By Artist"
-          onSortByArtist={handleSortByArtist}
-        />
-        <Filter
-          secondPanel="Filter Artwork"
-          secondPanelOption1="Painting"
-          onFilterByPainting={handleFilterByPainting}
-          secondPanelOption2="Sculpture"
-          onFilterBySculpture={handleFilterBySculpture}
-          secondPanelOption3="Print"
-          onFilterByPrint={handleFilterByPrint}
-        />
-      </div>
+      <Sort
+        defaultPanel="Sort Artwork"
+        defaultPanelOption1="By Date"
+        onSortByDate={handleSortByDate}
+        defaultPanelOption2="By Title"
+        onSortByTitle={handleSortByTitle}
+        defaultPanelOption3="By Artist"
+        onSortByArtist={handleSortByArtist}
+      />
+      <Filter
+        secondPanel="Filter Artwork"
+        secondPanelOption1="Painting"
+        onFilterByPainting={handleFilterByPainting}
+        secondPanelOption2="Sculpture"
+        onFilterBySculpture={handleFilterBySculpture}
+        secondPanelOption3="Print"
+        onFilterByPrint={handleFilterByPrint}
+      />
       <ArtGrid arts={data} loading={isLoading} />
       <Pagination
         totalPage={100}
@@ -81,8 +94,8 @@ function Artwork() {
         onSetSearchParam={setSearchParams}
       />
       <Footer
-        firstPara="This is front-end project using React and Typescripts."
-        secondPara="Images are obtained from Chicago Art Institute's public API."
+        firstPara="This is a front-end project using React and Typescript."
+        secondPara="Images are obtained from the Chicago Art Institute's public API."
       />
     </div>
   );

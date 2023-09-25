@@ -37,7 +37,8 @@ export const useArtworkById = (id: string) => {
     artwork.iiif_url = BASE_IIIF_URL;
   }
 
-  console.log(apiUrl);
+  console.log('api url:', apiUrl);
+
   console.log(artwork?.iiif_url);
 
   return {
