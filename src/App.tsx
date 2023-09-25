@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import SignUp from './pages/SignUpPage/SignUp';
 import LogIn from './pages/LogInPage/LogIn';
 import Shop from './pages/ShopPage/Shop';
+import NotFound from './pages/NotFoundPage/NotFound';
 import ArtCardPage from './pages/ArtCardPage/ArtCardPage';
 import MemberPage from './pages/MemberPage/MemberPage';
 import NavBar from './components/Header/Header';
@@ -29,6 +30,7 @@ function App() {
         <Route path="/Login" element={<LogIn />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/MemberPage" element={<MemberPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

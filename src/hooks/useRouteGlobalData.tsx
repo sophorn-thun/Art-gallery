@@ -1,31 +1,29 @@
 import { useLocation } from 'react-router-dom';
 import useGlobalState from '../context/UseGlobalState';
 import { useFetch } from './useFetch';
-import { useRef, useEffect } from 'react';
+import { useEffect } from 'react';
 
 export default function useRouteGlobalData<DataType>(apiUrl: string) {
   const location = useLocation();
   const { state, setState } = useGlobalState();
 
-  const cacheKey = `${location.pathname}${location.search}`;
-  const cachedRouteData = state[cacheKey];
+  const cachedRouteData = state[location.pathname];
 
   const hasCachedRouteData = Boolean(cachedRouteData);
-  const dataFetchedRef = useRef(false);
 
-  const { data, isLoading, error } = useFetch<DataType>(apiUrl, Boolean(cachedRouteData));
-
-  if (data && !hasCachedRouteData && !dataFetchedRef.current) {
-    dataFetchedRef.current = true;
-    setState((prevState) => ({
-      ...prevState,
-      [cacheKey]: data,
-    }));
-  }
+  const { data, isLoading, error } = useFetch<DataType>({
+    url: apiUrl,
+    bypass: Boolean(cachedRouteData),
+  });
 
   useEffect(() => {
-    dataFetchedRef.current = false;
-  }, [apiUrl]);
+    if (data && !hasCachedRouteData) {
+      setState((prevState) => ({
+        ...prevState,
+        [location.pathname]: data,
+      }));
+    }
+  }, [data, hasCachedRouteData, location.pathname, setState]);
 
   const _data = (hasCachedRouteData ? cachedRouteData : data) as DataType;
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Form from '../../components/Form/Form';
 import { UserFormData } from '../../components/Form/Form';
 import { useNavigate } from 'react-router-dom';
+import styles from './SignUp.module.css';
 
 function SignUp() {
   const navigate = useNavigate();

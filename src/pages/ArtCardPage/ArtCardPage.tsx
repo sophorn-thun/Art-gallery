@@ -1,14 +1,9 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import ArtCard from '../../components/ArtCard/ArtCard';
 import { useArtworkById } from '../../hooks/useArtworkById';
-import { ArtProps } from '../../hooks/useArtWork';
 import Loading from '../../components/Loading/Loading';
 
 import styles from './ArtCardPage.module.css';
-
-interface ArtCardProps {
-  data: ArtProps;
-}
 
 function ArtCardPage() {
   const { id } = useParams();

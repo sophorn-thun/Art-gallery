@@ -13,15 +13,23 @@ type Action<T> =
   | { type: 'fetched'; payload: T }
   | { type: 'error'; payload: Error };
 
-export const useFetch = <T = any,>(
-  url?: string,
-  bypass: boolean = false,
-  options?: RequestInit,
-): State<T> => {
+export function useFetch<T = unknown>({
+  bypass,
+  url,
+  options,
+}: {
+  url?: string;
+  bypass?: boolean;
+  options?: RequestInit;
+}): State<T> {
   const cache = useRef<Cache<T>>({});
   const cancelRequest = useRef<boolean>(false);
 
-  const initialState: State<T> = { isLoading: false };
+  const initialState: State<T> = {
+    error: undefined,
+    isLoading: false,
+    data: undefined,
+  };
 
   const fetchReducer = (state: State<T>, action: Action<T>): State<T> => {
     switch (action.type) {
@@ -70,12 +78,12 @@ export const useFetch = <T = any,>(
       }
     };
 
-    fetchData();
+    void fetchData();
 
     return () => {
       cancelRequest.current = true;
     };
-  }, [url, bypass, options]);
+  }, [url]);
 
   return state;
-};
+}

@@ -5,10 +5,6 @@
   padding: 2rem;
 }
 
-/* Responsive Homepage*/
-/* @media (min-width: 760px ) {
-  .welcome-page {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-} */
+.welcome-page {
+  height: 100vh;
+}
