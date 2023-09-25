@@ -29,19 +29,19 @@ svg {
 
 }
 .typingWelcome {
-  stroke-dasharray: 2039;
+  stroke-dasharray: 1938;
   stroke-dashoffset: 0;
   animation: 7s fillSvg linear infinite;
 
 }
  @keyframes fillSvg {
   0% {
-    stroke-dashoffset: 2039;
+    stroke-dashoffset: 1938;
   }
   50% {
     stroke-dashoffset: 0;
   }
   100% {
-    stroke-dashoffset: 2039;
+    stroke-dashoffset: 1938;
   }
  }
