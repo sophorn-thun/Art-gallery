@@ -67,24 +67,26 @@ function Artwork() {
   return (
     <div>
       <SearchInput onSearch={handleSearch} />
-      <Sort
-        defaultPanel="Sort Artwork"
-        defaultPanelOption1="By Date"
-        onSortByDate={handleSortByDate}
-        defaultPanelOption2="By Title"
-        onSortByTitle={handleSortByTitle}
-        defaultPanelOption3="By Artist"
-        onSortByArtist={handleSortByArtist}
-      />
-      <Filter
-        secondPanel="Filter Artwork"
-        secondPanelOption1="Painting"
-        onFilterByPainting={handleFilterByPainting}
-        secondPanelOption2="Sculpture"
-        onFilterBySculpture={handleFilterBySculpture}
-        secondPanelOption3="Print"
-        onFilterByPrint={handleFilterByPrint}
-      />
+      <div className={styles['sort-filter-container']}>
+        <Sort
+          defaultPanel="Sort Artwork"
+          defaultPanelOption1="By Date"
+          onSortByDate={handleSortByDate}
+          defaultPanelOption2="By Title"
+          onSortByTitle={handleSortByTitle}
+          defaultPanelOption3="By Artist"
+          onSortByArtist={handleSortByArtist}
+        />
+        <Filter
+          secondPanel="Filter Artwork"
+          secondPanelOption1="Painting"
+          onFilterByPainting={handleFilterByPainting}
+          secondPanelOption2="Sculpture"
+          onFilterBySculpture={handleFilterBySculpture}
+          secondPanelOption3="Print"
+          onFilterByPrint={handleFilterByPrint}
+        />
+      </div>
       <ArtGrid arts={data} loading={isLoading} />
       <Pagination
         totalPage={100}
