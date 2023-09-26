@@ -6,8 +6,8 @@
 }
 
 .welcome-page {
-  height: 100vh;
-  width: 100vw;
+  display: grid;
+  grid-template-rows: auto 1fr;
   overflow: hidden;
 }
 

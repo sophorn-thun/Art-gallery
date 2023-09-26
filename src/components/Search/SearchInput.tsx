@@ -1,5 +1,7 @@
 import styles from './SearchInput.module.css';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 interface SearchInputProps {
   onSearch: (query: string) => void;
@@ -20,7 +22,7 @@ function SearchInput({ onSearch }: SearchInputProps) {
 
   return (
     <div className={styles['search-box']}>
-      <i className={`${styles.fas} ${styles['fa-search']} ${styles['spotlight-icon']}`}></i>
+      <FontAwesomeIcon icon={faMagnifyingGlass} className={styles['icon']} />
       <input
         className={styles['search']}
         type="search"

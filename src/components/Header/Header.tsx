@@ -1,7 +1,7 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import styles from './Header.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { GlobalStateContext } from '../../context/GlobalState';
+import useGlobalState from '../../context/UseGlobalState';
 
 interface NavBarProps {
   navBarItems: string[];
@@ -12,15 +12,13 @@ function NavBar({ navBarItems }: NavBarProps) {
   const [isCrossed, setIsCrossed] = useState(false);
 
   const navigate = useNavigate();
-  const globalState = useContext(GlobalStateContext);
+  const globalState = useGlobalState();
 
-  if (!globalState) {
-    throw new Error('NavBar must be used within a GlobalStateContext');
-  }
   const { state, setState } = globalState;
 
   const handleLogOut = () => {
     setState({ ...state, loggedIn: false });
+    alert('See you again soon :)');
     navigate('/Home');
   };
 

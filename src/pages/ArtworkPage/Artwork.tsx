@@ -65,7 +65,7 @@ function Artwork() {
   };
 
   return (
-    <div>
+    <div className={styles['artwork-page']}>
       <SearchInput onSearch={handleSearch} />
       <div className={styles['sort-filter-container']}>
         <Sort
@@ -88,17 +88,21 @@ function Artwork() {
         />
       </div>
       <ArtGrid arts={data} loading={isLoading} />
-      <Pagination
-        totalPage={100}
-        postPerPage={10}
-        page={page}
-        info={info}
-        onSetSearchParam={setSearchParams}
-      />
-      <Footer
-        firstPara="This is a front-end project using React and Typescript."
-        secondPara="Images are obtained from the Chicago Art Institute's public API."
-      />
+      <div className={styles['pagination']}>
+        <Pagination
+          totalPage={100}
+          postPerPage={10}
+          page={page}
+          info={info}
+          onSetSearchParam={setSearchParams}
+        />
+      </div>
+      <div className={styles['footer']}>
+        <Footer
+          firstPara="This is a front-end project using React and Typescript."
+          secondPara="Images are obtained from the Chicago Art Institute's public API."
+        />
+      </div>
     </div>
   );
 }

@@ -2,11 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import Carousel from '../../components/Carousel/Carousel';
 import styles from './HomePage.module.css';
 
-import { SVGAttributes } from 'react';
-
 function Home() {
-  const h1Ref = useRef(null);
-  const divRef = useRef(null);
   const svgRef = useRef<SVGSVGElement | null>(null);
   const pathRef = useRef<SVGPathElement | null>(null);
 
@@ -20,10 +16,8 @@ function Home() {
   return (
     <div className={styles['welcome-page']}>
       <div className={styles['welcome-text']}>
-        <h1 ref={h1Ref} className={styles['fadeInScale']}>
-          Virtual Art Gallery
-        </h1>
-        <div ref={divRef} className={styles['typingWelcome']}>
+        <h1 className={styles['fadeInScale']}>Virtual Art Gallery</h1>
+        <div className={styles['typingWelcome']}>
           <svg
             className={styles.svg}
             ref={svgRef}
