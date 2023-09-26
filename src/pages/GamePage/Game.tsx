@@ -54,6 +54,7 @@ function Quiz() {
 
   function handleChoice(e: React.ChangeEvent<HTMLInputElement>) {
     const isCorrect = e.target.value === artCollection[currentQuestion].artist;
+
     setTimeout(() => {
       if (isCorrect) {
         setIsModalOpen(true);
@@ -62,9 +63,10 @@ function Quiz() {
       }
     }, 0);
   }
+
   return (
     <>
-      <h1>Surprize gift is await 😆 </h1>
+      <h1>Surprize gift is await 🤡</h1>
       <div className={styles['question']}>
         <h2>Who made this art?</h2>
         <form className={styles['question-form']} key={currentQuestion}>

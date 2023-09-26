@@ -7,13 +7,12 @@
 .artwork-page {
   position: relative;
 }
-
 .footer {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-}
+} 
 
 .pagination {
   padding-bottom: 3.5rem;
