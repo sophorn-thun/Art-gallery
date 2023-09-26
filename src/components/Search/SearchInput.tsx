@@ -15,6 +15,7 @@ function SearchInput({ onSearch }: SearchInputProps) {
       onSearch(searchTerm);
     }
   };
+
   const handleClearSearch = () => {
     setSearchTerm('');
     onSearch('');
