@@ -11,9 +11,10 @@
 }
 
 .question img {
-  width: 400px;
+  width: calc(400px + 2rem);
   height: 400px;
   align-self: center;
+  margin-top: 1rem;
 }
 
 .prev-button, .next-button {

@@ -64,11 +64,9 @@ function Quiz() {
   }
   return (
     <>
-      <h1>Can you get this right?</h1>
+      <h1>Surprize gift is await 😆 </h1>
       <div className={styles['question']}>
         <h2>Who made this art?</h2>
-        <img src={art.src} alt={art.alt} />
-        <h3>Choose one artist: </h3>
         <form className={styles['question-form']} key={currentQuestion}>
           {art.options.map((option, optionIndex) => (
             <div key={optionIndex}>
@@ -83,6 +81,7 @@ function Quiz() {
             </div>
           ))}
         </form>
+        <img src={art.src} alt={art.alt} />
         <button onClick={prevQuestion} className={styles['prev-button']}>
           Previous
         </button>
