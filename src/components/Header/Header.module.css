@@ -1,7 +1,9 @@
 header {
   background-color: rgb(93, 142, 107);
-  position: sticky;
+  position: fixed;
   top: 0;
+  right: 0;
+  left: 0;
   color: #f4ece1;;
   display: grid;
   grid-template-columns: 90px 80%;
