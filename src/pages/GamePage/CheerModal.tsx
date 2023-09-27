@@ -19,7 +19,7 @@ function CheerModal({ isOpen, onClose }: Props) {
           <FontAwesomeIcon icon={faGifts} />
         </div>
         <button onClick={onClose} className={styles['close-button']}>
-          Enough cheer 🙄{' '}
+          ❌{' '}
         </button>
       </div>
     </div>
