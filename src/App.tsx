@@ -21,18 +21,22 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar navBarItems={state.loggedIn ? loggedInNavBarItems : defaultNavBarItems} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/Artwork" element={<Artwork />} />
-        <Route path="/Artwork/:id" element={<ArtCardPage />} />
-        <Route path="/Quiz" element={<Quiz />} />
-        <Route path="/Login" element={<LogIn />} />
-        <Route path="/SignUp" element={<SignUp />} />
-        <Route path="/MemberPage" element={<MemberPage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <div className="header">
+        <NavBar navBarItems={state.loggedIn ? loggedInNavBarItems : defaultNavBarItems} />
+      </div>
+      <div className="other-section">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/Artwork" element={<Artwork />} />
+          <Route path="/Artwork/:id" element={<ArtCardPage />} />
+          <Route path="/Quiz" element={<Quiz />} />
+          <Route path="/Login" element={<LogIn />} />
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/MemberPage" element={<MemberPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
     </div>
   );
 }

@@ -28,12 +28,12 @@ function SignUp() {
 
   const inputItems = [
     {
-      label: 'FirstName',
+      label: 'First Name',
       value: firstName,
       onChange: handleFirstNameChange,
     },
     {
-      label: 'LastName',
+      label: 'Last Name',
       value: lastName,
       onChange: handleLastNameChange,
     },

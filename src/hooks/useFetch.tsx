@@ -13,15 +13,13 @@ type Action<T> =
   | { type: 'fetched'; payload: T }
   | { type: 'error'; payload: Error };
 
-export function useFetch<T = unknown>({
-  bypass,
-  url,
-  options,
-}: {
+interface Props {
   url?: string;
   bypass?: boolean;
   options?: RequestInit;
-}): State<T> {
+}
+
+export function useFetch<T = unknown>({ bypass, url, options }: Props): State<T> {
   const cache = useRef<Cache<T>>({});
   const cancelRequest = useRef<boolean>(false);
 
