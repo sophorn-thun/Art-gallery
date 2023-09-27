@@ -16,7 +16,7 @@ function App() {
   const globalState = useGlobalState();
   const { state } = globalState;
 
-  const loggedInNavBarItems = ['Home', 'Artwork', 'MemberPage'];
+  const loggedInNavBarItems = ['Home', 'Artwork', 'Quiz', 'Collection'];
   const defaultNavBarItems = ['Home', 'Artwork', 'Quiz', 'LogIn'];
 
   return (
@@ -33,7 +33,7 @@ function App() {
           <Route path="/Quiz" element={<Quiz />} />
           <Route path="/Login" element={<LogIn />} />
           <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/MemberPage" element={<MemberPage />} />
+          <Route path="/Collection" element={<MemberPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
