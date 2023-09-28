@@ -2,8 +2,10 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  margin-bottom: 1rem;
+  background-color: rgba(244, 234, 230, 0.6);
 }
 .question {
   display: flex;

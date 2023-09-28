@@ -9,6 +9,8 @@ h1 {
   align-items: center;
   justify-content: center;
   justify-items: center;
+  margin-top: 6rem;
+  background-color: rgba(244, 234, 230, 0.5);
 }
 
 .art-card-component {
@@ -47,9 +49,10 @@ span {
   cursor: pointer;
   transition: background-color 0.3s ease;
   position: absolute;
-  color: red;
+  color: #4297A0;
+  background-color: #ffffff;
 }
 .back-button:hover {
-  background-color: #89a684;
+  background-color:  #E57F84;
   color: #ffffff;
 }
