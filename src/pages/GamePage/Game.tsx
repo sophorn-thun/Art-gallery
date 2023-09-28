@@ -65,7 +65,7 @@ function Quiz() {
   }
 
   return (
-    <>
+    <div className={styles['game']}>
       <h1>Surprize gift is await 🤡</h1>
       <div className={styles['question']}>
         <h2>Who made this art?</h2>
@@ -84,15 +84,17 @@ function Quiz() {
           ))}
         </form>
         <img src={art.src} alt={art.alt} />
-        <button onClick={prevQuestion} className={styles['prev-button']}>
-          Previous
-        </button>
-        <button onClick={nextQuestion} className={styles['next-button']}>
-          Next
-        </button>
+        <div>
+          <button onClick={prevQuestion} className={styles['prev-button']}>
+            Previous
+          </button>
+          <button onClick={nextQuestion} className={styles['next-button']}>
+            Next
+          </button>
+        </div>
       </div>
       <CheerModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-    </>
+    </div>
   );
 }
 

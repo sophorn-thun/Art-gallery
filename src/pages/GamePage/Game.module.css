@@ -1,3 +1,10 @@
+.game {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .question {
   display: flex;
   flex-direction: column;
@@ -7,7 +14,7 @@
   display: flex;
   flex-direction: column;
   align-items: left;
-  margin-left: 40%;
+  margin-left: 35%;
 }
 
 .question img {
@@ -19,7 +26,7 @@
 
 .prev-button, .next-button {
   position: absolute;
-  top: 55%;
+  top: 95%;
   transform: translateY(-50%);
   z-index: 2;
   background: rgba(0, 0, 0, 0.5);
@@ -39,4 +46,8 @@
 
 input[type="radio"] {
   margin-right: 10px; 
+}
+
+h1 {
+  color: #4297A0;
 }

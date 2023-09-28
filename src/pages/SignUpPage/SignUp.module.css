@@ -1,4 +1,9 @@
-
+.signup {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .modal-overlay {
   position: fixed;
   top: 0;

@@ -66,7 +66,9 @@ function Artwork() {
 
   return (
     <div className={styles['artwork-page']}>
-      <SearchInput onSearch={handleSearch} />
+      <div className={styles['search']}>
+        <SearchInput onSearch={handleSearch} />
+      </div>
       <div className={styles['sort-filter-container']}>
         <Sort
           defaultPanel="Sort Artwork"
@@ -87,7 +89,9 @@ function Artwork() {
           onFilterByPrint={handleFilterByPrint}
         />
       </div>
-      <ArtGrid arts={data} loading={isLoading} />
+      <div className={styles['art-grid']}>
+        <ArtGrid arts={data} loading={isLoading} />
+      </div>
       <div className={styles['pagination']}>
         <Pagination
           totalPage={100}

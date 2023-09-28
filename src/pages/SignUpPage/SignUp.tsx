@@ -50,7 +50,7 @@ function SignUp() {
   ];
 
   return (
-    <>
+    <div className={styles['signup']}>
       <Form
         title="Sign Up"
         inputItems={inputItems}
@@ -58,7 +58,7 @@ function SignUp() {
         isMemberLinkVisible={true}
         onSubmit={handleFormSubmit}
       />
-    </>
+    </div>
   );
 }
 

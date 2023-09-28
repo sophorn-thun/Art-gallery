@@ -46,7 +46,7 @@ function LogIn() {
   ];
 
   return (
-    <>
+    <div className={styles['login']}>
       <Form
         isMemberLinkVisible={false}
         title="Log In"
@@ -55,7 +55,7 @@ function LogIn() {
         onSubmit={handleSubmit}
       />
       <p className={styles['demo']}>Demo email: test@email.com & password: test123</p>
-    </>
+    </div>
   );
 }
 

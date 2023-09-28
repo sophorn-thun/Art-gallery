@@ -1,11 +1,21 @@
+.search {
+  margin-top: 6rem;
+}
 .sort-filter-container {
   display: grid;
+  margin: 1rem;
   grid-template-columns: 1fr 1fr;
-  background-color: #ffffff;
+  background-color: rgba(244, 234, 230, 0.8);
 }
 
 .artwork-page {
   position: relative;
+}
+
+.art-grid {
+  padding: 10px;
+  background-color: rgba(244, 234, 230, 0.8);
+  margin: 1rem;
 }
 .footer {
   position: absolute;
