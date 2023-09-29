@@ -7,29 +7,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
+ 
 }
 
 .pagination-item {
   padding: 10px 10px;
-  border: 1px solid rgb(158, 170, 158);
+  border-left: 1px solid #E57F84;
+  border-right: 1px solid #E57F84;
   border-bottom: none;
+  border-top: none;
   background-color: #ffffff;
+  
 }
 
 .pagination-item:hover {
   cursor: pointer;
-  border: 1px solid rgb(44, 50, 44);
+  border: 1px solid #E57F84;
 }
 
 .pagination-item-active {
   padding: 10px 10px;
-  border: 2px solid rgb(58, 186, 58);
+  border: 2px solid #E57F84;
   background-color: #ffffff;
   font-size: 1.1rem; 
 }
 
 .pagination-item-active:hover {
   cursor: pointer;
-  border: 2px solid rgb(44, 50, 44);
+  border: 2px solid #E57F84;
   font-size: 1.1rem; 
 }

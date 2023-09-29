@@ -1,7 +1,6 @@
-h2, h3 {
+.welcome {
   text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-top: 100px;
 }
 
 .save-collection {
@@ -12,8 +11,14 @@ h2, h3 {
   width: 300px;
   object-fit: cover;
   margin-left: 1rem;
+  background-color: rgba(244, 234, 230, 0.6);
 }
 
 .member-artcard img {
   height: 300px;
+}
+
+.welcome-customize a {
+  text-decoration: none;
+  color: #E57F84;
 }

@@ -26,7 +26,7 @@ function LogIn() {
     if (email === user.email && password === user.password) {
       alert('Successfully logged in!');
       logIn();
-      navigate('/MemberPage');
+      navigate('/Collection');
     } else {
       alert('Invalid email/password! Please try again!');
     }

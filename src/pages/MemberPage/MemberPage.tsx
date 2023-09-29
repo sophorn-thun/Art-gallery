@@ -3,6 +3,7 @@ import styles from './MemberPage.module.css';
 import useGlobalState from '../../context/UseGlobalState';
 import ArtCard from '../../components/ArtCard/ArtCard';
 import { useArtworkById } from '../../hooks/useArtworkById';
+import { NavLink } from 'react-router-dom';
 
 interface Props {
   imageId: number;
@@ -51,7 +52,12 @@ function MemberPage() {
           </div>
         </>
       ) : (
-        <h2 className={styles['welcome']}>Hello there! Your artwork collection is empty!</h2>
+        <div>
+          <h2 className={styles['welcome']}>Hello there! Your artwork collection is empty!</h2>
+          <h2 className={styles['welcome-customize']}>
+            Customize your collection <NavLink to={'/Artwork'}>Here</NavLink>
+          </h2>
+        </div>
       )}
     </>
   );

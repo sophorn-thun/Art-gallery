@@ -3,7 +3,7 @@ import { ArtProps } from '../../hooks/useArtWork';
 import useGlobalState from '../../context/UseGlobalState';
 import styles from './ArtCard.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 interface ArtCardProps extends ArtProps {
   iiifBaseUrl?: string;

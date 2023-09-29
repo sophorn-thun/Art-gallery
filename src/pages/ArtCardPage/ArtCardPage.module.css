@@ -55,4 +55,6 @@ span {
 .back-button:hover {
   background-color:  #E57F84;
   color: #ffffff;
+  padding: 0;
+  margin: 0;
 }

@@ -35,16 +35,16 @@ h4 {
 }
 
 .heart-icon {
-  color: green;
-  font-size: 1.5rem;
+  color: #4297A0;
+  font-size: 1.7rem;
 }
 
 .heart-icon:hover {
-  color: red;
+  color: #E57F84;
 }
 
 .heart-icon-red {
-  color: red;
+  color: #E57F84;
   font-size: 1.5rem;
   cursor: pointer
 }
