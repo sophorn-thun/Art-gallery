@@ -21,7 +21,8 @@ h2 {
 }
 
 .arrow {
-  color: rgb(207, 196, 126);
+  color: #2F5061;
+  font-size: 1.3rem;
 }
 
 .dropdown-content {
@@ -38,9 +39,16 @@ h2 {
 }
 
 .dropdown-content p:hover {
-  background: #eee;
+  background-color: inherit;
 }
 
 .dropdown-content p:last-child {
   border-bottom: none;
+}
+
+@media (max-width: 660px) {
+  .filter-container {
+    margin-right: 0;
+    margin-left: 0;
+  }
 }

@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+
 import styles from './Filter.module.css';
 
 interface FilterProps {
@@ -49,7 +52,9 @@ function Filter({
       <h2>{secondPanel}</h2>
       <div className={styles['accordion-select']} onClick={() => setIsOpen(!isOpen)}>
         <span>{selectedOption}</span>
-        <span className={styles['arrow']}>▼</span>
+        <span className={styles['arrow']}>
+          <FontAwesomeIcon icon={faAngleDown} />
+        </span>
       </div>
       {isOpen && (
         <div className={styles['dropdown-content']}>

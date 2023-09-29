@@ -9,7 +9,6 @@
   display: flex;
   justify-content: center;
   align-items: center;   
-  color: #e3782b;
 }
 
 @keyframes shake {
@@ -27,7 +26,7 @@
 }
 
 .gift-icon {
-  color: rgb(24, 134, 97);
+  color: #E57F84;
   align-self: center;
   font-size: 4rem;
   display: flex;
@@ -55,6 +54,6 @@
   padding: 10px;
   border: none;
   font-size: 1.5rem;
-  background-color: black;
+  background-color: inherit;
   cursor: pointer;
 }

@@ -1,16 +1,18 @@
 .game {
-  height: 100vh;
+  margin-top: 100px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
-  margin-bottom: 1rem;
   background-color: rgba(244, 234, 230, 0.6);
 }
 .question {
   display: flex;
   flex-direction: column;
   position: relative;
+  width: 100%;
+  max-width: 600px;
 }
 .question-form {
   display: flex;
@@ -21,7 +23,8 @@
 
 .question img {
   width: calc(400px + 2rem);
-  height: 400px;
+  max-width: 100%;
+  height: auto;
   align-self: center;
   margin-top: 1rem;
 }
