@@ -86,7 +86,7 @@ function Quiz() {
         <img src={art.src} alt={art.alt} />
         <div>
           <button onClick={prevQuestion} className={styles['prev-button']}>
-            Previous
+            Prevs
           </button>
           <button onClick={nextQuestion} className={styles['next-button']}>
             Next

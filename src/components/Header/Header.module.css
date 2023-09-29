@@ -109,7 +109,8 @@ nav:first-child {
   font-size: 1.3rem;
 }
 .navbar-a-logout {
-  color:rgb(219, 32, 32);
+  color:#E57F84;
+  font-weight: 600;
   padding: 10px;
   border: 1px solid #f4ece1;
   border-radius: 5px;
