@@ -235,7 +235,14 @@ function NavBar({ navBarItems }: NavBarProps) {
         </div>
         <ul className={menuOpen ? styles['open'] : ''}>
           {navBarItems.map((navBarItem, index) => (
-            <li key={index} className={styles['navbar-li']}>
+            <li
+              key={index}
+              className={styles['navbar-li']}
+              onClick={() => {
+                setIsCrossed(!isCrossed);
+                setMenuOpen(!menuOpen);
+              }}
+            >
               <NavLink
                 to={`/${navBarItem}`}
                 className={({ isActive }) =>
