@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './Filter.module.css';
 
@@ -52,9 +53,15 @@ function Filter({
       <h2>{secondPanel}</h2>
       <div className={styles['accordion-select']} onClick={() => setIsOpen(!isOpen)}>
         <span>{selectedOption}</span>
-        <span className={styles['arrow']}>
-          <FontAwesomeIcon icon={faAngleDown} />
-        </span>
+        {isOpen ? (
+          <span className={styles['arrow']}>
+            <FontAwesomeIcon icon={faAngleUp} />
+          </span>
+        ) : (
+          <span className={styles['arrow']}>
+            <FontAwesomeIcon icon={faAngleDown} />
+          </span>
+        )}
       </div>
       {isOpen && (
         <div className={styles['dropdown-content']}>
