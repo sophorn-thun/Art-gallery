@@ -256,7 +256,13 @@ function NavBar({ navBarItems }: NavBarProps) {
         </ul>
         <ul className={menuOpen ? styles['open'] : ''}>
           {!state.loggedIn ? (
-            <li className={styles['navbar-li']}>
+            <li
+              className={styles['navbar-li']}
+              onClick={() => {
+                setIsCrossed(!isCrossed);
+                setMenuOpen(!menuOpen);
+              }}
+            >
               <NavLink
                 to={`/SignUp`}
                 className={({ isActive }) =>
@@ -269,7 +275,13 @@ function NavBar({ navBarItems }: NavBarProps) {
               </NavLink>
             </li>
           ) : (
-            <li className={styles['navbar-li']}>
+            <li
+              className={styles['navbar-li']}
+              onClick={() => {
+                setIsCrossed(!isCrossed);
+                setMenuOpen(!menuOpen);
+              }}
+            >
               <button onClick={handleLogOut} className={styles['navbar-a-logout']}>
                 Log Out
               </button>

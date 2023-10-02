@@ -71,7 +71,7 @@ function Artwork() {
       </div>
       <div className={styles['sort-filter-container']}>
         <Sort
-          defaultPanel="Sort Artwork"
+          defaultPanel="Sort"
           defaultPanelOption1="By Date"
           onSortByDate={handleSortByDate}
           defaultPanelOption2="By Title"
@@ -80,7 +80,7 @@ function Artwork() {
           onSortByArtist={handleSortByArtist}
         />
         <Filter
-          secondPanel="Filter Artwork"
+          secondPanel="Filter"
           secondPanelOption1="Painting"
           onFilterByPainting={handleFilterByPainting}
           secondPanelOption2="Sculpture"
