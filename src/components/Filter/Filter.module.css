@@ -39,7 +39,7 @@ h2 {
 }
 
 .dropdown-content p:hover {
-  background-color: inherit;
+  background-color: #ffffff;
 }
 
 .dropdown-content p:last-child {
@@ -50,5 +50,6 @@ h2 {
   .filter-container {
     margin-right: 0;
     margin-left: 0;
+    padding-right: 1rem;
   }
 }

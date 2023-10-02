@@ -3,9 +3,8 @@
 }
 .sort-filter-container {
   display: grid;
-  margin: 1rem;
+  margin: 0.5rem;
   grid-template-columns: 1fr 1fr;
-  background-color: rgba(244, 234, 230, 0.8);
 }
 
 .artwork-page {
@@ -14,7 +13,6 @@
 
 .art-grid {
   padding: 10px;
-  background-color: rgba(244, 234, 230, 0.8);
   margin: 1rem;
 }
 .footer {
@@ -26,4 +24,11 @@
 
 .pagination {
   padding-bottom: 3.5rem;
+}
+
+@media (max-width: 660px) {
+  .art-grid {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 }
