@@ -66,7 +66,7 @@ function Form({ isMemberLinkVisible, title, submitButtonLabel, inputItems, onSub
         </form>
         {isMemberLinkVisible && (
           <p>
-            Already a member?
+            Already a member?<span></span>
             <Link className={styles['link']} to="/LogIn">
               Log In
             </Link>

@@ -71,21 +71,21 @@ function Artwork() {
       </div>
       <div className={styles['sort-filter-container']}>
         <Sort
-          defaultPanel="Sort"
-          defaultPanelOption1="By Date"
+          title="Sort"
+          option1="By Date"
           onSortByDate={handleSortByDate}
-          defaultPanelOption2="By Title"
+          option2="By Title"
           onSortByTitle={handleSortByTitle}
-          defaultPanelOption3="By Artist"
+          option3="By Artist"
           onSortByArtist={handleSortByArtist}
         />
         <Filter
-          secondPanel="Filter"
-          secondPanelOption1="Painting"
+          title="Filter"
+          option1="Painting"
           onFilterByPainting={handleFilterByPainting}
-          secondPanelOption2="Sculpture"
+          option2="Sculpture"
           onFilterBySculpture={handleFilterBySculpture}
-          secondPanelOption3="Print"
+          option3="Print"
           onFilterByPrint={handleFilterByPrint}
         />
       </div>

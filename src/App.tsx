@@ -24,19 +24,17 @@ function App() {
       <div className="header">
         <NavBar navBarItems={state.loggedIn ? loggedInNavBarItems : defaultNavBarItems} />
       </div>
-      <div className="other-section">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Home" element={<Home />} />
-          <Route path="/Artwork" element={<Artwork />} />
-          <Route path="/Artwork/:id" element={<ArtCardPage />} />
-          <Route path="/Quiz" element={<Quiz />} />
-          <Route path="/Login" element={<LogIn />} />
-          <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/Collection" element={<MemberPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/Artwork" element={<Artwork />} />
+        <Route path="/Artwork/:id" element={<ArtCardPage />} />
+        <Route path="/Quiz" element={<Quiz />} />
+        <Route path="/Login" element={<LogIn />} />
+        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/Collection" element={<MemberPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 }

@@ -2,20 +2,20 @@ import { useState } from 'react';
 import styles from './Sort.module.css';
 
 interface SortProps {
-  defaultPanel: string;
-  defaultPanelOption1: string;
-  defaultPanelOption2: string;
-  defaultPanelOption3: string;
+  title: string;
+  option1: string;
+  option2: string;
+  option3: string;
   onSortByDate?: (isActive: boolean) => void;
   onSortByTitle?: (isActive: boolean) => void;
   onSortByArtist?: (isActive: boolean) => void;
 }
 
 function Sort({
-  defaultPanel,
-  defaultPanelOption1,
-  defaultPanelOption2,
-  defaultPanelOption3,
+  title,
+  option1,
+  option2,
+  option3,
   onSortByDate,
   onSortByTitle,
   onSortByArtist,
@@ -42,7 +42,7 @@ function Sort({
 
   return (
     <div className={styles['sort-container']}>
-      <h2 className={styles['accordion-title']}>{defaultPanel}</h2>
+      <h2 className={styles['accordion-title']}> {title}</h2>
       <div className={styles['button-container']}>
         <button
           className={
@@ -50,7 +50,7 @@ function Sort({
           }
           onClick={() => handleButtonClick('date')}
         >
-          {defaultPanelOption1}
+          {option1}
         </button>
         <button
           className={
@@ -58,7 +58,7 @@ function Sort({
           }
           onClick={() => handleButtonClick('title')}
         >
-          {defaultPanelOption2}
+          {option2}
         </button>
         <button
           className={
@@ -66,7 +66,7 @@ function Sort({
           }
           onClick={() => handleButtonClick('artist')}
         >
-          {defaultPanelOption3}
+          {option3}
         </button>
       </div>
     </div>

@@ -239,8 +239,8 @@ function NavBar({ navBarItems }: NavBarProps) {
               key={index}
               className={styles['navbar-li']}
               onClick={() => {
-                setIsCrossed(!isCrossed);
-                setMenuOpen(!menuOpen);
+                setIsCrossed(false);
+                setMenuOpen(false);
               }}
             >
               <NavLink
@@ -259,8 +259,8 @@ function NavBar({ navBarItems }: NavBarProps) {
             <li
               className={styles['navbar-li']}
               onClick={() => {
-                setIsCrossed(!isCrossed);
-                setMenuOpen(!menuOpen);
+                setIsCrossed(false);
+                setMenuOpen(false);
               }}
             >
               <NavLink
@@ -278,8 +278,8 @@ function NavBar({ navBarItems }: NavBarProps) {
             <li
               className={styles['navbar-li']}
               onClick={() => {
-                setIsCrossed(!isCrossed);
-                setMenuOpen(!menuOpen);
+                setIsCrossed(false);
+                setMenuOpen(false);
               }}
             >
               <button onClick={handleLogOut} className={styles['navbar-a-logout']}>

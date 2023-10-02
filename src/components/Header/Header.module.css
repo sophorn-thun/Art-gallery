@@ -1,27 +1,29 @@
 
 header {
-  background-color:#2F5061;
+  background-color:#3D5B59;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   color: #F6EEE0;
   display: grid;
-  grid-template-columns: 90px 80%;
+  grid-template-columns: 80px auto;
   z-index: 1000;
   padding: 10px;
+  width: 100vw;
+  max-width: 100%;
 }
+
 .logo-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 .logo {
   height: 40px;
-  width: 45px;
-  /* margin-left: 1rem; */
-  margin-right: 1rem;
-  background-color: #F6EEE0;
+  width: 40px;
+  background-color: #f2f2f2;
+  border-radius: 30px 30px 0 0;
 }
 nav {
   display: grid;

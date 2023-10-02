@@ -8,7 +8,6 @@
   flex-direction: column;
   align-items: center;     
   height: 100%;  
-  border: 2px solid #a8a3a3;    
   padding: 0 1rem 2rem 1rem;
   width: calc(250px + 2rem);
   background-color: #ffffff;
@@ -16,7 +15,6 @@
               0 6px 20px rgba(0, 0, 0, 0.3); 
   border-radius: 5px; 
 }
-
 
 h1 {
   text-align: center;
@@ -41,6 +39,7 @@ h1 {
   border-radius: 5px;
   background-color: #1b1a1a;
   margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 .button:hover {
   cursor: pointer;
