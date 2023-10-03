@@ -20,8 +20,9 @@ function SearchInput({ onSearch }: SearchInputProps) {
   };
 
   return (
-    <div className={styles['search-box']}>
+    <div className={styles['search-box']} role="search">
       <input
+        aria-label="Search artworks"
         className={styles['search']}
         type="search"
         placeholder="Search by keyword, artist..."
@@ -30,7 +31,11 @@ function SearchInput({ onSearch }: SearchInputProps) {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
       {searchTerm && (
-        <button onClick={handleClearSearch} className={styles['clear-search']}>
+        <button
+          onClick={handleClearSearch}
+          className={styles['clear-search']}
+          aria-label="Clear search"
+        >
           Clear
         </button>
       )}
