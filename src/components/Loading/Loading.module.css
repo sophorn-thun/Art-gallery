@@ -5,6 +5,7 @@
   align-items: center;
   padding: 30px;
   border: 1px solid #ddd;
+  min-height: 60vh;
 }
 .lds-spinner {
   display: inline-block;
@@ -25,7 +26,7 @@
   width: 6px;
   height: 18px;
   border-radius: 20%;
-  background: rgb(122, 153, 130);
+  background: #2E765E;
 }
 .lds-spinner div:nth-child(1) {
   transform: rotate(0deg);

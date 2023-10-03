@@ -20,7 +20,7 @@ function Artwork() {
   const [searchTerm, setSearchTerm] = useState<string>(searchTermFromUrl);
   const [artworkType, setArtworkType] = useState<ArtworkType | null>(artworkTypeFromUrl || null);
 
-  const { data, info, isLoading } = useArtWork(searchTerm, 12, sortType, artworkType, page);
+  const { data, isLoading } = useArtWork(searchTerm, 12, sortType, artworkType, page);
 
   const updateSearchParams = () => {
     const params = new URLSearchParams();
@@ -51,7 +51,6 @@ function Artwork() {
     setSortType(isChecked ? 'artist' : null);
   };
 
-  // Filtering handlers
   const handleFilterByPainting = (isChecked: boolean) => {
     setArtworkType(isChecked ? 'Painting' : null);
   };
@@ -97,7 +96,6 @@ function Artwork() {
           totalPage={100}
           postPerPage={10}
           page={page}
-          info={info}
           onSetSearchParam={setSearchParams}
         />
       </div>

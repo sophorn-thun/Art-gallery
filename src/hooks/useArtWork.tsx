@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useMemo } from 'react';
 import useRouteGlobalData from './useRouteGlobalData';
-import type { Info } from '../components/Pagination/Pagination';
 
 export interface ArtProps {
   id?: number;
@@ -17,7 +16,6 @@ export interface ArtProps {
 
 export interface ApiResponse {
   data: ArtProps[];
-  info?: Info;
 }
 
 export type SortType = 'date' | 'title' | 'artist' | null;
@@ -56,29 +54,25 @@ export default function useArtWork(
 
   const { data, isLoading, error } = useRouteGlobalData<ApiResponse>(endpoint);
 
-  const [sortedData, setSortedData] = useState<ArtProps[]>([]);
+  const sortedData = useMemo(() => {
+    if (!data) return [];
 
-  useEffect(() => {
-    if (data) {
-      let processedData = [...data.data];
+    let processedData = [...data.data];
 
-      switch (sortType) {
-        case 'date':
-          processedData.sort((a, b) => (b.date_start || -Infinity) - (a.date_start || -Infinity));
-          break;
-        case 'title':
-          processedData.sort((a, b) => a.title?.localeCompare(b.title || '') || 0);
-          break;
-        case 'artist':
-          processedData.sort((a, b) => a.artist_title?.localeCompare(b.artist_title || '') || 0);
-          break;
-        default:
-          break;
-      }
-
-      setSortedData(processedData);
+    switch (sortType) {
+      case 'date':
+        processedData.sort((a, b) => (b.date_start || -Infinity) - (a.date_start || -Infinity));
+        break;
+      case 'title':
+        processedData.sort((a, b) => a.title?.localeCompare(b.title || '') || 0);
+        break;
+      case 'artist':
+        processedData.sort((a, b) => a.artist_title?.localeCompare(b.artist_title || '') || 0);
+        break;
+      default:
+        break;
     }
+    return processedData;
   }, [data, sortType]);
-
-  return { data: sortedData, info: data?.info, isLoading, error };
+  return { data: sortedData, isLoading, error };
 }

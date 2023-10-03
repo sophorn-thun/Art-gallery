@@ -40,6 +40,5 @@ export default function useRouteGlobalData<DataType>(apiUrl: string) {
 
   const _data = (hasCachedRouteData ? cachedRouteData : data) as DataType;
 
-  console.log('Using cached data for:', apiUrl, hasCachedRouteData);
   return { data: _data, isLoading, error };
 }
