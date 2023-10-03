@@ -66,9 +66,9 @@ function Quiz() {
 
   return (
     <div className={styles['game']}>
+      <h1 className={styles['quiz-title']}>Surprized gift is await 🤡</h1>
       <div className={styles['question']}>
-        <h1>Surprize gift is await 🤡</h1>
-        <h2>Who made this art?</h2>
+        <h2>Q: Who made this art?</h2>
         <form className={styles['question-form']} key={currentQuestion}>
           {art.options.map((option, optionIndex) => (
             <div key={optionIndex}>
@@ -86,7 +86,7 @@ function Quiz() {
         <img src={art.src} alt={art.alt} />
         <div>
           <button onClick={prevQuestion} className={styles['prev-button']}>
-            Prevs
+            Prev
           </button>
           <button onClick={nextQuestion} className={styles['next-button']}>
             Next

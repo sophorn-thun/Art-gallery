@@ -1,26 +1,17 @@
 .search-box {
-  margin: 2rem 3rem 1rem 3rem;
-  position: relative;
+  margin: 1rem 3rem 1rem 3rem;
   display: flex;
 
 }
 .search {
   grid-column: 1 / span 2;
-  padding: 1rem;
-  padding-left: 2.5rem;
+  padding: 0.75rem 1rem;
   border-radius: 30px;
-  border: 2px solid #ddd;
+  border: 2px solid #638C80;
   width: 100%;
+  font-size: 0.75rem;
 }
 
-.icon {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 16px;
-  color: grey;
-}
 .clear-search {
   border-radius: 20px;
   margin-left: 10px;
@@ -28,9 +19,4 @@
   padding: 0 15px;
   border: 1px solid #ddd;
   color: red;
-
-}
-
-@media (min-width: 769px) {
-
 }

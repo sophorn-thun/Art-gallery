@@ -45,7 +45,7 @@ function Form({ isMemberLinkVisible, title, submitButtonLabel, inputItems, onSub
   return (
     <div className={styles['sign-up']}>
       <div className={styles['form-main']}>
-        <h1>{title}</h1>
+        <h1 className={styles['title']}>{title}</h1>
         <form onSubmit={handleSubmit} className={styles['form']}>
           {inputItems.map((inputItem) => (
             <input
