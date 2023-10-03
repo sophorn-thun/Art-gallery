@@ -42,7 +42,7 @@ function Sort({
 
   return (
     <div className={styles['sort-container']}>
-      <h2 className={styles['accordion-title']}> {title}</h2>
+      <h2 className={styles['title']}> {title}</h2>
       <div className={styles['button-container']}>
         <button
           className={

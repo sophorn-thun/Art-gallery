@@ -68,7 +68,7 @@ function Quiz() {
     <div className={styles['game']}>
       <h1 className={styles['quiz-title']}>Surprized gift is await 🤡</h1>
       <div className={styles['question']}>
-        <h2>Q: Who made this art?</h2>
+        <h2 className={styles['question-title']}>Q: Who made this art?</h2>
         <form className={styles['question-form']} key={currentQuestion}>
           {art.options.map((option, optionIndex) => (
             <div key={optionIndex}>

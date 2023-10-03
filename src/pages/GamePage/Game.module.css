@@ -17,6 +17,11 @@
 .quiz-title {
   color: #E57F84;
 }
+.question-title {
+  text-align: center;
+  color: #2E765E;
+  padding-bottom: 1rem;
+}
 .question-form {
   display: flex;
   flex-direction: column;

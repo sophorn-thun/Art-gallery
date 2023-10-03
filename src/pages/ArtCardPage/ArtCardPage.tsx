@@ -16,11 +16,11 @@ function ArtCardPage() {
 
   const navigate = useNavigate();
   return (
-    <>
-      <div className={styles['art-card-page']}>
-        <h1>Selected Artwork</h1>
-        {isLoading && <Loading />}
-        <div className={styles['art-card-component']}>
+    <div className={styles['art-card-page']}>
+      <h1>Selected Artwork</h1>
+      {isLoading && <Loading />}
+      <div className={styles['art-card-component']}>
+        <div className={styles['art-card']}>
           <ArtCard
             id={artwork?.id}
             title={artwork?.title}
@@ -28,26 +28,24 @@ function ArtCardPage() {
             image_id={artwork?.image_id}
             iiifBaseUrl={iiifBaseUrl}
           />
-          <p className={styles['description']}>
-            Style:
-            <span>{artwork?.style_title}</span>
-          </p>
-          <p className={styles['description']}>
-            Classification:
-            <span>{artwork?.classification_title}</span>
-          </p>
-          <p className={styles['description']}>
-            Place of origin:
-            <span>{artwork?.place_of_origin}</span>
-          </p>
         </div>
-        <div className={styles['container']}>
-          <button className={styles['back-button']} onClick={() => navigate(-1)}>
-            Back
-          </button>
-        </div>
+        <p className={styles['description']}>
+          Style:
+          <span>{artwork?.style_title}</span>
+        </p>
+        <p className={styles['description']}>
+          Classification:
+          <span>{artwork?.classification_title}</span>
+        </p>
+        <p className={styles['description']}>
+          Place of origin:
+          <span>{artwork?.place_of_origin}</span>
+        </p>
       </div>
-    </>
+      <button className={styles['back-button']} onClick={() => navigate(-1)}>
+        Go Back
+      </button>
+    </div>
   );
 }
 

@@ -5,9 +5,9 @@
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  gap: 0.5rem;
-  margin: 0;
-  padding: 0.5rem;
+  gap: 1.5rem;
+  margin: 1rem;
+  padding: 1rem;
 }
 
 .artwork-page {
@@ -33,5 +33,11 @@
   }
   .footer {
     font-size: 0.8rem;
+  }
+
+  .sort-filter-container {
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0.5rem;
   }
 }

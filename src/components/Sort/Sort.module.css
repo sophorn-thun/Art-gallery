@@ -6,13 +6,17 @@
   justify-content: center;
 }
 
+.title {
+  font-size: 1.3rem;
+  color: #2E765E;
+}
 .sort-button {
   padding: 0.2rem;
-  margin: 0.2rem;
+  margin: 0.5rem;
   border: none;
   color: #E57F84;
   background-color: #ffffff;
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 
 .sort-button:hover {
@@ -26,5 +30,26 @@
   color: #ffffff;
   border: none;
   padding: 0.2rem;
-  margin: 0.2rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 769px) {
+  .sort-button {
+    padding: 0.2rem;
+    margin: 0.2rem;
+    border: none;
+    color: #E57F84;
+    background-color: #ffffff;
+    font-size: 0.75rem;
+  }
+  .sort-button-active {
+    background-color: #E57F84;
+    color: #ffffff;
+    border: none;
+    padding: 0.2rem;
+    margin: 0.2rem;
+    font-size: 0.75rem;
+  }
+  
 }

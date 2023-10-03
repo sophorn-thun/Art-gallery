@@ -50,7 +50,7 @@ function Filter({
 
   return (
     <div className={styles['filter-container']}>
-      <h2>{title}</h2>
+      <h2 className={styles['title']}>{title}</h2>
       <div className={styles['accordion-select']} onClick={() => setIsOpen(!isOpen)}>
         <span>{selectedOption}</span>
         {isOpen ? (
