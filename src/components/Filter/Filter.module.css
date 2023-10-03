@@ -11,10 +11,10 @@
   color: #2E765E;
   font-size: 1.3rem;
 }
-.accordion-select {
+.select {
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   border-bottom: 1px solid #2E765E;
   align-items: center;
   color: #E57F84;
@@ -23,6 +23,7 @@
 .arrow {
   color: #2E765E;
   font-size: 1rem;
+  margin-left: 1rem;
 }
 
 .dropdown-content {

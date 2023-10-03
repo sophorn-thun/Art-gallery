@@ -2,28 +2,15 @@ import type { SetURLSearchParams } from 'react-router-dom';
 import styles from './Pagination.module.css';
 import { useState } from 'react';
 
-export interface Info {
-  count: number;
-  nextPage: string | null;
-  previousPage: string | null;
-}
 interface PaginationProps {
   postPerPage: number;
   totalPage: number;
-  info?: Info;
   page?: number | null;
   query?: string | null;
   onSetSearchParam: SetURLSearchParams;
 }
 
-function Pagination({
-  postPerPage,
-  totalPage,
-  info,
-  onSetSearchParam,
-  page,
-  query,
-}: PaginationProps) {
+function Pagination({ postPerPage, totalPage, onSetSearchParam, page, query }: PaginationProps) {
   const [activePage, setActivePage] = useState<number | null>(page || null);
 
   const pageNumbers = Math.ceil(totalPage / postPerPage);
