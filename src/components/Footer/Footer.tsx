@@ -1,13 +1,11 @@
 import styles from './Footer.module.css';
 interface FooterProps {
-  firstPara: string;
-  secondPara: string;
+  children: string;
 }
-function Footer({ firstPara, secondPara }: FooterProps) {
+function Footer({ children }: FooterProps) {
   return (
     <div className={styles['footer']}>
-      <p>{firstPara}</p>
-      <p>{secondPara}</p>
+      <p>{children}</p>
     </div>
   );
 }

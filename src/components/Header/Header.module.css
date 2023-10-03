@@ -117,6 +117,7 @@ nav:first-child {
   padding: 10px;
   border: 1px solid #F6EEE0;
   border-radius: 5px;
+  background-color: inherit;
 }
 .navbar-a-logout:hover {
   cursor: pointer;

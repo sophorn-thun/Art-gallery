@@ -100,10 +100,7 @@ function Artwork() {
         />
       </div>
       <div className={styles['footer']}>
-        <Footer
-          firstPara="React and Typescript project by Sophorn THUN."
-          secondPara="Credited to the Chicago Art Institute's public API."
-        />
+        <Footer>React and Typescript project by Sophorn THUN.</Footer>
       </div>
     </div>
   );
