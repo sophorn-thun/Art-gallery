@@ -1,11 +1,13 @@
 .search {
-  margin-top: 6rem;
+  margin-top: 5.5rem;
 }
 .sort-filter-container {
-  display: grid;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5rem;
   margin: 0;
   padding: 0.5rem;
-  grid-template-columns: 1fr 1fr;
   /* background-color: rgba(250,250,250,0.8); */
 }
 

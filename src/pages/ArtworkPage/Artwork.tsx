@@ -72,11 +72,11 @@ function Artwork() {
       <div className={styles['sort-filter-container']}>
         <Sort
           title="Sort"
-          option1="By Date"
+          option1="By date"
           onSortByDate={handleSortByDate}
-          option2="By Title"
+          option2="By title"
           onSortByTitle={handleSortByTitle}
-          option3="By Artist"
+          option3="By artist"
           onSortByArtist={handleSortByArtist}
         />
         <Filter
@@ -103,8 +103,8 @@ function Artwork() {
       </div>
       <div className={styles['footer']}>
         <Footer
-          firstPara="This is a front-end project using React and Typescript."
-          secondPara="Images are obtained from the Chicago Art Institute's public API."
+          firstPara="React and Typescript project by Sophorn THUN."
+          secondPara="Credited to the Chicago Art Institute's public API."
         />
       </div>
     </div>

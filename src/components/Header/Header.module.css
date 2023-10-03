@@ -1,6 +1,6 @@
 
 header {
-  background-color:#3D5B59;
+  background-color:#2E765E;
   position: fixed;
   top: 0;
   right: 0;
@@ -22,7 +22,7 @@ header {
 .logo {
   height: 40px;
   width: 40px;
-  background-color: #f2f2f2;
+  background-color: #F6EEE0;
   border-radius: 30px 30px 0 0;
 }
 nav {
@@ -105,7 +105,7 @@ nav:first-child {
   background-color: #F6EEE0;
   padding: 10px;
   border-radius: 5px;
-  color: #2F5061;
+  color: #2E765E;
 }
 
 .navbar li.active {

@@ -12,7 +12,6 @@
 }
 .welcome-text {
   margin-top: 5rem;
-  color: #B5E5CF;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -46,7 +45,8 @@
 }
 
 .typingWelcome {
-  color: #3D5B59;
+  color: #2E765E;
+  font-size: 3rem;
 }
 
 .typingWelcome {

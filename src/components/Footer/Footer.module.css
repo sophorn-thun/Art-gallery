@@ -1,10 +1,10 @@
 
 .footer {
   grid-column: 1 / span 2;
-  background-color: rgba(47, 80, 97, 0.5);
+  background-color: #638C80;
   text-align: center;
-  padding: 10px;
+  padding: 5px;
   margin: 0;
-  margin-top: 20px;
+  margin-top: 10px;
   color:#F4EAE6;
 }

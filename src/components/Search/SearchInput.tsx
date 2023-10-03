@@ -23,7 +23,7 @@ function SearchInput({ onSearch }: SearchInputProps) {
 
   return (
     <div className={styles['search-box']}>
-      <FontAwesomeIcon icon={faMagnifyingGlass} className={styles['icon']} />
+      {/* <FontAwesomeIcon icon={faMagnifyingGlass} className={styles['icon']} /> */}
       <input
         className={styles['search']}
         type="search"
