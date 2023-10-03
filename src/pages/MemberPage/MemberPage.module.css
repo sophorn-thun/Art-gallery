@@ -21,6 +21,10 @@
 }
 
 .welcome a {
-  text-decoration: underline;
   color: #E57F84;
+  text-decoration: none;
+}
+
+.welcome a:hover {
+  text-decoration: underline;
 }
