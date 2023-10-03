@@ -1,6 +1,8 @@
 .welcome {
   text-align: center;
-  margin-top: 100px;
+  margin: 90px 1rem 1rem 1rem;
+  font-size: 1.2rem;
+  color: #2E765E;
 }
 
 .save-collection {
@@ -18,7 +20,7 @@
   height: 300px;
 }
 
-.welcome-customize a {
-  text-decoration: none;
+.welcome a {
+  text-decoration: underline;
   color: #E57F84;
 }

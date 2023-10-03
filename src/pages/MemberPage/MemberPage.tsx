@@ -53,9 +53,10 @@ function MemberPage() {
         </>
       ) : (
         <div>
-          <h2 className={styles['welcome']}>Hello there! Your artwork collection is empty!</h2>
-          <h2 className={styles['welcome-customize']}>
-            Customize your collection <NavLink to={'/Artwork'}>Here</NavLink>
+          <h2 className={styles['welcome']}>
+            Hello there! Your artwork collection is empty!
+            <span></span>
+            <NavLink to={'/Artwork'}>Customize your collection</NavLink> by clicking on heart icon!
           </h2>
         </div>
       )}
