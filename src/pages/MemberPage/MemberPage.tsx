@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom';
 interface Props {
   imageId: number;
 }
+
 function SavedArtworkItem({ imageId }: Props) {
   const { artwork, isLoading, error } = useArtworkById(imageId.toString());
 

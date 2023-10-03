@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ArtProps } from '../../hooks/useArtWork';
-import useGlobalState from '../../context/UseGlobalState';
+import useSaveImage from '../../hooks/useSavedImage';
 import styles from './ArtCard.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import useGlobalState from '../../context/UseGlobalState';
 
 interface ArtCardProps extends ArtProps {
   iiifBaseUrl?: string;
@@ -16,27 +17,10 @@ function ArtCard({ id, title, image_id, artist_title, iiifBaseUrl, className }: 
     return null;
   }
 
+  const { isImageSaved, handleSaveImage } = useSaveImage(id);
+
   const globalState = useGlobalState();
-
-  const { state, setState } = globalState;
-  const isImageSaved = state.savedImages && state.savedImages.includes(id);
-
-  const handleSaveImage = (e: React.MouseEvent) => {
-    e.preventDefault();
-
-    if (isImageSaved) {
-      setState({
-        ...state,
-        savedImages: state.savedImages?.filter((imageId) => imageId !== id),
-      });
-    } else {
-      const currentSavedImages = state.savedImages || [];
-      setState({
-        ...state,
-        savedImages: [...currentSavedImages, id],
-      });
-    }
-  };
+  const { state } = globalState;
 
   return (
     <Link to={`/Artwork/${id}`}>
