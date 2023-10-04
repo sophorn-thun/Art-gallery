@@ -51,6 +51,7 @@ span {
   cursor: pointer;
   color: #E57F84;
   background-color: #ffffff;
+  margin-bottom: 1rem;
 }
 .back-button:hover {
   background-color:  #E57F84;

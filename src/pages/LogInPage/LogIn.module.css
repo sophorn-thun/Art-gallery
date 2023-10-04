@@ -2,7 +2,7 @@
   text-align: center;
   margin-top: 0.5rem;
   position: absolute;
-  top: 3.5rem;
+  bottom: 10px;
   left: 10px;
   background-color: #E57F84;
   color: #ffffff;
@@ -12,11 +12,10 @@
 .login {
   display: flex;
   flex-direction: column;
-  height: 90vh;
-  margin-top: 10vh;
+  height: 100vh;
   justify-content: center;
   align-items: center;
-  background-image: url('https://images.unsplash.com/photo-1658301720419-d1c963f7993b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+  background-image: url('https://images.unsplash.com/photo-1517697471339-4aa32003c11a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1752&q=80');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;

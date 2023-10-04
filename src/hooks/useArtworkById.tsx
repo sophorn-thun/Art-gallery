@@ -16,9 +16,6 @@ interface ArtworkResponse {
 const BASE_API_URL = 'https://api.artic.edu/api/v1/artworks/';
 const BASE_IIIF_URL = 'https://www.artic.edu/iiif/2/';
 
-interface Props {
-  id: string;
-}
 export const useArtworkById = (id: string) => {
   if (!id) {
     return {
@@ -36,10 +33,6 @@ export const useArtworkById = (id: string) => {
   if (artwork) {
     artwork.iiif_url = BASE_IIIF_URL;
   }
-
-  console.log('api url:', apiUrl);
-
-  console.log(artwork?.iiif_url);
 
   return {
     artwork,
