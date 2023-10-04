@@ -13,7 +13,7 @@ interface ArtCardProps extends ArtProps {
 }
 
 function ArtCard({ id, title, image_id, artist_title, iiifBaseUrl, className }: ArtCardProps) {
-  if (typeof id === 'undefined') {
+  if (!id) {
     return null;
   }
 

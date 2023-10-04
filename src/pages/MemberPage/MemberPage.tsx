@@ -1,6 +1,7 @@
 import Loading from '../../components/Loading/Loading';
 import styles from './MemberPage.module.css';
 import useGlobalState from '../../context/UseGlobalState';
+import useSaveImage from '../../hooks/useSavedImage';
 import ArtCard from '../../components/ArtCard/ArtCard';
 import { useArtworkById } from '../../hooks/useArtworkById';
 import { NavLink } from 'react-router-dom';
@@ -11,6 +12,7 @@ interface Props {
 
 function SavedArtworkItem({ imageId }: Props) {
   const { artwork, isLoading, error } = useArtworkById(imageId.toString());
+  const { isImageSaved, handleSaveImage } = useSaveImage(imageId);
 
   if (isLoading)
     return (
@@ -38,8 +40,15 @@ function SavedArtworkItem({ imageId }: Props) {
 function MemberPage() {
   const globalState = useGlobalState();
   const { state } = globalState;
-  const savedImages = state.savedImages;
-  console.log('saved images: ', savedImages);
+  const { loggedIn, savedImages } = state;
+
+  if (!loggedIn) {
+    return (
+      <h2 className={styles['welcome']}>
+        Please log in to view and customize your artwork collection.
+      </h2>
+    );
+  }
 
   return (
     <>
@@ -57,7 +66,8 @@ function MemberPage() {
           <h2 className={styles['welcome']}>
             Hello there, your artwork collection is empty.
             <span></span>
-            <NavLink to={'/Artwork'}>Customize your collection</NavLink> by clicking on heart icon!
+            <NavLink to={'/Artwork'}>Customize your collection</NavLink> by clicking on the heart
+            icon!
           </h2>
         </div>
       )}
