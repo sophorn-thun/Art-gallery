@@ -33,10 +33,10 @@ export default function useRouteGlobalData<DataType>(apiUrl: string) {
     if (data && !hasCachedRouteData) {
       setState((prevState) => ({
         ...prevState,
-        [cacheKey]: data,
+        [location.pathname]: data,
       }));
     }
-  }, [data, hasCachedRouteData, setState, apiUrl]);
+  }, [data, hasCachedRouteData, location.pathname, setState, apiUrl]);
 
   const _data = (hasCachedRouteData ? cachedRouteData : data) as DataType;
 
