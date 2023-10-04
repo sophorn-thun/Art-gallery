@@ -23,7 +23,8 @@ function Sort({
   const [activeSort, setActiveSort] = useState<string | null>(null);
 
   const handleButtonClick = (sortType: string) => {
-    const isActive = activeSort !== sortType;
+    const isActive = activeSort === sortType ? false : true;
+
     setActiveSort(isActive ? sortType : null);
     switch (sortType) {
       case 'date':

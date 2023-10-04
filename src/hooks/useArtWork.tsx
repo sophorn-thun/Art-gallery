@@ -74,5 +74,6 @@ export default function useArtWork(
     }
     return processedData;
   }, [data, sortType]);
+
   return { data: sortedData, isLoading, error };
 }
