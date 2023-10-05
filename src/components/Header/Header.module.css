@@ -1,5 +1,5 @@
 
-header {
+.header {
   background-color:#2E765E;
   position: fixed;
   top: 0;
@@ -12,6 +12,11 @@ header {
   padding: 10px;
   width: 100vw;
   max-width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.headerScrolled {
+  background-color: rgba(46, 118, 94, 0.6);
 }
 
 .logo-container {

@@ -4,11 +4,10 @@
   height:fit-content;
   box-sizing: border-box;
   overflow: hidden;
-  border-bottom: 2px solid #ffffff;
-  border-left: 2px solid #ffffff; 
+  border: 2px solid #ffffff;
   padding: 15px;
-  margin: 0 10px 10px 10px;
-  background-color: rgba(250, 250, 250, 0.8);
+  margin: 0 10px 10px 0px;
+  background-color: rgba(250, 250, 250, 0.7);
 }
 
 .art-card img {

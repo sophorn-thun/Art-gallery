@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Header.module.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 import useGlobalState from '../../context/UseGlobalState';
@@ -10,6 +10,7 @@ interface NavBarProps {
 function NavBar({ navBarItems }: NavBarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isCrossed, setIsCrossed] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navigate = useNavigate();
   const globalState = useGlobalState();
@@ -22,8 +23,28 @@ function NavBar({ navBarItems }: NavBarProps) {
     navigate('/Home');
   };
 
+  useEffect(() => {
+    let scrollTimeout: number | undefined;
+
+    const handleScroll = () => {
+      setIsScrolled(true);
+
+      clearTimeout(scrollTimeout);
+
+      scrollTimeout = setTimeout(() => {
+        setIsScrolled(false);
+      }, 200);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <header className={styles['header']}>
+    <header className={`${styles.header} ${isScrolled ? styles['headerScrolled'] : ''}`}>
       <div className={styles['logo-container']}>
         <svg
           className={styles['logo']}
