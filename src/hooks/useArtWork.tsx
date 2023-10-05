@@ -12,6 +12,9 @@ export interface ArtProps {
   style_title?: string;
   classification_title?: string;
   place_of_origin?: string;
+  artist_display?: string;
+  medium_display?: string;
+  publication_history?: string;
 }
 
 export interface ApiResponse {
@@ -46,6 +49,9 @@ export default function useArtWork(
     'artwork_type_title',
     'style_title',
     'classification_title',
+    'artist_display',
+    'medium_display',
+    'publication_history',
   ].join(',');
 
   const endpoint = `${baseEndpoint}?q=${encodeURIComponent(

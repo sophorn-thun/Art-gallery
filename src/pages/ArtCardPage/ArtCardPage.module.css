@@ -35,11 +35,17 @@ h1 {
 .description {
   text-align: left;
   margin-bottom: 0.5rem;
+  margin-right: 1.5rem;
   font-weight: 600;
-  margin-left: 2rem;
+  margin-left: 1.5rem;
+}
+
+.detail-title {
+  color: #638C80;
+  padding-bottom: 0.5rem;
 }
 span {
-  font-weight: 400;
+  font-weight: 300;
   padding-left: 0.5rem;
 }
 

@@ -10,6 +10,9 @@ interface ArtworkResponse {
     style_title?: string;
     classification_title?: string;
     place_of_origin?: string;
+    artist_display?: string;
+    medium_display?: string;
+    publication_history?: string;
   };
 }
 

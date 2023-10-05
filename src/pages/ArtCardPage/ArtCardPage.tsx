@@ -26,9 +26,11 @@ function ArtCardPage() {
             title={artwork?.title}
             artist_title={artwork?.artist_title}
             image_id={artwork?.image_id}
+            artist_display={artwork?.artist_display}
             iiifBaseUrl={iiifBaseUrl}
           />
         </div>
+        <h3 className={styles['detail-title']}>Details of selected artwork</h3>
         <p className={styles['description']}>
           Style:
           <span>{artwork?.style_title}</span>
@@ -40,6 +42,18 @@ function ArtCardPage() {
         <p className={styles['description']}>
           Place of origin:
           <span>{artwork?.place_of_origin}</span>
+        </p>
+        <p className={styles['description']}>
+          Description of creator:
+          <span>{artwork?.artist_display}</span>
+        </p>
+        <p className={styles['description']}>
+          Materials used:
+          <span>{artwork?.medium_display}</span>
+        </p>
+        <p className={styles['description']}>
+          Publication history:
+          <span>{artwork?.publication_history}</span>
         </p>
       </div>
       <button className={styles['back-button']} onClick={() => navigate(-1)}>
