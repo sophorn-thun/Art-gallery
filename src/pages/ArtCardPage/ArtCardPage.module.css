@@ -44,7 +44,7 @@ h1 {
   color: #638C80;
   padding-bottom: 0.5rem;
 }
-span {
+.description-text {
   font-weight: 300;
   padding-left: 0.5rem;
 }

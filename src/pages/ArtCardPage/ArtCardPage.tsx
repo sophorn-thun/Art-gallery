@@ -33,27 +33,27 @@ function ArtCardPage() {
         <h3 className={styles['detail-title']}>Details of selected artwork</h3>
         <p className={styles['description']}>
           Style:
-          <span>{artwork?.style_title}</span>
+          <span className={styles['description-text']}>{artwork?.style_title}</span>
         </p>
         <p className={styles['description']}>
           Classification:
-          <span>{artwork?.classification_title}</span>
+          <span className={styles['description-text']}>{artwork?.classification_title}</span>
         </p>
         <p className={styles['description']}>
           Place of origin:
-          <span>{artwork?.place_of_origin}</span>
+          <span className={styles['description-text']}>{artwork?.place_of_origin}</span>
         </p>
         <p className={styles['description']}>
           Description of creator:
-          <span>{artwork?.artist_display}</span>
+          <span className={styles['description-text']}>{artwork?.artist_display}</span>
         </p>
         <p className={styles['description']}>
           Materials used:
-          <span>{artwork?.medium_display}</span>
+          <span className={styles['description-text']}>{artwork?.medium_display}</span>
         </p>
         <p className={styles['description']}>
           Publication history:
-          <span>{artwork?.publication_history}</span>
+          <span className={styles['description-text']}>{artwork?.publication_history}</span>
         </p>
       </div>
       <button className={styles['back-button']} onClick={() => navigate(-1)}>

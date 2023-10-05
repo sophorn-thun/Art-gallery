@@ -1,5 +1,6 @@
 .signup {
   height: 100vh;
+  padding-top: 4rem;
   max-height: 100%;
   display: flex;
   flex-direction: column;
