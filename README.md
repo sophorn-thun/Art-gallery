@@ -2,7 +2,7 @@
 
 This art gallery web application is a front-end project using a third-party API from the Chicago Art Institute. With this application, you can search various types of artwork, including painting, sculpture, and print. Details on features are described below.
 
-**Deployer version:** [(https://virtual-art.netlify.app/)]
+**Deployer version:** [https://virtual-art.netlify.app/]
 
 ## Tech Stack  
 
@@ -26,7 +26,7 @@ One of the requirements of the project is to build the application without using
 To get started with the Virtual Art Gallery web application, make sure you have Node.js on your local machine and follow these steps:
 
    ```
-   git clone [git@github.com:sophorn-thun/React-Project.git]
+   git clone [git@github.com:sophorn-thun/Art-gallery.git]
    cd React-Project
    npm install
    npm run dev
