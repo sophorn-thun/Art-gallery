@@ -15,11 +15,11 @@ h1 {
 }
 
 .art-card {
-  margin: 0.5rem 1.5rem 0.5rem 0.5rem;
+  margin: 1rem;
 }
 
 .art-card-component {
-  max-width: 500px;
+  max-width: 100vw;
   height: auto;
 }
 
