@@ -23,11 +23,11 @@ h1 {
   height: auto;
 }
 
-.art-card-component img {
+.art-card img {
   max-width: 100%;
 }
 
-.art-card-component img:hover {
+.art-card img:hover {
   scale: none;
   cursor:default;
 }

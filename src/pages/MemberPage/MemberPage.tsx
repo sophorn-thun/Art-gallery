@@ -65,7 +65,7 @@ function MemberPage() {
         <div>
           <h2 className={styles['welcome']}>
             Hello there, your artwork collection is empty.
-            <span></span>
+            <span> </span>
             <NavLink to={'/Artwork'}>Here</NavLink> you can create one by clicking on the heart
             icon!
           </h2>
