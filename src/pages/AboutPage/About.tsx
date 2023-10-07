@@ -1,5 +1,5 @@
 import Tabs from '../../components/Tab/Tabs';
-import Tab from '../../components/Tab/tab';
+import Tab from '../../components/Tab/Tab';
 import Footer from '../../components/Footer/Footer';
 
 import styles from './About.module.css';
