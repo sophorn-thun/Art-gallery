@@ -128,7 +128,7 @@ nav:first-child {
   cursor: pointer;
 }
 /* Response nav bar */
-@media (max-width: 500px) {
+@media (max-width: 760px) {
   .hamburger {
     display: flex;
   }

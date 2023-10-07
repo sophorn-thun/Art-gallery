@@ -1,7 +1,6 @@
 import Loading from '../../components/Loading/Loading';
 import styles from './MemberPage.module.css';
 import useGlobalState from '../../context/UseGlobalState';
-import useSaveImage from '../../hooks/useSavedImage';
 import ArtCard from '../../components/ArtCard/ArtCard';
 import { useArtworkById } from '../../hooks/useArtworkById';
 import { NavLink } from 'react-router-dom';
@@ -12,7 +11,6 @@ interface Props {
 
 function SavedArtworkItem({ imageId }: Props) {
   const { artwork, isLoading, error } = useArtworkById(imageId.toString());
-  const { isImageSaved, handleSaveImage } = useSaveImage(imageId);
 
   if (isLoading)
     return (
