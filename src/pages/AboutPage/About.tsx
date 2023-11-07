@@ -1,6 +1,5 @@
 import Tabs from '../../components/Tab/Tabs';
 import Tab from '../../components/Tab/Tab';
-import Footer from '../../components/Footer/Footer';
 
 import styles from './About.module.css';
 
@@ -37,9 +36,6 @@ function About() {
             }
           />
         </div>
-      </div>
-      <div className={styles['footer']}>
-        <Footer>React and Typescript project by Sophorn THUN.</Footer>
       </div>
     </div>
   );
